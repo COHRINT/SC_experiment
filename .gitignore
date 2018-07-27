@@ -5,5 +5,4 @@ server.log
 participants.db
 
 # other files
-.DS_store
 .psiturk_history
