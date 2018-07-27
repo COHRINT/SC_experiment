@@ -1,0 +1,9 @@
+# server
+server.log
+
+# db
+participants.db
+
+# other files
+.DS_store
+.psiturk_history
