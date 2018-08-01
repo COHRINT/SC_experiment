@@ -55,35 +55,27 @@ var StroopExperiment = function() {
 // });
 
 	var wordon, // time word is presented
-	    listening = false;
-
-	// Stimuli for a basic Stroop experiment
-	// var stims_JSON = '{"question_set":[["Down", "Up", "doNotNeedIt"],["Up", "Down", "doNotNeedIt"],["Left", "Right", "doNotNeedIt"],["Right", "Left", "doNotNeedIt"],["Down", "Up", "doNotNeedIt"],["Up", "Down", "doNotNeedIt"],["Left", "Right", "doNotNeedIt"],["Right", "Left", "doNotNeedIt"],["Down", "Up", "doNotNeedIt"]]}';
-	// var stims_step1 = JSON.parse(stims_JSON);
-
-	// for(i=0;i<stims_step1.question_set.length-1;i++){
-	// 	stims.push(stims_step1.question_set[i]);
-	// }
+	listening = false;
 
 
-	// var xmlhttp = new XMLHttpRequest();
-	// var url = "https://gist.githubusercontent.com/Jetanat/b3f9b39c1b5aa1e3cc6f080af69f4fcb/raw/719b482891f1c5bb6e24480111c5218f3bbeaeb5/support.json";
-	// console.log("it works -------- note note")
-    $.ajaxSetup({
-        async: false
-    });
-    var stims = [];
-	$.getJSON('support.json',function(data){
-        async: false
-        console.log("Getting .json data:");
-        for(i=0;i<data.question_set.length;i++){
-            // console.log(data.question_set[i]);
-            stims.push(data.question_set[i]);
-        }
-    });
-    $.ajaxSetup({
-        async: true
-    });
+    //Need to set async to False.
+	$.ajax({
+	    type: "GET",
+	    url: "support.json",
+	    async: false,
+	    dataType: "JSON",
+	    success: callback
+    	});
+
+	function callback(data){
+		takeover= data;
+	}
+
+	for(i=0;i<takeover.question_set.length;i++){
+		stims.push(takeover.question_set[i]);
+		console.log(takeover.question_set[i]);
+	}
+
 	console.log("Hello");
 	console.log(stims);
 	// $.ajax({
