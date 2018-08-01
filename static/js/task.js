@@ -69,18 +69,23 @@ var StroopExperiment = function() {
 	// var xmlhttp = new XMLHttpRequest();
 	// var url = "https://gist.githubusercontent.com/Jetanat/b3f9b39c1b5aa1e3cc6f080af69f4fcb/raw/719b482891f1c5bb6e24480111c5218f3bbeaeb5/support.json";
 	// console.log("it works -------- note note")
-	var stims = [];
-	$.getJSON('support.json',function(data){console.log("worrks");});
-	// 	// console.log("it works!");
-	// 	// console.log(data);
-	// 	for(i=0;i<data.question_set.length;i++){
-	// 		// console.log(data.question_set[i]);
-	// 		stims.push(data.question_set[i]);
-	// 	}
-	// });
+    $.ajaxSetup({
+        async: false
+    });
+    var stims = [];
+	$.getJSON('support.json',function(data){
+        async: false
+        console.log("Getting .json data:");
+        for(i=0;i<data.question_set.length;i++){
+            // console.log(data.question_set[i]);
+            stims.push(data.question_set[i]);
+        }
+    });
+    $.ajaxSetup({
+        async: true
+    });
 	console.log("Hello");
-	console.log(stims[1]);
-	console.log(stims[2]);
+	console.log(stims);
 	// $.ajax({
 	// 	url: 'support.json',
 	// 	dataType: 'json',
@@ -98,17 +103,17 @@ var StroopExperiment = function() {
 	// var use_set1 =  JSON.parse(set1);
 	// document.getElementById("pos1").innerHTML = use_set1.name[1];
 
-	var stims = [
-			["Down", "Up", "doNotNeedIt"],
-			["Up", "Down", "doNotNeedIt"],
-			["Left", "Right", "doNotNeedIt"],
-			["Right", "Left", "doNotNeedIt"],
-			["Down", "Up", "doNotNeedIt"],
-			["Up", "Down", "doNotNeedIt"],
-			["Left", "Right", "doNotNeedIt"],
-			["Right", "Left", "doNotNeedIt"],
-			["Down", "Up", "doNotNeedIt"]
-			];
+	// var stims = [
+			// ["Down", "Up", "doNotNeedIt"],
+			// ["Up", "Down", "doNotNeedIt"],
+			// ["Left", "Right", "doNotNeedIt"],
+			// ["Right", "Left", "doNotNeedIt"],
+			// ["Down", "Up", "doNotNeedIt"],
+			// ["Up", "Down", "doNotNeedIt"],
+			// ["Left", "Right", "doNotNeedIt"],
+			// ["Right", "Left", "doNotNeedIt"],
+			// ["Down", "Up", "doNotNeedIt"]
+			// ];
 
 	stims = _.shuffle(stims);
 
