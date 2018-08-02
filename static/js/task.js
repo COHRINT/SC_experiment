@@ -49,18 +49,14 @@ var instructionPages = [ // add as a list as many pages as you like
 var StroopExperiment = function() {
 
 
-// 	var print1 = $.get('hello.txt',{},function(content){
-//       let lines=content.split('\n');
-//       //
-//       //  console.log(`"file.txt" contains ${lines.length} lines`)
-//       // console.log(`First line : ${lines[0]}`)
-// });
-
 	var wordon, // time word is presented
-	listening = false;
+	    listening = false;
 
 
-    //Need to set async to False.
+	var stims = [];
+	var takeover;
+	
+	//Need to set async to False.
 	$.ajax({
 	    type: "GET",
 	    url: "support.json",
@@ -68,6 +64,25 @@ var StroopExperiment = function() {
 	    dataType: "JSON",
 	    success: callback
     	});
+
+	function callback(data){
+		takeover= data;
+	}
+
+	for(i=0;i<takeover.question_set.length;i++){
+		stims.push(takeover.question_set[i]);
+		console.log(takeover.question_set[i]);
+	}
+
+
+    // //Need to set async to False.
+	// $.ajax({
+	//     type: "GET",
+	//     url: "support.json",
+	//     async: false,
+	//     dataType: "JSON",
+	//     success: callback
+    // 	});
 
 	function callback(data){
 		takeover= data;
