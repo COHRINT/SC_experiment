@@ -9,6 +9,53 @@
             <b>I have some questions to ask you before starting the task.</b>
         </p>
 
+        <script>
+                document.getElementById("next").disabled = true;
+		var numQ0, numQ1, numQ2, numQ3;
+                var str0, str1, str2, str3;
+		function respond(){
+			numQ0 = document.getElementById("preQ0");
+                        numQ1 = document.getElementById("preQ1");
+                        numQ2 = document.getElementById("preQ2");
+                        numQ3 = document.getElementById("preQ3");
+                        if(Boolean(numQ0.selectedIndex && numQ1.selectedIndex && numQ2.selectedIndex && numQ3.selectedIndex)){
+                                document.getElementById("next").disabled = false;
+                        }
+		}
+
+		function grab_data(){
+                        psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'begin'});
+                        console.log(numQ1.value);
+                        console.log(numQ0.value);
+                        console.log(numQ2.value);
+                        console.log(numQ3.value);
+                        // psiTurk.recordTrialData(["preQ1", "2"]);
+                        // psiTurk.recordTrialData({"preQ2" : numQ2.value,'status':'submit'});
+                        // psiTurk.recordTrialData({"preQ3" : numQ3.value,'status':'submit'});
+
+                        psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'end'});
+		}
+
+	</script>
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                How old are you?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ0" name="preQ0">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="6">>84</option>
+                        <option value="5">75-84</option>
+                        <option value="4">65-74</option>
+                        <option value="3">55-64</option>
+                        <option value="2">45-54</option>
+                        <option value="1">35-44</option>
+                        <option value="0">18-34</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
 
         <!-- beginning of a question -->
         <div class="row question">
@@ -16,10 +63,11 @@
                 To what extent are you comfortable using technology?
             </div>
             <div class="col-md-4">
-                <select id="engagement" name="engagement">
+                <select onchange="respond()" id="preQ1" name="preQ1">
+                        <option disabled selected value> -- select an option -- </option>
                         <option value="4">4 (highest)</option>
                         <option value="3">3</option>
-                        <option value="2" SELECTED>2</option>
+                        <option value="2">2</option>
                         <option value="1">1</option>
                         <option value="0">0 (lowest)</option>
                 </select>
@@ -33,10 +81,11 @@
                 To what extent do you rely on technology on a daily basis?
             </div>
             <div class="col-md-4">
-                <select id="engagement" name="engagement">
+                <select onchange="respond()" id="preQ2" name="preQ2">
+                        <option disabled selected value> -- select an option -- </option>
                         <option value="4">4 (highest)</option>
                         <option value="3">3</option>
-                        <option value="2" SELECTED>2</option>
+                        <option value="2">2</option>
                         <option value="1">1</option>
                         <option value="0">0 (lowest)</option>
                 </select>
@@ -50,10 +99,11 @@
                 How much experience do you have with robots?
             </div>
             <div class="col-md-4">
-                <select id="engagement" name="engagement">
+                <select onchange="respond()" id="preQ3" name="preQ3">
+                        <option disabled selected value> -- select an option -- </option>
                         <option value="4">4 (highest)</option>
                         <option value="3">3</option>
-                        <option value="2" SELECTED>2</option>
+                        <option value="2">2</option>
                         <option value="1">1</option>
                         <option value="0">0 (lowest)</option>
                 </select>
@@ -61,7 +111,7 @@
         </div>
         <!-- end of a question -->
 
-        
+
 
         <!-- beginning of a question -->
         <div class="instructionsnav">
@@ -72,13 +122,14 @@
                 <div class="col-xs-8">
                 </div>
                 <div class="col-xs-2">
-                    <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
+                    <button onclick="grab_data()" type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
                     Next <span class="glyphicon glyphicon-arrow-right"></span>
                     </button>
                 </div>
             </div>
         </div>
         <!-- end of a question -->
+
 
 
     </div>

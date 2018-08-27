@@ -13,23 +13,23 @@ var mycounterbalance = counterbalance;  // they tell you which condition you hav
 
 // All pages to be loaded
 var pages = [
-	"prequestionnaire.html",
 	"instructions/instruct-1.html",
 	"instructions/instruct-2.html",
 	"instructions/instruct-3.html",
 	"instructions/instruct-ready.html",
 	"stage.html",
+	"prequestionnaire.html",
 	"postquestionnaire.html"
 ];
 
 psiTurk.preloadPages(pages);
 
 var instructionPages = [ // add as a list as many pages as you like
-	"prequestionnaire.html",
 	"instructions/instruct-1.html",
 	"instructions/instruct-2.html",
 	"instructions/instruct-3.html",
-	"instructions/instruct-ready.html"
+	"instructions/instruct-ready.html",
+	"prequestionnaire.html"
 ];
 
 
@@ -55,7 +55,7 @@ var StroopExperiment = function() {
 
 	var stims = [];
 	var takeover;
-	
+
 	//Need to set async to False.
 	$.ajax({
 	    type: "GET",
@@ -74,56 +74,6 @@ var StroopExperiment = function() {
 		console.log(takeover.question_set[i]);
 	}
 
-
-    // //Need to set async to False.
-	// $.ajax({
-	//     type: "GET",
-	//     url: "support.json",
-	//     async: false,
-	//     dataType: "JSON",
-	//     success: callback
-    // 	});
-
-	function callback(data){
-		takeover= data;
-	}
-
-	for(i=0;i<takeover.question_set.length;i++){
-		stims.push(takeover.question_set[i]);
-		console.log(takeover.question_set[i]);
-	}
-
-	console.log("Hello");
-	console.log(stims);
-	// $.ajax({
-	// 	url: 'support.json',
-	// 	dataType: 'json',
-	// 	type: 'get',
-	// 	cache: false,
-	// 	success: function(data){
-	// 		for(i=0;i<data.question_set.length;i++){
-	// 			console.log(data.question_set[i]);
-	// 			stims.push(data.question_set[i]);
-	// 		}
-	// 	}
-	// });
-
-	// var set1 = '{"name":["John","Jim","Jame","Joe"],"age":[21,23,19,22],"address":["CO","NY","TX","CA"]}';
-	// var use_set1 =  JSON.parse(set1);
-	// document.getElementById("pos1").innerHTML = use_set1.name[1];
-
-	// var stims = [
-			// ["Down", "Up", "doNotNeedIt"],
-			// ["Up", "Down", "doNotNeedIt"],
-			// ["Left", "Right", "doNotNeedIt"],
-			// ["Right", "Left", "doNotNeedIt"],
-			// ["Down", "Up", "doNotNeedIt"],
-			// ["Up", "Down", "doNotNeedIt"],
-			// ["Left", "Right", "doNotNeedIt"],
-			// ["Right", "Left", "doNotNeedIt"],
-			// ["Down", "Up", "doNotNeedIt"]
-			// ];
-
 	stims = _.shuffle(stims);
 
 	var next = function() {
@@ -135,20 +85,10 @@ var StroopExperiment = function() {
 			show_word( stim[0], stim[1] );
 			wordon = new Date().getTime();
 			listening = true;
-			d3.select("#query").html('Click "Up sign" for Go down, "Down sign" for Go up, "Left sign" for go right, "Right sign" for go left.');
+			// d3.select("#query").html('Click "Up sign" for Go down, "Down sign" for Go up, "Left sign" for go right, "Right sign" for go left.');
 			// var set1 = '{"name":["John","Jim","Jame","Joe"],"age":[21,23,19,22],"address":["CO","NY","TX","CA"]}';
 			// var use_set1 =  JSON.parse(set1);
-			//document.getElementById("pos1").innerHTML = use_set1.name[1];
-			// document.getElementById("pos1").innerHTML = set1;
-			// $.getJSON('newfile.json',function(print1){
-			// 	document.getElementById("pos1").innerHTML = "print1";
-			// });
-			// document.getElementById("pos1").innerHTML = print1;
-			var set1 = '{"name":["John","Jim","Jame","Joe"],"age":[21,23,19,22],"address":["CO","NY","TX","CA"]}';
-			var use_set1 =  JSON.parse(set1);
-			document.getElementById("pos1").innerHTML = use_set1.name[1];
-
-//
+			// document.getElementById("pos1").innerHTML = use_set1.name[1];
 		}
 	};
 
@@ -239,6 +179,11 @@ var Questionnaire = function() {
 
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
 
+	// ====TRY====
+	// console.log("FFFFF");
+	// console.log(document.getElementById("engagement1").selectedIndex);
+	// ====TRY====
+
 	record_responses = function() {
 
 		psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'submit'});
@@ -251,6 +196,7 @@ var Questionnaire = function() {
 		});
 
 	};
+
 
 	prompt_resubmit = function() {
 		document.body.innerHTML = error_message;
@@ -279,6 +225,8 @@ var Questionnaire = function() {
 	psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'begin'});
 
 	$("#next").click(function () {
+
+
 	    record_responses();
 	    psiTurk.saveData({
             success: function(){

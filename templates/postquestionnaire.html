@@ -6,9 +6,24 @@
     <p>You are finished!  Thank you for your contributions to science. You will be eligible for full payment once you answer the following questions.</p>
 
     <div class="instructions well">
-
         <form id="postquiz" action="debrief" method="post">
 
+
+        <script>
+        //Impeding fuction for going forward.
+
+        //Intitial value of button
+        document.getElementById("next").disabled = true;
+        function undisable(){
+                if(Boolean(document.getElementById("postQ1").selectedIndex && document.getElementById("postQ2").selectedIndex &&
+                        document.getElementById("postQ3").selectedIndex && document.getElementById("postQ4").selectedIndex &&
+                        document.getElementById("postQ5").selectedIndex && document.getElementById("postQ6").selectedIndex &&
+                document.getElementById("postQ7").selectedIndex && document.getElementById("postQ8").selectedIndex)){
+
+                                document.getElementById("next").disabled = false;
+                }
+        }
+        </script>
 
             <!-- beginning of a question -->
             <div class="row question">
@@ -16,12 +31,13 @@
                     To what extent was the UGV able to complete it's missions?
                 </div>
                 <div class="col-md-4">
-                    <select id="engagement" name="engagement">
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2" SELECTED>2</option>
-                        <option value="1">1</option>
-                        <option value="0">0</option>
+                    <select onchange="undisable()" id="postQ1" name="postQ1">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
                     </select>
                 </div>
             </div>
@@ -31,21 +47,124 @@
             <!-- beginning of a question -->
             <div class="row question">
                 <div class="col-md-8">
-                    On a scale of 1-10 (where 10 is the most difficult), please rate how <b>DIFFICULT</b> you found the learning task:
+                    To what extent do you feel you were able to predict the UGV's performance from task to task?
                 </div>
                 <div class="col-md-4">
-                    <select id="difficulty" name="difficulty">
-                        <option value="10">10 - Very difficult</option>
-                        <option value="9">9</option>
-                        <option value="8">8</option>
-                        <option value="7">7</option>
-                        <option value="6">6</option>
-                        <option value="5" SELECTED>5 - Moderately difficult</option>
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 - Not difficult at all</option>
+                    <select onchange="undisable()" id="postQ2" name="postQ2">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                   To what extent could you rely on the UGV to perform its job?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="undisable()" id="postQ3" name="postQ3">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    To what extent did the UGV respond similarly to similar circumstances throughout the experiment?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="undisable()" id="postQ4" name="postQ4">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    SC On conditions: To what extent did the displayed metric [insert metric name] assist you in your decisions?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="undisable()" id="postQ5" name="postQ5">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    In future interaction, to what extent would you trust the UGV to perform its task?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="undisable()"id="postQ6" name="postQ6">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    SC:ON conditions : To what extent do the trust the displayed metric [display metric name]?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="undisable()" id="postQ7" name="postQ7">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    To what extent do you trust the UGV?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="undisable()" id="postQ8" name="postQ8">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
                     </select>
                 </div>
             </div>
@@ -62,9 +181,11 @@
             <div class="col-xs-7">
             </div>
             <div class="col-xs-3">
+
                 <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
                     Continue <span class="glyphicon glyphicon-arrow-right"></span>
                 </button>
+
             </div>
         </div>
     </div>

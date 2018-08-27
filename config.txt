@@ -18,7 +18,7 @@ table_name = turkdemo
 
 [Server Parameters]
 host = localhost
-port = 22314
+port = 22317
 cutoff_time = 30
 logfile = server.log
 loglevel = 2
