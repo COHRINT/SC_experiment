@@ -17,8 +17,8 @@ var pages = [
 	"instructions/instruct-2.html",
 	"instructions/instruct-3.html",
 	"instructions/instruct-ready.html",
-	"stage.html",
 	"prequestionnaire.html",
+	"stage.html",
 	"postquestionnaire.html"
 ];
 
@@ -46,6 +46,13 @@ var instructionPages = [ // add as a list as many pages as you like
 /********************
 * STROOP TEST       *
 ********************/
+// var show_pics = function(){
+// 	var pics=["pic1.png","pic2.png","pic3.png"]
+// 	pics = _.shuffle(pics)
+// 	var x = document.getElementById("game_pics");//.src = "{{ server_location }}/static/images/"+pics[1];
+// 	x.setAttribute("src","{{ server_location }}/static/images/"+pics[2]);
+// }
+
 var StroopExperiment = function() {
 
 
@@ -56,7 +63,9 @@ var StroopExperiment = function() {
 	var stims = [];
 	var takeover;
 
+
 	//Need to set async to False.
+
 	$.ajax({
 	    type: "GET",
 	    url: "support.json",

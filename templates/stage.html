@@ -2,14 +2,39 @@
 	<div id="trial">
 		<h1>Respond Quickly!</h1>
 		<p>Tap the right position on keyboard</p>
+		<div><img id="game_pics" src="{{ server_location }}/static/images/start.png" width="400" height="300"></div>
+		<button id="clicker" onclick="allow_click_botton()">click</button>
+		<p>Please decide whether to take action or abort the mission.</p>
+		<div> <button onclick="allow_click_by_action_abort()" id="action">Action</button> <button onclick="allow_click_by_action_abort()" id="abort">Abort</button> </div>
+
 		<div id="stim"></div>
 		<div id="query"></div>
-		<div id="pos1"></div>
+		<!-- <div id="pos1"></div> -->
 	</div>
 </div>
-
 <script>
 // var set1 = '{"name":["John","Jim","Jame","Joe"],"age":[21,23,19,22],"address":["CO","NY","TX","CA"]}';
 // var use_set1 =  JSON.parse(set1);
 // document.getElementById("pos1").innerHTML = use_set1.name[1];
+
+var pics=["pic1.png","pic2.png","pic3.png"];
+pics = _.shuffle(pics);
+
+var show_pics = function(){
+	var value = pics.pop();
+	var x = document.getElementById("game_pics");//.src = "{{ server_location }}/static/images/"+pics[1];
+	x.setAttribute("src","{{ server_location }}/static/images/"+value);
+	if(value==undefined){
+		x.setAttribute("src","{{ server_location }}/static/images/finish.png");
+	}
+}
+
+var allow_click_botton = function(){
+		show_pics();
+		document.getElementById("clicker").disabled = true;
+}
+var allow_click_by_action_abort = function(){
+	document.getElementById("clicker").disabled = false;
+	//Record scores here
+}
 </script>
