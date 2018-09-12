@@ -28,8 +28,7 @@ var instructionPages = [ // add as a list as many pages as you like
 	"instructions/instruct-1.html",
 	"instructions/instruct-2.html",
 	"instructions/instruct-3.html",
-	"instructions/instruct-ready.html",
-	"prequestionnaire.html"
+	"instructions/instruct-ready.html"
 ];
 
 
@@ -43,16 +42,75 @@ var instructionPages = [ // add as a list as many pages as you like
 *
 ********************/
 
+/****************
+* Pre-Questionnaire *
+****************/
+var PreQuestionnaire = function() {
+
+	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+
+	// ====TRY====
+	// console.log("FFFFF");
+	// console.log(document.getElementById("engagement1").selectedIndex);
+	// ====TRY====
+
+	record_responses = function() {
+
+		psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'submit'});
+
+		$('textarea').each( function(i, val) {
+			psiTurk.recordUnstructuredData(this.id, this.value);
+		});
+		$('select').each( function(i, val) {
+			psiTurk.recordUnstructuredData(this.id, this.value);
+		});
+
+	};
+
+	prompt_resubmit = function() {
+		document.body.innerHTML = error_message;
+		$("#resubmit").click(resubmit);
+	};
+
+	resubmit = function() {
+		document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
+		reprompt = setTimeout(prompt_resubmit, 10000);
+
+		psiTurk.saveData({
+			success: function() {
+			    	clearInterval(reprompt);
+                		currentview = new StroopExperiment();
+			},
+			error: prompt_resubmit
+		});
+	};
+
+	// Load the questionnaire snippet
+	psiTurk.showPage('prequestionnaire.html');
+	psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'begin'});
+
+	$("#next").click(function () {
+
+
+	    record_responses();
+	    psiTurk.saveData({
+            success: function(){
+                psiTurk.computeBonus('compute_bonus', function() {
+                	currentview = new StroopExperiment(); // when finished saving compute bonus, the quit
+                });
+            },
+            error: prompt_resubmit});
+	});
+
+
+};
+
+
+
+
 /********************
 * STROOP TEST       *
 ********************/
-// var show_pics = function(){
-// 	var pics=["pic1.png","pic2.png","pic3.png"]
-// 	pics = _.shuffle(pics)
-// 	var x = document.getElementById("game_pics");//.src = "{{ server_location }}/static/images/"+pics[1];
-// 	x.setAttribute("src","{{ server_location }}/static/images/"+pics[2]);
-// }
-
 var StroopExperiment = function() {
 
 
@@ -94,10 +152,6 @@ var StroopExperiment = function() {
 			show_word( stim[0], stim[1] );
 			wordon = new Date().getTime();
 			listening = true;
-			// d3.select("#query").html('Click "Up sign" for Go down, "Down sign" for Go up, "Left sign" for go right, "Right sign" for go left.');
-			// var set1 = '{"name":["John","Jim","Jame","Joe"],"age":[21,23,19,22],"address":["CO","NY","TX","CA"]}';
-			// var use_set1 =  JSON.parse(set1);
-			// document.getElementById("pos1").innerHTML = use_set1.name[1];
 		}
 	};
 
@@ -171,6 +225,7 @@ var StroopExperiment = function() {
 	// Load the stage.html snippet into the body of the page
 	psiTurk.showPage('stage.html');
 
+
 	// Register the response handler that is defined above to handle any
 	// key down events.
 	$("body").focus().keydown(response_handler);
@@ -181,7 +236,7 @@ var StroopExperiment = function() {
 
 
 /****************
-* Questionnaire *
+* Post-Questionnaire *
 ****************/
 
 var Questionnaire = function() {
@@ -258,6 +313,6 @@ var currentview;
 $(window).load( function(){
     psiTurk.doInstructions(
     	instructionPages, // a list of pages you want to display in sequence
-    	function() { currentview = new StroopExperiment(); } // what you want to do when you are done with instructions
+    	function() { currentview = new PreQuestionnaire(); } // what you want to do when you are done with instructions
     );
 });
