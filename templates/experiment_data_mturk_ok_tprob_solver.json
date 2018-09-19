@@ -1,12 +1,12 @@
 {
-    "2": {
+    "two": {
         "xQ": 0.9733709465447015,
         "mcts_depth": 9,
         "image_file": "imgs/mturk_net_2.svg",
         "xP": 0.4799318900510825,
         "outcome": "fail"
     },
-    "1": {
+    "one": {
         "xQ": 0.03471740377945629,
         "mcts_depth": 7,
         "image_file": "imgs/mturk_net_1.svg",

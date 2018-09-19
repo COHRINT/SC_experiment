@@ -117,16 +117,17 @@ var StroopExperiment = function() {
 	var wordon, // time word is presented
 	    listening = false;
 
+	var stims = ["pic1.png","mturk_ok_net_1.svg","mturk_ok_net_2.svg","mturk_bad_net_1.svg","mturk_bad_net_2.svg"];
 
-	var stims = [];
+	// var stims = [];
 	var takeover;
+	var helperXqp=[];
 
-
-	//Need to set async to False.
-
+	// //Need to set async to False.
+	//
 	$.ajax({
 	    type: "GET",
-	    url: "support.json",
+	    url: "experiment_data_mturk_ok_tprob_solver.json",
 	    async: false,
 	    dataType: "JSON",
 	    success: callback
@@ -135,11 +136,24 @@ var StroopExperiment = function() {
 	function callback(data){
 		takeover= data;
 	}
-
-	for(i=0;i<takeover.question_set.length;i++){
-		stims.push(takeover.question_set[i]);
-		console.log(takeover.question_set[i]);
+	console.log("takeover : ");
+	console.log(takeover);
+	console.log("element : ")
+	console.log(takeover.two.xQ);
+	for(i in takeover)
+	{
+		console.log(i);
+		console.log(i.xQ);
 	}
+	// for(i=0;i<takeover.length;i++){
+	//
+	// }
+
+	// for(i=0;i<takeover.length;i++){
+	// 	stims.push(takeover[i][xQ]);
+	// 	console.log("dfdfd");
+	// 	console.log(takeover[i][xQ]);
+	// }
 
 	stims = _.shuffle(stims);
 
@@ -149,7 +163,7 @@ var StroopExperiment = function() {
 		}
 		else {
 			stim = stims.shift();
-			show_word( stim[0], stim[1] );
+			show_word(stim,"");
 			wordon = new Date().getTime();
 			listening = true;
 		}
@@ -206,19 +220,30 @@ var StroopExperiment = function() {
 	};
 
 	var show_word = function(text, color) {
-		d3.select("#stim")
-			.append("div")
-			.attr("id","word")
-			//.style("color",color)
-			.style("text-align","center")
-			.style("font-size","150px")
-			.style("font-weight","400")
-			.style("margin","20px")
-			.text(text);
+		d3.select("#stim").select("img").remove();
+		// d3.select("#stim")
+		// 	.append("div")
+		// 	.attr("id","word")
+		// 	//.style("color",color)
+		// 	.style("text-align","center")
+		// 	.style("font-size","150px")
+		// 	.style("font-weight","400")
+		// 	.style("margin","20px")
+		// 	.text(text);
+		console.log('show_word function');
+		console.log(text);
+		// var x = document.getElementById("stim");
+		// x.setAttribute("src","{{ server_location }}/static/images/"+text);
+		//https://upload.wikimedia.org/wikipedia/commons/4/4f/Start11.png
+		 d3.select("#stim").append("img")
+		     .attr("src","{{ server_location }}/static/images/"+text)
+		     .attr("width", 100)
+		     .attr("height", 100)
 	};
 
 	var remove_word = function() {
-		d3.select("#word").remove();
+		//d3.select("#word").remove();
+		d3.select("#stim").select("img").remove();
 	};
 
 
