@@ -1,44 +1,53 @@
 <div id="container-exp">
 	<div id="trial">
-		<h1>Respond Quickly!</h1>
-		<p>Tap the right position on keyboard</p>
-		<div><img id="game_pics" src="{{ server_location }}/static/images/start.png" width="400" height="300"></div>
-		<button id="clicker" onclick="allow_click_botton()">click</button>
-		<p>Please decide whether to take action or abort the mission.</p>
-		<div> <button onclick="allow_click_by_action_abort()" id="action">Action</button> <button onclick="allow_click_by_action_abort()" id="abort">Abort</button> </div>
-
+		<h1>Please decide whether to "Go" or "No Go".</h1>
+		<!-- <div><img id="game_pics" src="{{ server_location }}/static/images/start.png" width="400" height="300"></div> -->
+		<div id="game_pics"></div>
+		<br>
+		<br>
+		<button id="clicker" onclick="allow_click_botton()">Next</button>
+		<br>
+		<br>
+		<div>Xq : 0.314709</div>
+		<div>Xp : 0.145822</div>
+		<br>
+		<div> <button onclick="allow_click_by_action_abort()" id="action">Go</button> <button onclick="allow_click_by_action_abort()" id="abort">No Go</button> </div>
 		<div id="stim"></div>
 		<div id="query"></div>
 		<!-- <div id="pos1"></div> -->
 	</div>
 </div>
+
 <script>
+
  //<script type="text/javascript" src="path/to/script.js">
 // var set1 = '{"name":["John","Jim","Jame","Joe"],"age":[21,23,19,22],"address":["CO","NY","TX","CA"]}';
 // var use_set1 =  JSON.parse(set1);
 // document.getElementById("pos1").innerHTML = use_set1.name[1];
 
 // var pics=["pic1.png","pic2.png","pic3.png","pic4.svg"];
-var pics=["mturk_ok_net_1.svg","mturk_ok_net_2.svg","mturk_bad_net_1.svg","mturk_bad_net_2.svg"];
-pics = _.shuffle(pics);
-
-var show_pics = function(){
-	var value = pics.pop();
-	var x = document.getElementById("game_pics");//.src = "{{ server_location }}/static/images/"+pics[1];
-	x.setAttribute("src","{{ server_location }}/static/images/"+value);
-	// x.width = 2000;
-	// x.height = 2000;
-	if(value==undefined){
-		x.setAttribute("src","{{ server_location }}/static/images/finish.png");
-	}
-}
-
-var allow_click_botton = function(){
-		show_pics();
-		document.getElementById("clicker").disabled = true;
-}
-var allow_click_by_action_abort = function(){
-	document.getElementById("clicker").disabled = false;
-	//Record scores here
-}
+//=================
+// var pics=["mturk_ok_net_1.svg","mturk_ok_net_2.svg","mturk_bad_net_1.svg","mturk_bad_net_2.svg"];
+// pics = _.shuffle(pics);
+//
+// var show_pics = function(){
+// 	var value = pics.pop();
+// 	var x = document.getElementById("game_pics");//.src = "{{ server_location }}/static/images/"+pics[1];
+// 	x.setAttribute("src","{{ server_location }}/static/images/"+value);
+// 	// x.width = 2000;
+// 	// x.height = 2000;
+// 	if(value==undefined){
+// 		x.setAttribute("src","{{ server_location }}/static/images/finish.png");
+// 	}
+// }
+//
+// var allow_click_botton = function(){
+// 		show_pics();
+// 		document.getElementById("clicker").disabled = true;
+// }
+// var allow_click_by_action_abort = function(){
+// 	document.getElementById("clicker").disabled = false;
+// 	//Record scores here
+// }
+//=============
 </script>

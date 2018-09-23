@@ -127,7 +127,7 @@ var StroopExperiment = function() {
 	//
 	$.ajax({
 	    type: "GET",
-	    url: "experiment_data_mturk_ok_tprob_solver.json",
+	    url: "json/experiment_data_mturk_ok_tprob_solver.json",
 	    async: false,
 	    dataType: "JSON",
 	    success: callback
@@ -220,7 +220,6 @@ var StroopExperiment = function() {
 	};
 
 	var show_word = function(text, color) {
-		d3.select("#stim").select("img").remove();
 		// d3.select("#stim")
 		// 	.append("div")
 		// 	.attr("id","word")
@@ -235,15 +234,15 @@ var StroopExperiment = function() {
 		// var x = document.getElementById("stim");
 		// x.setAttribute("src","{{ server_location }}/static/images/"+text);
 		//https://upload.wikimedia.org/wikipedia/commons/4/4f/Start11.png
-		 d3.select("#stim").append("img")
-		     .attr("src","{{ server_location }}/static/images/"+text)
-		     .attr("width", 100)
-		     .attr("height", 100)
+		 d3.select("#game_pics").append("img")
+		     .attr("src","../static/images/"+text)
+		     .attr("width", 400)
+		     .attr("height", 300)
 	};
 
 	var remove_word = function() {
 		//d3.select("#word").remove();
-		d3.select("#stim").select("img").remove();
+		d3.select("#game_pics").select("img").remove();
 	};
 
 
