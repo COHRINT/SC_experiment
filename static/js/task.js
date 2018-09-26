@@ -10,13 +10,23 @@ var psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 var mycondition = condition;  // these two variables are passed by the psiturk server process
 var mycounterbalance = counterbalance;  // they tell you which condition you have been assigned to
 // they are not used in the stroop code but may be useful to you
-
+var answer;
+//var keyInformation = "";
+var scores;
 // All pages to be loaded
 var pages = [
-	"instructions/instruct-1.html",
-	"instructions/instruct-2.html",
-	"instructions/instruct-3.html",
-	"instructions/instruct-ready.html",
+	"instructions/Type1Instruct1.html",
+	"instructions/Type1Instruct2.html",
+	"instructions/Type1Instruct3.html",
+	"instructions/Type2Instruct1.html",
+	"instructions/Type2Instruct2.html",
+	"instructions/Type2Instruct3.html",
+	"instructions/Type3Instruct1.html",
+	"instructions/Type3Instruct2.html",
+	"instructions/Type3Instruct3.html",
+	"instructions/Type4Instruct1.html",
+	"instructions/Type4Instruct2.html",
+	"instructions/Type4Instruct3.html",
 	"prequestionnaire.html",
 	"stage.html",
 	"postquestionnaire.html"
@@ -24,12 +34,14 @@ var pages = [
 
 psiTurk.preloadPages(pages);
 
-var instructionPages = [ // add as a list as many pages as you like
-	"instructions/instruct-1.html",
-	"instructions/instruct-2.html",
-	"instructions/instruct-3.html",
-	"instructions/instruct-ready.html"
-];
+var streamInstructionPages = [["instructions/Type1Instruct1.html","instructions/Type1Instruct2.html","instructions/Type1Instruct3.html"],
+["instructions/Type2Instruct1.html","instructions/Type2Instruct2.html","instructions/Type2Instruct3.html"],
+["instructions/Type3Instruct1.html","instructions/Type3Instruct2.html","instructions/Type3Instruct3.html"],
+["instructions/Type4Instruct1.html","instructions/Type4Instruct2.html","instructions/Type4Instruct3.html"]];
+var Type_value =  _.shuffle([0,1,2,3]);
+console.log("Type_value : " + (Type_value[0]+1));
+
+var instructionPages = streamInstructionPages[Type_value[0]];
 
 
 /********************
@@ -117,17 +129,16 @@ var StroopExperiment = function() {
 	var wordon, // time word is presented
 	    listening = false;
 
-	var stims = ["pic1.png","mturk_ok_net_1.svg","mturk_ok_net_2.svg","mturk_bad_net_1.svg","mturk_bad_net_2.svg"];
+	//var stims = ["mturk_ok_net_1.svg","mturk_ok_net_2.svg","mturk_bad_net_1.svg","mturk_bad_net_2.svg"];
 
-	// var stims = [];
+	var stims = [];
 	var takeover;
-	var helperXqp=[];
 
 	// //Need to set async to False.
 	//
 	$.ajax({
 	    type: "GET",
-	    url: "json/experiment_data_mturk_ok_tprob_solver.json",
+	    url: "json/support.json",
 	    async: false,
 	    dataType: "JSON",
 	    success: callback
@@ -140,10 +151,23 @@ var StroopExperiment = function() {
 	console.log(takeover);
 	console.log("element : ")
 	console.log(takeover.two.xQ);
+
+	var index = 0;
 	for(i in takeover)
 	{
+		stims.push([]);
+		stims[index].push(takeover[i]["xQ"].toPrecision(2));
+		stims[index].push(takeover[i]["xP"].toPrecision(2));
+		stims[index].push(takeover[i]["image_file"]);
+		stims[index].push(takeover[i]["outcome"]);
 		console.log(i);
-		console.log(i.xQ);
+		console.log("xQ : "+takeover[i]["xQ"].toPrecision(2));
+		console.log("xP : "+takeover[i]["xP"].toPrecision(2));
+		console.log("Images' name : "+takeover[i]["image_file"]);
+		console.log("Outcome : "+takeover[i]["outcome"]);
+		console.log(index+" : stims : "+stims[index]);
+		index+=1;
+
 	}
 	// for(i=0;i<takeover.length;i++){
 	//
@@ -156,14 +180,13 @@ var StroopExperiment = function() {
 	// }
 
 	stims = _.shuffle(stims);
-
 	var next = function() {
 		if (stims.length===0) {
 			finish();
 		}
 		else {
 			stim = stims.shift();
-			show_word(stim,"");
+			show_word(stim[0],stim[1],stim[2],stim[3]);
 			wordon = new Date().getTime();
 			listening = true;
 		}
@@ -178,33 +201,53 @@ var StroopExperiment = function() {
 		switch (keyCode) {
 			case 38:
 				// "Up sign"
+				//keyInformation="Up"
 				response="Up";
 				break;
 			case 40:
 				// "Down sign"
+				//keyInformation="Down"
 				response="Down";
-				break;
-			case 39:
-				// "Right sign"
-				response="Right";
-				break;
-			case 37:
-				// "Left "
-				response="Left";
 				break;
 			default:
 				response = "";
 				break;
 		}
+
 		if (response.length>0) {
 			listening = false;
-			var hit = response == stim[1];
+			//var bool_comp;
+			if(stim[3]=="success" && response=="Up"){
+				//bool_comp=true;
+				scores=1;
+			}else if(stim[3]=="fail" && response=="Up"){
+				//bool_comp=true;
+				scores=-1;
+			}else{
+				//bool_comp=false;
+				scores=-1/4;
+			}
+
+
+
+			var hit = scores;
 			var rt = new Date().getTime() - wordon;
 
+
+			//console.log('outcome : '+sitm[3]);
+			// console.log('response : '+response);
+			// console.log('scores : '+ scores);
+
+			d3.select("#Previous_Result")
+			       .append("div")
+			       .style("text-align","center")
+			       .style("font-size","35px")
+			       .text("Previous Result : "+answer);
+
 			psiTurk.recordTrialData({'phase':"TEST",
-                                     'word':stim[0],
-                                     'color':stim[1],
-                                     'relation':stim[2],
+				     'userType':Type_value[0]+1,
+                                     'outcome':stim[3],
+                                     'image_name':stim[2],
                                      'response':response,
                                      'hit':hit,
                                      'rt':rt}
@@ -219,7 +262,10 @@ var StroopExperiment = function() {
 	    currentview = new Questionnaire();
 	};
 
-	var show_word = function(text, color) {
+	var show_word = function(xQ, xP,image,outcome) {
+
+		//d3.select("#Previous_Result").select("div").remove();
+		answer=outcome;
 		// d3.select("#stim")
 		// 	.append("div")
 		// 	.attr("id","word")
@@ -229,20 +275,75 @@ var StroopExperiment = function() {
 		// 	.style("font-weight","400")
 		// 	.style("margin","20px")
 		// 	.text(text);
-		console.log('show_word function');
-		console.log(text);
+
+		// var Decision_function = function(outcome,keyInformation){
+		// 	if(keyInformation=="Down"){
+		// 		display=
+		// 	}
+		// }
+
+		console.log('show_word function : '+ image);
+		console.log('outcome : '+outcome);
+		console.log('scores : '+scores);
+		// console.log('Outcome');
+		// console.log(outcome);
 		// var x = document.getElementById("stim");
 		// x.setAttribute("src","{{ server_location }}/static/images/"+text);
 		//https://upload.wikimedia.org/wikipedia/commons/4/4f/Start11.png
-		 d3.select("#game_pics").append("img")
-		     .attr("src","../static/images/"+text)
+
+
+
+		// d3.select("Previous_Result")
+		// 	.append("div")
+		// 	.style()
+		// 	.style("text-align","center")
+		// 	.style("font-size","35px")
+		// 	.text("Previous Result : "+ display);
+
+		d3.select("#game_pics").append("img")
+		     .attr("src","../static/images/game_pictures/"+image)
 		     .attr("width", 400)
 		     .attr("height", 300)
+
+		console.log("Type_value : " + (Type_value[0]+1));
+		switch(Type_value[0]){
+     			case 0:
+				break;
+			case 1:
+				d3.select("#xQ")
+				       .append("div")
+				       .style("text-align","center")
+				       .style("font-size","35px")
+				       .text("xQ : "+xQ);
+				 break;
+			case 2:
+				d3.select("#xP")
+					.append("div")
+					.style("text-align","center")
+					.style("font-size","35px")
+					.text("xP : "+xP);
+				break;
+			case 3:
+				d3.select("#xP")
+					.append("div")
+					.style("text-align","center")
+					.style("font-size","35px")
+					.text("xP : "+xP);
+
+			 	d3.select("#xQ")
+				       .append("div")
+				       .style("text-align","center")
+				       .style("font-size","35px")
+				       .text("xQ : "+xQ);
+				break;
+     		}
 	};
 
 	var remove_word = function() {
 		//d3.select("#word").remove();
 		d3.select("#game_pics").select("img").remove();
+		d3.select("#xP").select("div").remove();
+		d3.select("#xQ").select("div").remove();
 	};
 
 

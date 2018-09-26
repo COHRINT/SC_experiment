@@ -1,11 +1,30 @@
-{"question_set":[
-        ["Down", "Up", "doNotNeedIt"],
-        ["Up", "Down", "doNotNeedIt"],
-        ["Left", "Right", "doNotNeedIt"],
-        ["Right", "Left", "doNotNeedIt"],
-        ["Down", "Up", "doNotNeedIt"],
-        ["Up", "Down", "doNotNeedIt"],
-        ["Left", "Right", "doNotNeedIt"],
-        ["Right", "Left", "doNotNeedIt"],
-        ["Down", "Up", "doNotNeedIt"]
-]}
+{
+    "one": {
+        "xQ": 1.2345549709629116,
+        "mcts_depth": 3,
+        "image_file": "mturk_bad_net_1.svg",
+        "xP": 0.7189849624060147,
+        "outcome": "fail"
+    },
+    "two": {
+        "xQ": 1.0384298227157835,
+        "mcts_depth": 4,
+        "image_file": "mturk_bad_net_2.svg",
+        "xP": 0.6704407602102709,
+        "outcome": "success"
+    },
+    "three": {
+        "xQ": 0.9733709465447015,
+        "mcts_depth": 9,
+        "image_file": "mturk_ok_net_1.svg",
+        "xP": 0.4799318900510825,
+        "outcome": "fail"
+    },
+    "four": {
+        "xQ": 0.03471740377945629,
+        "mcts_depth": 7,
+        "image_file": "mturk_ok_net_2.svg",
+        "xP": -0.6376832084452613,
+        "outcome": "success"
+    }
+}
