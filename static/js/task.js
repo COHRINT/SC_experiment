@@ -91,7 +91,7 @@ var PreQuestionnaire = function() {
 		psiTurk.saveData({
 			success: function() {
 			    	clearInterval(reprompt);
-                		currentview = new StroopExperiment();
+                		currentview = new Experiment();
 			},
 			error: prompt_resubmit
 		});
@@ -108,7 +108,7 @@ var PreQuestionnaire = function() {
 	    psiTurk.saveData({
             success: function(){
                 psiTurk.computeBonus('compute_bonus', function() {
-                	currentview = new StroopExperiment(); // when finished saving compute bonus, the quit
+                	currentview = new Experiment(); // when finished saving compute bonus, the quit
                 });
             },
             error: prompt_resubmit});
@@ -121,9 +121,9 @@ var PreQuestionnaire = function() {
 
 
 /********************
-* STROOP TEST       *
+* Experiment TEST       *
 ********************/
-var StroopExperiment = function() {
+var Experiment = function() {
 
 
 	var wordon, // time word is presented
@@ -192,6 +192,18 @@ var StroopExperiment = function() {
 		}
 	};
 
+	// d3.select("#Previous_Result")
+	//        .append("div")
+	//        .style("text-align","center")
+	//        .style("font-size","35px")
+	//        .text("Previous Result : "+answer);
+	//
+	// var delayInMilliseconds = 3000; //3 second
+	// setTimeout(function() {
+	//   //your code to be executed after 1 second
+	//   d3.select("#Previous_Result").remove("div");
+	// }, delayInMilliseconds);
+
 	var response_handler = function(e) {
 		if (!listening) return;
 
@@ -233,17 +245,6 @@ var StroopExperiment = function() {
 			var hit = scores;
 			var rt = new Date().getTime() - wordon;
 
-
-			//console.log('outcome : '+sitm[3]);
-			// console.log('response : '+response);
-			// console.log('scores : '+ scores);
-
-			d3.select("#Previous_Result")
-			       .append("div")
-			       .style("text-align","center")
-			       .style("font-size","35px")
-			       .text("Previous Result : "+answer);
-
 			psiTurk.recordTrialData({'phase':"TEST",
 				     'userType':Type_value[0]+1,
                                      'outcome':stim[3],
@@ -252,8 +253,26 @@ var StroopExperiment = function() {
                                      'hit':hit,
                                      'rt':rt}
                                    );
+
 			remove_word();
-			next();
+			var color={"fail":"red","success":"green"};
+			console.log("fail : ",color["fail"]);
+			d3.select("#Previous_Result")
+			       .append("div")
+			       .style("text-align","center")
+			       .style("font-size","60px")
+			       .style("color", color[answer])
+			       .text("Solution is " + answer);
+
+			console.log("Solution is "+answer);
+
+			var delayInMilliseconds = 1500; //1.5 second
+			setTimeout(function() {
+	   		//your code to be executed after 1 second
+	   			// d3.select("#Previous_Result").remove("div");
+				remove_word();
+				next();
+	   		}, delayInMilliseconds);
 		}
 	};
 
@@ -290,15 +309,6 @@ var StroopExperiment = function() {
 		// var x = document.getElementById("stim");
 		// x.setAttribute("src","{{ server_location }}/static/images/"+text);
 		//https://upload.wikimedia.org/wikipedia/commons/4/4f/Start11.png
-
-
-
-		// d3.select("Previous_Result")
-		// 	.append("div")
-		// 	.style()
-		// 	.style("text-align","center")
-		// 	.style("font-size","35px")
-		// 	.text("Previous Result : "+ display);
 
 		d3.select("#game_pics").append("img")
 		     .attr("src","../static/images/game_pictures/"+image)
@@ -341,6 +351,7 @@ var StroopExperiment = function() {
 
 	var remove_word = function() {
 		//d3.select("#word").remove();
+		d3.select("#Previous_Result").select("div").remove();
 		d3.select("#game_pics").select("img").remove();
 		d3.select("#xP").select("div").remove();
 		d3.select("#xQ").select("div").remove();
