@@ -15,18 +15,11 @@ var answer;
 var scores;
 // All pages to be loaded
 var pages = [
-	"instructions/Type1Instruct1.html",
-	"instructions/Type1Instruct2.html",
-	"instructions/Type1Instruct3.html",
-	"instructions/Type2Instruct1.html",
-	"instructions/Type2Instruct2.html",
-	"instructions/Type2Instruct3.html",
-	"instructions/Type3Instruct1.html",
-	"instructions/Type3Instruct2.html",
-	"instructions/Type3Instruct3.html",
-	"instructions/Type4Instruct1.html",
-	"instructions/Type4Instruct2.html",
-	"instructions/Type4Instruct3.html",
+	"instructions/Introduction.html",
+	"instructions/MainInstructions.html",
+    "instructions/SCInstructions.jtml",
+	"instructions/xQInstructions.html",
+	"instructions/xPInstructions.html",
 	"prequestionnaire.html",
 	"stage.html",
 	"postquestionnaire.html"
@@ -34,10 +27,10 @@ var pages = [
 
 psiTurk.preloadPages(pages);
 
-var streamInstructionPages = [["instructions/Type1Instruct1.html","instructions/Type1Instruct2.html","instructions/Type1Instruct3.html"],
-["instructions/Type2Instruct1.html","instructions/Type2Instruct2.html","instructions/Type2Instruct3.html"],
-["instructions/Type3Instruct1.html","instructions/Type3Instruct2.html","instructions/Type3Instruct3.html"],
-["instructions/Type4Instruct1.html","instructions/Type4Instruct2.html","instructions/Type4Instruct3.html"]];
+var streamInstructionPages = [["instructions/Introduction.html","instructions/MainInstructions.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","instructions/xPInstructions.html"]]
 var Type_value =  _.shuffle([0,1,2,3]);
 console.log("Type_value : " + (Type_value[0]+1));
 
