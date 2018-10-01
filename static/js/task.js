@@ -17,7 +17,7 @@ var scores;
 var pages = [
 	"instructions/Introduction.html",
 	"instructions/MainInstructions.html",
-    "instructions/SCInstructions.jtml",
+    "instructions/SCInstructions.html",
 	"instructions/xQInstructions.html",
 	"instructions/xPInstructions.html",
 	"prequestionnaire.html",
