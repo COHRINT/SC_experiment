@@ -150,7 +150,7 @@ var Experiment = function() {
 	console.log("takeover : ");
 	console.log(takeover);
 	console.log("element : ")
-	console.log(takeover.two.xQ);
+	//console.log(takeover.two.xQ);
 
 	var index = 0;
 	for(i in takeover)
@@ -160,7 +160,7 @@ var Experiment = function() {
 		stims[index].push(takeover[i]["xP"].toPrecision(2));
 		stims[index].push(takeover[i]["image_file"]);
 		stims[index].push(takeover[i]["outcome"]);
-		console.log(i);
+
 		console.log("xQ : "+takeover[i]["xQ"].toPrecision(2));
 		console.log("xP : "+takeover[i]["xP"].toPrecision(2));
 		console.log("Images' name : "+takeover[i]["image_file"]);
