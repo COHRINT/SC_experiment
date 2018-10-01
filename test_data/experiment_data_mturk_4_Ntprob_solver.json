@@ -1,0 +1,702 @@
+{
+    "68": {
+        "xQ": 1.9960391503424335,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_68.svg",
+        "xP": 0.0654381200506775,
+        "outcome": "success"
+    },
+    "2": {
+        "xQ": 1.9960420752879986,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_2.svg",
+        "xP": 0.3385817398886679,
+        "outcome": "success"
+    },
+    "89": {
+        "xQ": 1.9941103847501487,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_89.svg",
+        "xP": -0.674467423278382,
+        "outcome": "fail"
+    },
+    "11": {
+        "xQ": 1.993212384563043,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_11.svg",
+        "xP": -0.6188516465254642,
+        "outcome": "fail"
+    },
+    "39": {
+        "xQ": 1.9969504358765906,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_39.svg",
+        "xP": -0.8939816627051815,
+        "outcome": "success"
+    },
+    "46": {
+        "xQ": 1.9941626921139635,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_46.svg",
+        "xP": 0.20804773197347615,
+        "outcome": "success"
+    },
+    "85": {
+        "xQ": 1.9960303338027126,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_85.svg",
+        "xP": -0.7038227505430477,
+        "outcome": "success"
+    },
+    "25": {
+        "xQ": 1.997278668387353,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_25.svg",
+        "xP": -0.7589947929604364,
+        "outcome": "success"
+    },
+    "55": {
+        "xQ": 1.9969505746141225,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_55.svg",
+        "xP": -0.5769581567876675,
+        "outcome": "success"
+    },
+    "42": {
+        "xQ": 1.9965990547691077,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_42.svg",
+        "xP": -0.02693269754966765,
+        "outcome": "fail"
+    },
+    "29": {
+        "xQ": 1.989059870922392,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_29.svg",
+        "xP": 0.6895071531796229,
+        "outcome": "fail"
+    },
+    "66": {
+        "xQ": 1.9956408240183208,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_66.svg",
+        "xP": -0.7279536040351302,
+        "outcome": "success"
+    },
+    "58": {
+        "xQ": 1.9635492805821413,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_58.svg",
+        "xP": -0.8211665296319759,
+        "outcome": "success"
+    },
+    "59": {
+        "xQ": 1.9966405232573086,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_59.svg",
+        "xP": 0.6378415283751813,
+        "outcome": "fail"
+    },
+    "8": {
+        "xQ": 1.9927029121355078,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_8.svg",
+        "xP": -0.9380990357243486,
+        "outcome": "success"
+    },
+    "74": {
+        "xQ": 1.9968046845657565,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_74.svg",
+        "xP": -0.6962096992340743,
+        "outcome": "success"
+    },
+    "95": {
+        "xQ": 1.997544762955127,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_95.svg",
+        "xP": 0.6887672552059383,
+        "outcome": "fail"
+    },
+    "57": {
+        "xQ": 1.994231784150315,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_57.svg",
+        "xP": -0.8501245769228083,
+        "outcome": "success"
+    },
+    "90": {
+        "xQ": 1.9929128388252935,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_90.svg",
+        "xP": -0.6379108980491477,
+        "outcome": "success"
+    },
+    "20": {
+        "xQ": 1.985005518400955,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_20.svg",
+        "xP": -0.7658816547050542,
+        "outcome": "fail"
+    },
+    "31": {
+        "xQ": 1.9915596949434091,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_31.svg",
+        "xP": 0.6308188486344024,
+        "outcome": "fail"
+    },
+    "78": {
+        "xQ": 1.9968126725188018,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_78.svg",
+        "xP": -0.3897294395139489,
+        "outcome": "success"
+    },
+    "14": {
+        "xQ": 1.9991320826317172,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_14.svg",
+        "xP": 0.6718377072029076,
+        "outcome": "fail"
+    },
+    "70": {
+        "xQ": 1.9971231950911443,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_70.svg",
+        "xP": 0.4920282194432464,
+        "outcome": "success"
+    },
+    "33": {
+        "xQ": 1.9793413564418652,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_33.svg",
+        "xP": -0.13616410458775108,
+        "outcome": "fail"
+    },
+    "52": {
+        "xQ": 1.9628962051497882,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_52.svg",
+        "xP": -0.5530048833683275,
+        "outcome": "success"
+    },
+    "18": {
+        "xQ": 1.9698963942386545,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_18.svg",
+        "xP": -0.5296668935609787,
+        "outcome": "success"
+    },
+    "69": {
+        "xQ": 1.9951242299513359,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_69.svg",
+        "xP": -0.9893215946086636,
+        "outcome": "success"
+    },
+    "96": {
+        "xQ": 1.998232612062543,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_96.svg",
+        "xP": -0.11320884269786513,
+        "outcome": "success"
+    },
+    "26": {
+        "xQ": 1.9946260334280894,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_26.svg",
+        "xP": 0.6063403510926846,
+        "outcome": "fail"
+    },
+    "35": {
+        "xQ": 1.9987095755523847,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_35.svg",
+        "xP": 0.1113191302626313,
+        "outcome": "success"
+    },
+    "83": {
+        "xQ": 1.9679283006684096,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_83.svg",
+        "xP": -0.8132378026731706,
+        "outcome": "success"
+    },
+    "17": {
+        "xQ": 1.9990425236499492,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_17.svg",
+        "xP": 0.6399388653453877,
+        "outcome": "fail"
+    },
+    "64": {
+        "xQ": 1.998044654964204,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_64.svg",
+        "xP": -0.5290955253709128,
+        "outcome": "fail"
+    },
+    "65": {
+        "xQ": 1.9898238638605485,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_65.svg",
+        "xP": -0.601986891293459,
+        "outcome": "success"
+    },
+    "49": {
+        "xQ": 1.991528345003065,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_49.svg",
+        "xP": 0.1485037696961553,
+        "outcome": "fail"
+    },
+    "84": {
+        "xQ": 1.834173324314256,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_84.svg",
+        "xP": -0.34469518084111284,
+        "outcome": "success"
+    },
+    "44": {
+        "xQ": 1.989247733002847,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_44.svg",
+        "xP": -0.2111890065216846,
+        "outcome": "fail"
+    },
+    "4": {
+        "xQ": 1.9929233066388552,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_4.svg",
+        "xP": 0.5186752036312496,
+        "outcome": "fail"
+    },
+    "37": {
+        "xQ": 1.996293946720442,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_37.svg",
+        "xP": -0.3010089955206474,
+        "outcome": "fail"
+    },
+    "45": {
+        "xQ": 1.9946535285283522,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_45.svg",
+        "xP": 0.7930864950616858,
+        "outcome": "fail"
+    },
+    "13": {
+        "xQ": 1.9728267702292612,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_13.svg",
+        "xP": -0.6446248819859868,
+        "outcome": "success"
+    },
+    "86": {
+        "xQ": 1.9882972817022087,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_86.svg",
+        "xP": 0.6623869607811919,
+        "outcome": "success"
+    },
+    "67": {
+        "xQ": 1.9911018261225202,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_67.svg",
+        "xP": -0.6233788930871857,
+        "outcome": "success"
+    },
+    "99": {
+        "xQ": 1.9974294951624192,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_99.svg",
+        "xP": -0.4047680187406145,
+        "outcome": "success"
+    },
+    "93": {
+        "xQ": 1.9818553591423451,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_93.svg",
+        "xP": 0.47100767843711067,
+        "outcome": "fail"
+    },
+    "94": {
+        "xQ": 1.9985838400264693,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_94.svg",
+        "xP": 0.5726183231195152,
+        "outcome": "success"
+    },
+    "30": {
+        "xQ": 1.9712895131215813,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_30.svg",
+        "xP": -0.3598266503299564,
+        "outcome": "success"
+    },
+    "1": {
+        "xQ": 1.9981196193348232,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_1.svg",
+        "xP": -0.4430802853032846,
+        "outcome": "fail"
+    },
+    "54": {
+        "xQ": 1.9877184543618627,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_54.svg",
+        "xP": 0.5078072255357413,
+        "outcome": "fail"
+    },
+    "47": {
+        "xQ": 1.9982994231963833,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_47.svg",
+        "xP": -0.2998665214508489,
+        "outcome": "fail"
+    },
+    "50": {
+        "xQ": 1.9831128298843277,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_50.svg",
+        "xP": 0.29534751466029663,
+        "outcome": "fail"
+    },
+    "77": {
+        "xQ": 1.9958392767557487,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_77.svg",
+        "xP": 0.5026490111167521,
+        "outcome": "fail"
+    },
+    "80": {
+        "xQ": 1.996891936275524,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_80.svg",
+        "xP": -0.9351633157350847,
+        "outcome": "success"
+    },
+    "40": {
+        "xQ": 1.9938488526575977,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_40.svg",
+        "xP": -0.6500156775384297,
+        "outcome": "success"
+    },
+    "32": {
+        "xQ": 1.9954619242630296,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_32.svg",
+        "xP": -0.7744071055302632,
+        "outcome": "success"
+    },
+    "82": {
+        "xQ": 1.9959859080938962,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_82.svg",
+        "xP": -0.6756930050472288,
+        "outcome": "success"
+    },
+    "91": {
+        "xQ": 1.9965286587224367,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_91.svg",
+        "xP": -0.6662229002479965,
+        "outcome": "fail"
+    },
+    "7": {
+        "xQ": 1.9881068340574917,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_7.svg",
+        "xP": -0.7546829143905134,
+        "outcome": "success"
+    },
+    "9": {
+        "xQ": 1.9968815897797465,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_9.svg",
+        "xP": 0.6678077898363504,
+        "outcome": "fail"
+    },
+    "43": {
+        "xQ": 1.9732996480472467,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_43.svg",
+        "xP": -0.7612045664503841,
+        "outcome": "success"
+    },
+    "60": {
+        "xQ": 1.9877247573365613,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_60.svg",
+        "xP": -0.674333860967891,
+        "outcome": "success"
+    },
+    "34": {
+        "xQ": 1.9907992981795661,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_34.svg",
+        "xP": -0.9544005018530702,
+        "outcome": "success"
+    },
+    "75": {
+        "xQ": 1.8924493414518986,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_75.svg",
+        "xP": -0.03157206148656799,
+        "outcome": "success"
+    },
+    "87": {
+        "xQ": 1.944768153307961,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_87.svg",
+        "xP": -0.10149459571966801,
+        "outcome": "fail"
+    },
+    "3": {
+        "xQ": 1.9980631882613713,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_3.svg",
+        "xP": -0.4978989758014529,
+        "outcome": "fail"
+    },
+    "61": {
+        "xQ": 1.9962379905898708,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_61.svg",
+        "xP": 0.5775868553122043,
+        "outcome": "fail"
+    },
+    "79": {
+        "xQ": 1.9821833035510708,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_79.svg",
+        "xP": 0.04717489027818256,
+        "outcome": "success"
+    },
+    "38": {
+        "xQ": 1.9899961147127299,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_38.svg",
+        "xP": -0.6225672988928427,
+        "outcome": "success"
+    },
+    "71": {
+        "xQ": 1.9980031925482573,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_71.svg",
+        "xP": -0.25051208682608606,
+        "outcome": "success"
+    },
+    "36": {
+        "xQ": 1.9986110516194415,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_36.svg",
+        "xP": -0.3381377334825141,
+        "outcome": "success"
+    },
+    "48": {
+        "xQ": 1.994188352397619,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_48.svg",
+        "xP": 0.6153301945195471,
+        "outcome": "fail"
+    },
+    "76": {
+        "xQ": 1.9960577089787699,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_76.svg",
+        "xP": 0.9687760379420198,
+        "outcome": "fail"
+    },
+    "12": {
+        "xQ": 1.993397338916494,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_12.svg",
+        "xP": 0.5906081665369485,
+        "outcome": "fail"
+    },
+    "100": {
+        "xQ": 1.9556636669334702,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_100.svg",
+        "xP": -0.6472033752321449,
+        "outcome": "success"
+    },
+    "81": {
+        "xQ": 1.9874477550642713,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_81.svg",
+        "xP": 0.1003094417145507,
+        "outcome": "success"
+    },
+    "98": {
+        "xQ": 1.9804377379846914,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_98.svg",
+        "xP": -0.8083151626305287,
+        "outcome": "success"
+    },
+    "16": {
+        "xQ": 1.9905123872314554,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_16.svg",
+        "xP": 0.013031565267651146,
+        "outcome": "fail"
+    },
+    "62": {
+        "xQ": 1.9867627080074108,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_62.svg",
+        "xP": -0.7993806813564994,
+        "outcome": "success"
+    },
+    "21": {
+        "xQ": 1.9957296742216446,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_21.svg",
+        "xP": -0.8411369022969121,
+        "outcome": "fail"
+    },
+    "10": {
+        "xQ": 1.9949714843820212,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_10.svg",
+        "xP": 0.22152621579302023,
+        "outcome": "fail"
+    },
+    "19": {
+        "xQ": 1.9983696648462468,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_19.svg",
+        "xP": 0.41553869919887876,
+        "outcome": "fail"
+    },
+    "51": {
+        "xQ": 1.997598414965972,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_51.svg",
+        "xP": -0.021285248052025807,
+        "outcome": "fail"
+    },
+    "22": {
+        "xQ": 1.9943475745302797,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_22.svg",
+        "xP": -0.608820498959158,
+        "outcome": "success"
+    },
+    "88": {
+        "xQ": 1.9986021647389707,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_88.svg",
+        "xP": 0.49327642266528393,
+        "outcome": "success"
+    },
+    "6": {
+        "xQ": 1.9844662654191523,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_6.svg",
+        "xP": -0.7382695360196307,
+        "outcome": "success"
+    },
+    "24": {
+        "xQ": 1.995637549255559,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_24.svg",
+        "xP": -0.740757060627235,
+        "outcome": "fail"
+    },
+    "73": {
+        "xQ": 1.9961272761022368,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_73.svg",
+        "xP": -0.9458087603481194,
+        "outcome": "success"
+    },
+    "92": {
+        "xQ": 1.997998359415872,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_92.svg",
+        "xP": -0.6153310968676065,
+        "outcome": "success"
+    },
+    "53": {
+        "xQ": 1.9959700581663253,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_53.svg",
+        "xP": -0.6770954827191753,
+        "outcome": "success"
+    },
+    "72": {
+        "xQ": 1.9977038664083395,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_72.svg",
+        "xP": 0.4236676553115226,
+        "outcome": "fail"
+    },
+    "28": {
+        "xQ": 1.9817880514188326,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_28.svg",
+        "xP": -0.1457807284691437,
+        "outcome": "fail"
+    },
+    "5": {
+        "xQ": 1.9967959807247206,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_5.svg",
+        "xP": -0.27381716516859467,
+        "outcome": "fail"
+    },
+    "23": {
+        "xQ": 1.988091368278353,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_23.svg",
+        "xP": 0.6383577506616696,
+        "outcome": "fail"
+    },
+    "63": {
+        "xQ": 1.9973571989265257,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_63.svg",
+        "xP": -0.5307558011954423,
+        "outcome": "success"
+    },
+    "27": {
+        "xQ": 1.9969110775057801,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_27.svg",
+        "xP": -0.8223690524612802,
+        "outcome": "success"
+    },
+    "56": {
+        "xQ": 1.9550086451193462,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_56.svg",
+        "xP": -0.7417750190788078,
+        "outcome": "success"
+    },
+    "97": {
+        "xQ": 1.9899982981724609,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_97.svg",
+        "xP": -0.6608462915299672,
+        "outcome": "success"
+    },
+    "41": {
+        "xQ": 1.9969396648083881,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_41.svg",
+        "xP": -0.668030823413309,
+        "outcome": "success"
+    },
+    "15": {
+        "xQ": 1.9961470384649747,
+        "mcts_depth": 3,
+        "image_file": "mturk_4_net_15.svg",
+        "xP": 1.0,
+        "outcome": "fail"
+    }
+}
