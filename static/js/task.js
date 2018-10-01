@@ -169,6 +169,8 @@ var Experiment = function() {
 		index+=1;
 
 	}
+
+	stims = _.shuffle(stims);
 	// for(i=0;i<takeover.length;i++){
 	//
 	// }
@@ -198,7 +200,6 @@ var Experiment = function() {
 	console.log(stims_tmp);
 	stims = stims_tmp;
 
-	stims = _.shuffle(stims);
 	var next = function() {
 		if (stims.length===0) {
 			finish();
@@ -275,13 +276,22 @@ var Experiment = function() {
 
 			remove_word();
 			var color={"fail":"red","success":"green"};
+			var context={"fail":"Delivery Failed (-1)","success":"Delivery Success (+1)"};
 			console.log("fail : ",color["fail"]);
-			d3.select("#Previous_Result")
-			       .append("div")
-			       .style("text-align","center")
-			       .style("font-size","60px")
-			       .style("color", color[answer])
-			       .text("Solution is " + answer);
+			if(Math.abs(scores)==1){
+				d3.select("#Previous_Result")
+				       .append("div")
+				       .style("text-align","center")
+				       .style("font-size","60px")
+				       .style("color", color[answer])
+				       .text(context[answer]);
+			}else{
+				d3.select("#Previous_Result")
+				       .append("div")
+				       .style("text-align","center")
+				       .style("font-size","60px")
+				       .text("Delivery Declined (-1/4)");
+			}
 
 			console.log("Solution is "+answer);
 
@@ -430,6 +440,7 @@ var Questionnaire = function() {
 			success: function() {
 			    clearInterval(reprompt);
                 psiTurk.computeBonus('compute_bonus', function(){
+			console.log("completeHIt : "+psiTurk.completeHIT());
                 	psiTurk.completeHIT(); // when finished saving compute bonus, the quit
                 });
 
