@@ -171,6 +171,25 @@ var Experiment = function() {
 	// 	console.log("dfdfd");
 	// 	console.log(takeover[i][xQ]);
 	// }
+	console.log("stims : "+stims);
+	var stims_tmp=[];
+	var count=0;
+	for(i in stims)
+	{
+
+		console.log("from stims : ");
+		console.log(stims[i]);
+		stims_tmp.push(stims[i]);
+		count+=1;
+		console.log("count : ");
+		console.log(count);
+		if(count>10)
+		{
+			break;
+		}
+	}
+	console.log(stims_tmp);
+	stims = stims_tmp;
 
 	stims = _.shuffle(stims);
 	var next = function() {
