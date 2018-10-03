@@ -1,24 +1,15 @@
 <div id="container-instructions">
-    <h1>Before Starting A Designated Task</h1>
-
-    <p>I am glad that you are supporting our experiment!</p>
-
+    <h1>Time to make sure that you've understood so far</h1>
     <div class="instructions well">
-
-        <p>
-            <b>I have some questions to ask you before starting the task.</b>
-        </p>
-
         <script>
                 document.getElementById("next").disabled = true;
 		var numQ0, numQ1, numQ2, numQ3;
                 var str0, str1, str2, str3;
 		function respond(){
-			numQ0 = document.getElementById("preQ0");
                         numQ1 = document.getElementById("preQ1");
                         numQ2 = document.getElementById("preQ2");
                         numQ3 = document.getElementById("preQ3");
-                        if(Boolean(numQ0.selectedIndex && numQ1.selectedIndex && numQ2.selectedIndex && numQ3.selectedIndex)){
+                        if(Boolean(numQ1.selectedIndex && numQ2.selectedIndex && numQ3.selectedIndex)){
                                 document.getElementById("next").disabled = false;
                         }
 		}
@@ -40,27 +31,7 @@
         <!-- beginning of a question -->
         <div class="row question">
             <div class="col-md-8">
-                How old are you?
-            </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ0" name="preQ0">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="6">>84</option>
-                        <option value="5">75-84</option>
-                        <option value="4">65-74</option>
-                        <option value="3">55-64</option>
-                        <option value="2">45-54</option>
-                        <option value="1">35-44</option>
-                        <option value="0">18-34</option>
-                </select>
-            </div>
-        </div>
-        <!-- end of a question -->
-
-        <!-- beginning of a question -->
-        <div class="row question">
-            <div class="col-md-8">
-                To what extent are you comfortable using technology?
+                What are your responsibilities as a dispatch supervisor?
             </div>
             <div class="col-md-4">
                 <select onchange="respond()" id="preQ1" name="preQ1">
@@ -78,7 +49,7 @@
         <!-- beginning of a question -->
         <div class="row question">
             <div class="col-md-8">
-                To what extent do you rely on technology on a daily basis?
+                What factors might affect the possibilities of a successful delivery?
             </div>
             <div class="col-md-4">
                 <select onchange="respond()" id="preQ2" name="preQ2">
@@ -96,7 +67,7 @@
         <!-- beginning of a question -->
         <div class="row question">
             <div class="col-md-8">
-                How much experience do you have with robots?
+                On the map, what does the black star represent?
             </div>
             <div class="col-md-4">
                 <select onchange="respond()" id="preQ3" name="preQ3">
@@ -110,10 +81,128 @@
             </div>
         </div>
         <!-- end of a question -->
-
-
-
         <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                On the map, what does the green dot with a truck represent?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ4" name="preQ4">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                On the map, what does the red dot with a motorcycle represent?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ5" name="preQ5">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <h2>Conditions where xQ is used:</h2>
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle report most likely low x_Q?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ6" name="preQ6">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle most likely report high x_Q?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ7" name="preQ7">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <h2>Conditions where xP is used:</h2>
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle report most likely low x_P?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ8" name="preQ8">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle most likely report high x_P?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ9" name="preQ9">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle most likely report x_P that is neither high or low?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ10" name="preQ10">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+
         <div class="instructionsnav">
             <div class="row">
                 <div class="col-xs-2">
@@ -128,9 +217,5 @@
                 </div>
             </div>
         </div>
-        <!-- end of a question -->
-
-
-
     </div>
 </div>

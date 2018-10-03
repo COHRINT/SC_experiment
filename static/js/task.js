@@ -22,7 +22,8 @@ var pages = [
 	"instructions/xPInstructions.html",
 	"prequestionnaire.html",
 	"stage.html",
-	"postquestionnaire.html"
+	"postquestionnaire.html",
+    "debriefing.html"
 ];
 
 psiTurk.preloadPages(pages);
