@@ -335,8 +335,8 @@ var Experiment = function() {
 
 		d3.select("#game_pics").append("img")
 		     .attr("src","../static/images/game_pictures/"+image)
-		     .attr("width", 400)
-		     .attr("height", 300)
+		     .attr("width", 500)
+		     .attr("height", 500)
 
 		console.log("Type_value : " + (Type_value[0]+1));
 		switch(Type_value[0]){
