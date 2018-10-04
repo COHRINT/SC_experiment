@@ -32,10 +32,12 @@ var streamInstructionPages = [["instructions/Introduction.html","instructions/Ma
 ["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","instructions/xPInstructions.html"]]
-var Type_value =  _.shuffle([0,1,2,3]);
-console.log("Type_value : " + (Type_value[0]+1));
+//var Type_value =  _.shuffle([0,1,2,3]);
+// var condition = Type_value[0]+1;
+var condition = 4
+console.log("Condition: " + (condition));
 
-var instructionPages = streamInstructionPages[Type_value[0]];
+var instructionPages = streamInstructionPages[condition-1];
 
 
 /********************
@@ -260,7 +262,7 @@ var Experiment = function() {
 			var rt = new Date().getTime() - wordon;
 
 			psiTurk.recordTrialData({'phase':"TEST",
-				     'userType':Type_value[0]+1,
+				     'userType':condition,
                                      'outcome':stim[3],
                                      'image_name':stim[2],
                                      'response':response,
@@ -338,8 +340,8 @@ var Experiment = function() {
 		     .attr("width", 500)
 		     .attr("height", 500)
 
-		console.log("Type_value : " + (Type_value[0]+1));
-		switch(Type_value[0]){
+		console.log("Condition : " + (condition));
+		switch(condition-1){
      			case 0:
 				break;
 			case 1:
