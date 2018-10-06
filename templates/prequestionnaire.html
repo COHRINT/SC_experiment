@@ -1,15 +1,20 @@
 <div id="container-instructions">
     <h1>Time to make sure that you've understood so far</h1>
     <div class="instructions well">
+        <div id="BC"></div>
+
         <script>
                 document.getElementById("next").disabled = true;
-		var numQ0, numQ1, numQ2, numQ3;
+		var numQ1, numQ2, numQ3, numQ4, numQ5;
                 var str0, str1, str2, str3;
 		function respond(){
                         numQ1 = document.getElementById("preQ1");
                         numQ2 = document.getElementById("preQ2");
                         numQ3 = document.getElementById("preQ3");
-                        if(Boolean(numQ1.selectedIndex && numQ2.selectedIndex && numQ3.selectedIndex)){
+                        numQ4 = document.getElementById("preQ4");
+                        numQ5 = document.getElementById("preQ5");
+
+                        if(Boolean(numQ1.selectedIndex && numQ2.selectedIndex && numQ3.selectedIndex && numQ4.selectedIndex && numQ5.selectedIndex)){
                                 document.getElementById("next").disabled = false;
                         }
 		}
@@ -17,15 +22,39 @@
 		function grab_data(){
                         // psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'begin'});
                         console.log(numQ1.value);
-                        console.log(numQ0.value);
                         console.log(numQ2.value);
                         console.log(numQ3.value);
+                        console.log(numQ4.value);
+                        console.log(numQ5.value);
+                        // switch (value_js()){
+                        //         case 1:
+                        //                 console.log("Yes it is 1");
+                        //                 break;
+                        //         case 2:
+                        //                 console.log("Yes it is 2");
+                        //                 break;
+                        //         case 3:
+                        //                 console.log("Yes it is 3");
+                        //                 break;
+                        //         case 4:
+                        //                 console.log("Yes it is 4");
+                        //                 break;
+                        // }
+
                         // psiTurk.recordTrialData(["preQ1", "2"]);
                         // psiTurk.recordTrialData({"preQ2" : numQ2.value,'status':'submit'});
                         // psiTurk.recordTrialData({"preQ3" : numQ3.value,'status':'submit'});
                         //
                         // psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'end'});
+                        //x.style.display = "none";
 		}
+                // function value_js(){
+                //         var x = document.getElementById("container-instructions");
+                //         console.log("say something : "+x.value);
+                //         return x.value;
+                // }
+
+
 
 	</script>
         <!-- beginning of a question -->
@@ -105,93 +134,6 @@
             </div>
             <div class="col-md-4">
                 <select onchange="respond()" id="preQ5" name="preQ5">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
-                </select>
-            </div>
-        </div>
-        <!-- end of a question -->
-        <h2>Conditions where xQ is used:</h2>
-        <!-- beginning of a question -->
-        <div class="row question">
-            <div class="col-md-8">
-                In which of the following situations would the delivery vehicle report most likely low x_Q?
-            </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ6" name="preQ6">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
-                </select>
-            </div>
-        </div>
-        <!-- end of a question -->
-        <!-- beginning of a question -->
-        <div class="row question">
-            <div class="col-md-8">
-                In which of the following situations would the delivery vehicle most likely report high x_Q?
-            </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ7" name="preQ7">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
-                </select>
-            </div>
-        </div>
-        <!-- end of a question -->
-        <h2>Conditions where xP is used:</h2>
-        <!-- beginning of a question -->
-        <div class="row question">
-            <div class="col-md-8">
-                In which of the following situations would the delivery vehicle report most likely low x_P?
-            </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ8" name="preQ8">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
-                </select>
-            </div>
-        </div>
-        <!-- end of a question -->
-        <!-- beginning of a question -->
-        <div class="row question">
-            <div class="col-md-8">
-                In which of the following situations would the delivery vehicle most likely report high x_P?
-            </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ9" name="preQ9">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
-                </select>
-            </div>
-        </div>
-        <!-- end of a question -->
-        <!-- beginning of a question -->
-        <div class="row question">
-            <div class="col-md-8">
-                In which of the following situations would the delivery vehicle most likely report x_P that is neither high or low?
-            </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ10" name="preQ10">
                         <option disabled selected value> -- select an option -- </option>
                         <option value="4">4 (highest)</option>
                         <option value="3">3</option>

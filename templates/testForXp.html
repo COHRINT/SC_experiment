@@ -1,0 +1,107 @@
+<div id="container-instructions">
+    <h1>Time to make sure that you've understood so far</h1>
+    <div class="instructions well">
+        <div id="BC"></div>
+
+        <script>
+                document.getElementById("next").disabled = true;
+		var numQ1, numQ2, numQ3;
+                var str1, str2, str3;
+		function respond(){
+                        numQ1 = document.getElementById("preQ8");
+                        numQ2 = document.getElementById("preQ9");
+                        numQ3 = document.getElementById("preQ10");
+                        if(Boolean(numQ1.selectedIndex && numQ2.selectedIndex && numQ3.selectedIndex)){
+                                document.getElementById("next").disabled = false;
+                        }
+		}
+
+                var count = 0;
+                function grab_data(){
+                        if((numQ1.selectedIndex==1)&&(numQ2.selectedIndex==1)&&(numQ3.selectedIndex==1)){
+                                var element = document.getElementById("next");
+                                element.classList.add("continue");
+                        }else{
+                                if(!count){
+                                        d3.select("#BC")
+                				.style("text-align","center")
+                				.style("font-size","60px")
+                                                .style("color","red")
+                				.text("You only have one last try");
+                                }else{psiTurk.completeHIT();}
+                        }
+                        count+=1;
+                }
+
+	</script>
+        <h2>Conditions where xP is used:</h2>
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle report most likely low x_P?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ8" name="preQ8">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle most likely report high x_P?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ9" name="preQ9">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle most likely report x_P that is neither high or low?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ10" name="preQ10">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+
+        <div class="instructionsnav">
+            <div class="row">
+                <div class="col-xs-2">
+                	<!-- no previous button on first screen -->
+                </div>
+                <div class="col-xs-8">
+                </div>
+                <div class="col-xs-2">
+                        <!-- btn-lg continue -->
+                    <button onclick="grab_data()" type="button" id="next" value="next" class="btn btn-primary btn-lg">
+                    Next <span class="glyphicon glyphicon-arrow-right"></span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

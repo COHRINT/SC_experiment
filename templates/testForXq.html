@@ -1,0 +1,101 @@
+<div id="container-instructions">
+    <h1>Time to make sure that you've understood so far</h1>
+    <div class="instructions well">
+        <div id="BC"></div>
+
+        <script>
+                document.getElementById("next").disabled = true;
+		var numQ0, numQ1, numQ2, numQ3;
+                var str0, str1, str2, str3;
+		function respond(){
+                        numQ1 = document.getElementById("preQ6");
+                        numQ2 = document.getElementById("preQ7");
+                        if(Boolean(numQ1.selectedIndex && numQ2.selectedIndex)){
+                                document.getElementById("next").disabled = false;
+                        }
+		}
+
+                var count = 0;
+                function grab_data(){
+                        if((numQ1.selectedIndex==1)&&(numQ2.selectedIndex==1)){
+                                var element = document.getElementById("next");
+                                element.classList.add("continue");
+                        }else{
+                                if(!count){
+                                        d3.select("#BC")
+                				.style("text-align","center")
+                				.style("font-size","60px")
+                                                .style("color","red")
+                				.text("You only have one last try");
+                                }else{psiTurk.completeHIT();}
+                        }
+                        count+=1;
+                }
+
+                        // psiTurk.recordTrialData(["preQ1", "2"]);
+                        // psiTurk.recordTrialData({"preQ2" : numQ2.value,'status':'submit'});
+                        // psiTurk.recordTrialData({"preQ3" : numQ3.value,'status':'submit'});
+                        //
+                        // psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'end'});
+                        //x.style.display = "none";
+                function value_js(){
+                        var x = document.getElementById("container-instructions");
+                        console.log("say something : "+x.value);
+                        return x.value;
+                }
+
+
+
+	</script>
+        <h2>Conditions where xQ is used:</h2>
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle report most likely low x_Q?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ6" name="preQ6">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                In which of the following situations would the delivery vehicle most likely report high x_Q?
+            </div>
+            <div class="col-md-4">
+                <select onchange="respond()" id="preQ7" name="preQ7">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">4 (highest)</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 (lowest)</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+
+        <div class="instructionsnav">
+            <div class="row">
+                <div class="col-xs-2">
+                	<!-- no previous button on first screen -->
+                </div>
+                <div class="col-xs-8">
+                </div>
+                <div class="col-xs-2">
+                    <button onclick="grab_data()" type="button" id="next" value="next" class="btn btn-primary btn-lg">
+                    Next <span class="glyphicon glyphicon-arrow-right"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

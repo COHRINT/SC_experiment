@@ -17,9 +17,11 @@ var scores;
 var pages = [
 	"instructions/Introduction.html",
 	"instructions/MainInstructions.html",
-    "instructions/SCInstructions.html",
+    	"instructions/SCInstructions.html",
 	"instructions/xQInstructions.html",
 	"instructions/xPInstructions.html",
+	"testForXp.html",
+	"testForXq.html",
 	"prequestionnaire.html",
 	"stage.html",
 	"postquestionnaire.html",
@@ -29,12 +31,11 @@ var pages = [
 psiTurk.preloadPages(pages);
 
 var streamInstructionPages = [["instructions/Introduction.html","instructions/MainInstructions.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","instructions/xPInstructions.html"]]
-//var Type_value =  _.shuffle([0,1,2,3]);
-// var condition = Type_value[0]+1;
-var condition = 4
+["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html","testForXp.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html"]]
+var Type_value =  _.shuffle([0,1,2,3]);
+var condition = Type_value[0]+1;
 console.log("Condition: " + (condition));
 
 var instructionPages = streamInstructionPages[condition-1];
@@ -54,7 +55,6 @@ var instructionPages = streamInstructionPages[condition-1];
 * Pre-Questionnaire *
 ****************/
 var PreQuestionnaire = function() {
-
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
 
 	// ====TRY====
@@ -96,6 +96,8 @@ var PreQuestionnaire = function() {
 	// Load the questionnaire snippet
 	psiTurk.showPage('prequestionnaire.html');
 	psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'begin'});
+	// d3.select('#container-instructions').property('value', condition);
+	//<div id="container-instructions">
 
 	$("#next").click(function () {
 
@@ -121,7 +123,7 @@ var PreQuestionnaire = function() {
 ********************/
 var Experiment = function() {
 
-
+	var collector = 0;
 	var wordon, // time word is presented
 	    listening = false;
 
@@ -152,13 +154,13 @@ var Experiment = function() {
 	for(i in takeover)
 	{
 		stims.push([]);
-		stims[index].push(takeover[i]["xQ"].toPrecision(2));
-		stims[index].push(takeover[i]["xP"].toPrecision(2));
+		stims[index].push(takeover[i]["xQ"].toPrecision(4));
+		stims[index].push(takeover[i]["xP"].toPrecision(5));
 		stims[index].push(takeover[i]["image_file"]);
 		stims[index].push(takeover[i]["outcome"]);
 
-		console.log("xQ : "+takeover[i]["xQ"].toPrecision(2));
-		console.log("xP : "+takeover[i]["xP"].toPrecision(2));
+		console.log("xQ : "+takeover[i]["xQ"].toPrecision(4));
+		console.log("xP : "+takeover[i]["xP"].toPrecision(5));
 		console.log("Images' name : "+takeover[i]["image_file"]);
 		console.log("Outcome : "+takeover[i]["outcome"]);
 		console.log(index+" : stims : "+stims[index]);
@@ -198,7 +200,24 @@ var Experiment = function() {
 
 	var next = function() {
 		if (stims.length===0) {
-			finish();
+
+			d3.select("#Previous_Result")
+				.append("div")
+				.style("text-align","center")
+				.style("font-size","60px")
+				.text("Total Scores : "+collector);
+
+			d3.select("#Previous_Result")
+				.append("div")
+				.style("text-align","center")
+				.style("font-size","60px")
+				.text("Wait to upload questionnaire");
+
+			var delayInMilliseconds = 5000;
+			setTimeout(function() {
+			  d3.select("#Previous_Result").remove("div");
+			  finish();
+			}, delayInMilliseconds);
 		}
 		else {
 			stim = stims.shift();
@@ -248,12 +267,15 @@ var Experiment = function() {
 			if(stim[3]=="success" && response=="Up"){
 				//bool_comp=true;
 				scores=1;
+				collector+=scores;
 			}else if(stim[3]=="fail" && response=="Up"){
 				//bool_comp=true;
 				scores=-1;
+				collector+=scores;
 			}else{
 				//bool_comp=false;
 				scores=-1/4;
+				collector+=scores;
 			}
 
 
@@ -293,8 +315,6 @@ var Experiment = function() {
 
 			var delayInMilliseconds = 1500; //1.5 second
 			setTimeout(function() {
-	   		//your code to be executed after 1 second
-	   			// d3.select("#Previous_Result").remove("div");
 				remove_word();
 				next();
 	   		}, delayInMilliseconds);
@@ -310,21 +330,6 @@ var Experiment = function() {
 
 		//d3.select("#Previous_Result").select("div").remove();
 		answer=outcome;
-		// d3.select("#stim")
-		// 	.append("div")
-		// 	.attr("id","word")
-		// 	//.style("color",color)
-		// 	.style("text-align","center")
-		// 	.style("font-size","150px")
-		// 	.style("font-weight","400")
-		// 	.style("margin","20px")
-		// 	.text(text);
-
-		// var Decision_function = function(outcome,keyInformation){
-		// 	if(keyInformation=="Down"){
-		// 		display=
-		// 	}
-		// }
 
 		console.log('show_word function : '+ image);
 		console.log('outcome : '+outcome);
@@ -456,8 +461,8 @@ var Questionnaire = function() {
 	    record_responses();
 	    psiTurk.saveData({
             success: function(){
-                psiTurk.computeBonus('compute_bonus', function() {
-                	psiTurk.completeHIT(); // when finished saving compute bonus, the quit
+		psiTurk.computeBonus('compute_bonus', function() {
+	                psiTurk.completeHIT(); // when finished saving compute bonus, the quit
                 });
             },
             error: prompt_resubmit});
