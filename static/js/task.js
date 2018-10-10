@@ -193,10 +193,10 @@ var Experiment = function() {
 		count+=1;
 		console.log("count : ");
 		console.log(count);
-		// if(count>10)
-		// {
-			// break;
-		// }
+        if(count>5)
+        {
+            break;
+        }
 	}
 	console.log(stims_tmp);
 	stims = stims_tmp;
