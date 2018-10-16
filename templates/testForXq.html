@@ -5,8 +5,7 @@
 
         <script>
                 document.getElementById("next").disabled = true;
-		var numQ0, numQ1, numQ2, numQ3;
-                var str0, str1, str2, str3;
+		var numQ0, numQ1;
 		function respond(){
                         numQ1 = document.getElementById("preQ6");
                         numQ2 = document.getElementById("preQ7");
@@ -17,7 +16,7 @@
 
                 var count = 0;
                 function grab_data(){
-                        if((numQ1.selectedIndex==1)&&(numQ2.selectedIndex==1)){
+                        if((numQ1.selectedIndex==1)&&(numQ2.selectedIndex==2)){
                                 var element = document.getElementById("next");
                                 element.classList.add("continue");
                         }else{
@@ -51,16 +50,13 @@
         <!-- beginning of a question -->
         <div class="row question">
             <div class="col-md-8">
-                In which of the following situations would the delivery vehicle report most likely low x_Q?
+                From the truck’s observations, it appears that the built-in map is out of date
             </div>
             <div class="col-md-4">
                 <select onchange="respond()" id="preQ6" name="preQ6">
                         <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
+                        <option value="1">Low</option>
+                        <option value="0">High</option>
                 </select>
             </div>
         </div>
@@ -68,16 +64,13 @@
         <!-- beginning of a question -->
         <div class="row question">
             <div class="col-md-8">
-                In which of the following situations would the delivery vehicle most likely report high x_Q?
+                The destination is pretty close to the truck, and the maps are accurate
             </div>
             <div class="col-md-4">
                 <select onchange="respond()" id="preQ7" name="preQ7">
                         <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
+                        <option value="1">Low</option>
+                        <option value="0">High</option>
                 </select>
             </div>
         </div>

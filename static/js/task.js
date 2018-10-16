@@ -22,25 +22,29 @@ var pages = [
 	"instructions/xPInstructions.html",
 	"testForXp.html",
 	"testForXq.html",
+	"genericTest.html",
 	"prequestionnaire.html",
 	"stage.html",
 	"postquestionnaire.html",
-    "debriefing.html"
+	"xq_questionnaire.html",
+	"xp_questionnaire.html",
+	"xq_questionnaire.html",
+	"xqAndxp_questionnaire.html",
+    	"debriefing.html"
 ];
 
 psiTurk.preloadPages(pages);
 
-var streamInstructionPages = [["instructions/Introduction.html","instructions/MainInstructions.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html","testForXp.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html"]]
+var streamInstructionPages = [["instructions/Introduction.html","instructions/MainInstructions.html","genericTest.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html","genericTest.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"]]
 var Type_value =  _.shuffle([0,1,2,3]);
-// var condition = Type_value[0]+1;
-condition = 1;
+var condition_type = Type_value[0]+1;
+console.log("Condition: " + (condition_type));
 
-console.log("Condition: " + (condition));
 
-var instructionPages = streamInstructionPages[condition-1];
+var instructionPages = streamInstructionPages[condition_type-1];
 
 
 /********************
@@ -56,6 +60,81 @@ var instructionPages = streamInstructionPages[condition-1];
 /****************
 * Pre-Questionnaire *
 ****************/
+
+
+//Debriefing NEED TO MAKE CHANGE
+//Debriefing NEED TO MAKE CHANGE
+//Debriefing NEED TO MAKE CHANGE
+//Debriefing NEED TO MAKE CHANGE
+var Debriefing = function(){
+
+		var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+
+		// ====TRY====
+		// console.log("FFFFF");
+		// console.log(document.getElementById("engagement1").selectedIndex);
+		// ====TRY====
+
+		record_responses = function() {
+
+			psiTurk.recordTrialData({'phase':'debriefing', 'status':'submit'});
+
+			$('textarea').each( function(i, val) {
+				psiTurk.recordUnstructuredData(this.id, this.value);
+			});
+			$('select').each( function(i, val) {
+				psiTurk.recordUnstructuredData(this.id, this.value);
+			});
+
+		};
+
+
+		prompt_resubmit = function() {
+			document.body.innerHTML = error_message;
+			$("#resubmit").click(resubmit);
+		};
+
+		resubmit = function() {
+			document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
+			reprompt = setTimeout(prompt_resubmit, 10000);
+
+			psiTurk.saveData({
+				success: function() {
+				    clearInterval(reprompt);
+	                psiTurk.computeBonus('compute_bonus', function(){
+				console.log("completeHIt : "+psiTurk.completeHIT());
+	                	psiTurk.completeHIT(); // when finished saving compute bonus, the quit
+	                });
+
+
+				},
+				error: prompt_resubmit
+			});
+		};
+
+		// Load the questionnaire snippet
+		psiTurk.showPage('debriefing.html');
+		psiTurk.recordTrialData({'phase':'debriefing', 'status':'begin'});
+
+		$("#next").click(function () {
+
+
+		    record_responses();
+		    psiTurk.saveData({
+	            success: function(){
+			psiTurk.computeBonus('compute_bonus', function() {
+		                psiTurk.completeHIT(); // when finished saving compute bonus, the quit
+	                });
+	            },
+	            error: prompt_resubmit});
+		});
+};
+//Debriefing NEED TO MAKE CHANGE
+//Debriefing NEED TO MAKE CHANGE
+//Debriefing NEED TO MAKE CHANGE
+//Debriefing NEED TO MAKE CHANGE
+
+
 var PreQuestionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
 
@@ -112,6 +191,191 @@ var PreQuestionnaire = function() {
             },
             error: prompt_resubmit});
 	});
+
+};
+
+var XqAndXp_Questionnaire = function() {
+	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+
+	// ====TRY====
+	console.log("XqAndXp_Questionnaire");
+	// console.log(document.getElementById("engagement1").selectedIndex);
+	// ====TRY====
+
+	record_responses = function() {
+
+		psiTurk.recordTrialData({'phase':'XqAndXp_Questionnaire', 'status':'submit'});
+
+		$('textarea').each( function(i, val) {
+			psiTurk.recordUnstructuredData(this.id, this.value);
+		});
+		$('select').each( function(i, val) {
+			psiTurk.recordUnstructuredData(this.id, this.value);
+		});
+
+	};
+
+	prompt_resubmit = function() {
+		document.body.innerHTML = error_message;
+		$("#resubmit").click(resubmit);
+	};
+
+	resubmit = function() {
+		document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
+		reprompt = setTimeout(prompt_resubmit, 10000);
+
+		psiTurk.saveData({
+			success: function() {
+			    	clearInterval(reprompt);
+                		currentview = new Questionnaire();
+			},
+			error: prompt_resubmit
+		});
+	};
+
+	// Load the questionnaire snippet
+	psiTurk.showPage('xqAndxp_questionnaire.html');
+	psiTurk.recordTrialData({'phase':'XqAndXp_Questionnaire', 'status':'begin'});
+	// d3.select('#container-instructions').property('value', condition);
+	//<div id="container-instructions">
+
+	$("#next").click(function () {
+
+
+	    record_responses();
+	    psiTurk.saveData({
+            success: function(){
+                psiTurk.computeBonus('compute_bonus', function() {
+                	currentview = new Questionnaire(); // when finished saving compute bonus, the quit
+                });
+            },
+            error: prompt_resubmit});
+	});
+
+
+};
+
+
+var Xq_Questionnaire = function() {
+	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+
+	// ====TRY====
+	console.log("Xq_Questionnaire");
+	// console.log(document.getElementById("engagement1").selectedIndex);
+	// ====TRY====
+
+	record_responses = function() {
+
+		psiTurk.recordTrialData({'phase':'Xq_Questionnaire', 'status':'submit'});
+
+		$('textarea').each( function(i, val) {
+			psiTurk.recordUnstructuredData(this.id, this.value);
+		});
+		$('select').each( function(i, val) {
+			psiTurk.recordUnstructuredData(this.id, this.value);
+		});
+
+	};
+
+	prompt_resubmit = function() {
+		document.body.innerHTML = error_message;
+		$("#resubmit").click(resubmit);
+	};
+
+	resubmit = function() {
+		document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
+		reprompt = setTimeout(prompt_resubmit, 10000);
+
+		psiTurk.saveData({
+			success: function() {
+			    	clearInterval(reprompt);
+                		currentview = new Questionnaire();
+			},
+			error: prompt_resubmit
+		});
+	};
+
+	// Load the questionnaire snippet
+	psiTurk.showPage('xq_questionnaire.html');
+	psiTurk.recordTrialData({'phase':'Xq_Questionnaire', 'status':'begin'});
+	// d3.select('#container-instructions').property('value', condition);
+	//<div id="container-instructions">
+
+	$("#next").click(function () {
+
+
+	    record_responses();
+	    psiTurk.saveData({
+            success: function(){
+                psiTurk.computeBonus('compute_bonus', function() {
+                	currentview = new Questionnaire(); // when finished saving compute bonus, the quit
+                });
+            },
+            error: prompt_resubmit});
+	});
+
+
+};
+
+
+var Xp_Questionnaire = function() {
+	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+
+	// ====TRY====
+	console.log("Xp_Questionnaire");
+	// console.log(document.getElementById("engagement1").selectedIndex);
+	// ====TRY====
+
+	record_responses = function() {
+
+		psiTurk.recordTrialData({'phase':'Xp_Questionnaire', 'status':'submit'});
+
+		$('textarea').each( function(i, val) {
+			psiTurk.recordUnstructuredData(this.id, this.value);
+		});
+		$('select').each( function(i, val) {
+			psiTurk.recordUnstructuredData(this.id, this.value);
+		});
+
+	};
+
+	prompt_resubmit = function() {
+		document.body.innerHTML = error_message;
+		$("#resubmit").click(resubmit);
+	};
+
+	resubmit = function() {
+		document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
+		reprompt = setTimeout(prompt_resubmit, 10000);
+
+		psiTurk.saveData({
+			success: function() {
+			    	clearInterval(reprompt);
+                		currentview = new Questionnaire();
+			},
+			error: prompt_resubmit
+		});
+	};
+
+	// Load the questionnaire snippet
+	psiTurk.showPage('xp_questionnaire.html');
+	psiTurk.recordTrialData({'phase':'Xp_Questionnaire', 'status':'begin'});
+	// d3.select('#container-instructions').property('value', condition);
+	//<div id="container-instructions">
+
+	$("#next").click(function () {
+
+
+	    record_responses();
+	    psiTurk.saveData({
+            success: function(){
+                psiTurk.computeBonus('compute_bonus', function() {
+                	currentview = new Questionnaire(); // when finished saving compute bonus, the quit
+                });
+            },
+            error: prompt_resubmit});
+	});
+
 
 };
 
@@ -287,7 +551,7 @@ var Experiment = function() {
 			var rt = new Date().getTime() - wordon;
 
 			psiTurk.recordTrialData({'phase':"TEST",
-				     'userType':condition,
+				     'userType':condition_type,
                                      'outcome':stim[3],
                                      'image_name':stim[2],
                                      'response':response,
@@ -326,7 +590,16 @@ var Experiment = function() {
 
 	var finish = function() {
 	    $("body").unbind("keydown", response_handler); // Unbind keys
-	    currentview = new Questionnaire();
+	    switch(condition_type-1){
+		    case 0 : 	currentview = new Questionnaire();
+		    		break;
+		    case 1 :	currentview = new Xq_Questionnaire();
+		    		break;
+		    case 2 : 	currentview = new Xp_Questionnaire();
+		    		break;
+		    case 3 :	currentview = new XqAndXp_Questionnaire();
+		    		break;
+	    }
 	};
 
 	var show_word = function(xQ, xP,image,outcome) {
@@ -348,8 +621,8 @@ var Experiment = function() {
 		     .attr("width", 500)
 		     .attr("height", 500)
 
-		console.log("Condition : " + (condition));
-		switch(condition-1){
+		console.log("Condition : " + (condition_type));
+		switch(condition_type-1){
      			case 0:
 				break;
 			case 1:
@@ -416,7 +689,7 @@ var Questionnaire = function() {
 	// console.log("FFFFF");
 	// console.log(document.getElementById("engagement1").selectedIndex);
 	// ====TRY====
-
+	//Debriefing()
 	record_responses = function() {
 
 		psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'submit'});
@@ -440,23 +713,38 @@ var Questionnaire = function() {
 		document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
 		reprompt = setTimeout(prompt_resubmit, 10000);
 
+
 		psiTurk.saveData({
 			success: function() {
-			    clearInterval(reprompt);
-                psiTurk.computeBonus('compute_bonus', function(){
-			console.log("completeHIt : "+psiTurk.completeHIT());
-                	psiTurk.completeHIT(); // when finished saving compute bonus, the quit
-                });
-
-
+			    	clearInterval(reprompt);
+                		currentview = new Debriefing();
 			},
 			error: prompt_resubmit
 		});
+
+
+
+
+		// psiTurk.saveData({
+		// 	success: function() {
+		// 	    clearInterval(reprompt);
+                // psiTurk.computeBonus('compute_bonus', function(){
+		// 	console.log("completeHIt : "+psiTurk.completeHIT());
+                // 	psiTurk.completeHIT(); // when finished saving compute bonus, the quit
+                // });
+		//
+		//
+		// 	},
+		// 	error: prompt_resubmit
+		// });
 	};
 
 	// Load the questionnaire snippet
 	psiTurk.showPage('postquestionnaire.html');
 	psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'begin'});
+
+
+
 
 	$("#next").click(function () {
 
@@ -464,15 +752,97 @@ var Questionnaire = function() {
 	    record_responses();
 	    psiTurk.saveData({
             success: function(){
-		psiTurk.computeBonus('compute_bonus', function() {
-	                psiTurk.completeHIT(); // when finished saving compute bonus, the quit
+                psiTurk.computeBonus('compute_bonus', function() {
+                	currentview = new Debriefing(); // when finished saving compute bonus, the quit
                 });
             },
             error: prompt_resubmit});
 	});
 
+	// $("#next").click(function () {
+	//
+	//
+	//     record_responses();
+	//
+	//
+	//     psiTurk.saveData({
+        //     success: function(){
+	// 	psiTurk.computeBonus('compute_bonus', function() {
+	//                 psiTurk.completeHIT(); // when finished saving compute bonus, the quit
+        //         });
+        //     },
+        //     error: prompt_resubmit});
+	// });
+
 
 };
+
+
+// var Questionnaire = function() {
+//
+// 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+//
+// 	// ====TRY====
+// 	// console.log("FFFFF");
+// 	// console.log(document.getElementById("engagement1").selectedIndex);
+// 	// ====TRY====
+//
+// 	record_responses = function() {
+//
+// 		psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'submit'});
+//
+// 		$('textarea').each( function(i, val) {
+// 			psiTurk.recordUnstructuredData(this.id, this.value);
+// 		});
+// 		$('select').each( function(i, val) {
+// 			psiTurk.recordUnstructuredData(this.id, this.value);
+// 		});
+//
+// 	};
+//
+//
+// 	prompt_resubmit = function() {
+// 		document.body.innerHTML = error_message;
+// 		$("#resubmit").click(resubmit);
+// 	};
+//
+// 	resubmit = function() {
+// 		document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
+// 		reprompt = setTimeout(prompt_resubmit, 10000);
+//
+// 		psiTurk.saveData({
+// 			success: function() {
+// 			    clearInterval(reprompt);
+//                 psiTurk.computeBonus('compute_bonus', function(){
+// 			console.log("completeHIt : "+psiTurk.completeHIT());
+//                 	psiTurk.completeHIT(); // when finished saving compute bonus, the quit
+//                 });
+//
+//
+// 			},
+// 			error: prompt_resubmit
+// 		});
+// 	};
+//
+// 	// Load the questionnaire snippet
+// 	psiTurk.showPage('postquestionnaire.html');
+// 	psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'begin'});
+//
+// 	$("#next").click(function () {
+//
+//
+// 	    record_responses();
+// 	    psiTurk.saveData({
+//             success: function(){
+// 		psiTurk.computeBonus('compute_bonus', function() {
+// 	                psiTurk.completeHIT(); // when finished saving compute bonus, the quit
+//                 });
+//             },
+//             error: prompt_resubmit});
+// 	});
+//
+//
+// };
 
 // Task object to keep track of the current phase
 var currentview;
@@ -483,6 +853,6 @@ var currentview;
 $(window).load( function(){
     psiTurk.doInstructions(
     	instructionPages, // a list of pages you want to display in sequence
-    	function() { currentview = new PreQuestionnaire(); } // what you want to do when you are done with instructions
+    	function() { currentview = new Experiment(); } // what you want to do when you are done with instructions
     );
 });

@@ -5,20 +5,18 @@
 
         <script>
                 document.getElementById("next").disabled = true;
-		var numQ1, numQ2, numQ3;
-                var str1, str2, str3;
+		var numQ1, numQ2;
 		function respond(){
                         numQ1 = document.getElementById("preQ8");
                         numQ2 = document.getElementById("preQ9");
-                        numQ3 = document.getElementById("preQ10");
-                        if(Boolean(numQ1.selectedIndex && numQ2.selectedIndex && numQ3.selectedIndex)){
+                        if(Boolean(numQ1.selectedIndex && numQ2.selectedIndex)){
                                 document.getElementById("next").disabled = false;
                         }
 		}
 
                 var count = 0;
                 function grab_data(){
-                        if((numQ1.selectedIndex==1)&&(numQ2.selectedIndex==1)&&(numQ3.selectedIndex==1)){
+                        if((numQ1.selectedIndex==2)&&(numQ2.selectedIndex==1)){
                                 var element = document.getElementById("next");
                                 element.classList.add("continue");
                         }else{
@@ -38,16 +36,14 @@
         <!-- beginning of a question -->
         <div class="row question">
             <div class="col-md-8">
-                In which of the following situations would the delivery vehicle report most likely low x_P?
+                According to the truck’s calculations a successful delivery depends heavily on a single road having little traffic
             </div>
             <div class="col-md-4">
                 <select onchange="respond()" id="preQ8" name="preQ8">
                         <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
+                        <option value="2">Low</option>
+                        <option value="1">Neutral</option>
+                        <option value="0">High</option>
                 </select>
             </div>
         </div>
@@ -55,33 +51,14 @@
         <!-- beginning of a question -->
         <div class="row question">
             <div class="col-md-8">
-                In which of the following situations would the delivery vehicle most likely report high x_P?
+                Given the truck’s location with respect to that of the Motorcycle gang, it will be difficult to avoid the gang.
             </div>
             <div class="col-md-4">
                 <select onchange="respond()" id="preQ9" name="preQ9">
                         <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
-                </select>
-            </div>
-        </div>
-        <!-- end of a question -->
-        <!-- beginning of a question -->
-        <div class="row question">
-            <div class="col-md-8">
-                In which of the following situations would the delivery vehicle most likely report x_P that is neither high or low?
-            </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ10" name="preQ10">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">4 (highest)</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 (lowest)</option>
+                        <option value="2">Low</option>
+                        <option value="1">Neutral</option>
+                        <option value="0">High</option>
                 </select>
             </div>
         </div>
