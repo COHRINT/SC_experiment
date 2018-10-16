@@ -1,0 +1,74 @@
+<div id="container-instructions">
+    <h1>Questionnaire about Xq</h1>
+    <div class="instructions well">
+        <div id="BC"></div>
+
+        <script>
+                document.getElementById("next").disabled = true;
+		var numQ1, numQ2, numQ3, numQ4, numQ5;
+		function respond(){
+                        numQ1 = document.getElementById("XQ1");
+                        numQ2 = document.getElementById("XQ2");
+
+                        if(Boolean(numQ1.selectedIndex && numQ2.selectedIndex)){
+                                document.getElementById("next").disabled = false;
+                        }
+		}
+
+		function grab_data(){
+                        // psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'begin'});
+                        console.log(numQ1.value);
+                        console.log(numQ2.value);
+		}
+	</script>
+        <h2>Conditions</h2>
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    To what extent did the displayed metric(s) Xq assist you in making decisions?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="respond()" id="XQ1" name="XQ1">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    The displayed metric(s) Xq were easy to understand
+                </div>
+                <div class="col-md-4">
+                    <select onchange="respond()" id="XQ2" name="XQ2">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (highest)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (lowest)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+        <div class="instructionsnav">
+            <div class="row">
+                <div class="col-xs-2">
+                	<!-- no previous button on first screen -->
+                </div>
+                <div class="col-xs-8">
+                </div>
+                <div class="col-xs-2">
+                    <button onclick="grab_data()" type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
+                    Next <span class="glyphicon glyphicon-arrow-right"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,7 +5,7 @@
 <head>
         <meta charset="utf-8" />
 	<title>Debriefing</title>
-	<link rel="stylesheet" href="/static/css/task.css" type="text/css" media="screen" />
+	<!-- <link rel="stylesheet" href="/static/css/task.css" type="text/css" media="screen" /> -->
 </head>
 <body>
 	<div id="debriefing">
@@ -27,9 +27,11 @@
 					of the study.  The investigator has explained the purposes of the
 					research to me, and I feel that any questions I have asked were
 					satisfactorily answered.</p>
-					<table><tr>
+
+
+					<!-- <table><tr>
 						<td id="affirmative" onClick="javascript:document.forms['accept'].submit()">Yes, I agree.</td>
-						<td id="negative" onClick="javascript:document.forms['decline'].submit()">No, please withhold my data. I will contact the experimenter with questions.</td>
+						<td id="negative" onClick="javascript:document.forms['decline'].submit()">No, I will contact the experimenter with questions.</td>
 					</tr></table>
 					<form id="accept" action="complete" method="post">
 						<input type="hidden" name="uniqueid" value="{{ uniqueId }}" />
@@ -38,8 +40,26 @@
 					<form id="decline" action="complete" method="post">
 						<input type="hidden" name="uniqueid" value="{{ uniqueId }}" />
 						<input type="hidden" name="agree" value="false" />
-					</form>
+					</form> -->
+
 			</div>
+
+
+                        <div class="instructionsnav">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                </div>
+                                <div class="col-xs-7">
+                                </div>
+                                <div class="col-xs-3">
+
+                                    <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
+                                        Finish <span class="glyphicon glyphicon-arrow-right"></span>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
 	</div>
 </body>
 
