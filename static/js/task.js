@@ -181,7 +181,6 @@ var PreQuestionnaire = function() {
 
 	$("#next").click(function () {
 
-
 	    record_responses();
 	    psiTurk.saveData({
             success: function(){
@@ -191,7 +190,6 @@ var PreQuestionnaire = function() {
             },
             error: prompt_resubmit});
 	});
-
 
 };
 
@@ -392,8 +390,6 @@ var Experiment = function() {
 	var wordon, // time word is presented
 	    listening = false;
 
-	//var stims = ["mturk_ok_net_1.svg","mturk_ok_net_2.svg","mturk_bad_net_1.svg","mturk_bad_net_2.svg"];
-
 	var stims = [];
 	var takeover;
 
@@ -414,22 +410,27 @@ var Experiment = function() {
 	console.log(takeover);
 	console.log("element : ")
 	//console.log(takeover.two.xQ);
+    // var task_set = [1,2,3].map(String);
+    var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
 
 	var index = 0;
 	for(i in takeover)
 	{
-		stims.push([]);
-		stims[index].push(takeover[i]["xQ"].toPrecision(4));
-		stims[index].push(takeover[i]["xP"].toPrecision(5));
-		stims[index].push(takeover[i]["image_file"]);
-		stims[index].push(takeover[i]["outcome"]);
+        if (task_set.includes(i))
+        {
+            stims.push([]);
+            stims[index].push(takeover[i]["xQ"].toPrecision(4));
+            stims[index].push(takeover[i]["xP"].toPrecision(5));
+            stims[index].push(takeover[i]["image_file"]);
+            stims[index].push(takeover[i]["outcome"]);
 
-		console.log("xQ : "+takeover[i]["xQ"].toPrecision(4));
-		console.log("xP : "+takeover[i]["xP"].toPrecision(5));
-		console.log("Images' name : "+takeover[i]["image_file"]);
-		console.log("Outcome : "+takeover[i]["outcome"]);
-		console.log(index+" : stims : "+stims[index]);
-		index+=1;
+            console.log("xQ : "+takeover[i]["xQ"].toPrecision(4));
+            console.log("xP : "+takeover[i]["xP"].toPrecision(5));
+            console.log("Images' name : "+takeover[i]["image_file"]);
+            console.log("Outcome : "+takeover[i]["outcome"]);
+            console.log(index+" : stims : "+stims[index]);
+            index+=1;
+        }
 
 	}
 
@@ -455,10 +456,10 @@ var Experiment = function() {
 		count+=1;
 		console.log("count : ");
 		console.log(count);
-		if(count>10)
-		{
-			break;
-		}
+        if(count>5)
+        {
+            break;
+        }
 	}
 	console.log(stims_tmp);
 	stims = stims_tmp;
