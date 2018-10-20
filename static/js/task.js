@@ -558,10 +558,22 @@ var Experiment = function() {
 			var hit = scores;
 			var rt = new Date().getTime() - wordon;
 
+			var x = stim[2];
+	    	    	var sub_x="";
+	                var tmp="";
+
+	                for(i=12;i<x.length;i++){
+	    		    tmp=x.substring(i,i+1)
+	    		    if(tmp=="."){
+	    			    break;
+	    		    }else{sub_x=sub_x+tmp;}
+	    	    	}
+
 			psiTurk.recordTrialData({'phase':"TEST",
 				     'userType':condition_type,
                                      'outcome':stim[3],
                                      'image_name':stim[2],
+				     'image_name_number':sub_x,
                                      'response':response,
                                      'hit':hit,
                                      'rt':rt}
