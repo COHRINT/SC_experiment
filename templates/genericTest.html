@@ -12,14 +12,20 @@
                         numQ3 = document.getElementById("preQ10");
                         numQ4 = document.getElementById("preQ11");
                         numQ5 = document.getElementById("preQ12");
-                        if(Boolean(numQ1.selectedIndex && numQ2.selectedIndex && numQ3.selectedIndex && numQ4.selectedIndex && numQ5.selectedIndex)){
+                        console.log(numQ1.selectedIndex);
+                        console.log(numQ2.selectedIndex);
+                        console.log(numQ3.selectedIndex);
+                        console.log(numQ4.selectedIndex);
+                        console.log(numQ5.selectedIndex);
+
+                        if(Boolean((numQ1.selectedIndex!=-1) && (numQ2.selectedIndex!=-1) && (numQ3.selectedIndex!=-1) && (numQ4.selectedIndex!=-1) && (numQ5.selectedIndex!=-1))){
                                 document.getElementById("next").disabled = false;
                         }
 		}
 
                 var count = 0;
                 function grab_data(){
-                        if((numQ1.selectedIndex==2)&&(numQ2.selectedIndex==4)&&(numQ3.selectedIndex==3)&&(numQ4.selectedIndex==1)&&(numQ5.selectedIndex==2)){
+                        if((numQ1.selectedIndex==1)&&(numQ2.selectedIndex==3)&&(numQ3.selectedIndex==2)&&(numQ4.selectedIndex==0)&&(numQ5.selectedIndex==1)){
                                 var element = document.getElementById("next");
                                 element.classList.add("continue");
                         }else{
@@ -29,25 +35,25 @@
                 				.style("font-size","60px")
                                                 .style("color","red")
                 				.text("You only have one last try");
+                                        $('html,body').scrollTop(0);
                                 }else{psiTurk.completeHIT();}
                         }
                         count+=1;
                 }
 
 	</script>
-        <h2>Conditions where xP is used:</h2>
+        <h2>Please answer all the questions carefully</h2>
         <!-- beginning of a question -->
         <div class="row question">
             <div class="col-md-8">
                 Which of the following *most completely* describes your duties as a dispatch supervisor?
             </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ8" name="preQ8">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">Get customers their donuts!</option>
-                        <option value="3">Consider the different factors related to completing a successful delivery on time, and choose whether to attempt a delivery.</option>
-                        <option value="2">Wage a long-term battle with the motorcycle gang.</option>
-                        <option value="1">None of the above.</option>
+            <div class="col-md-4 containerdivNewLine">
+                <select onchange="respond()" id="preQ8" multiple="multiple" name="preQ8">
+                        <option value="4"> (a) Get customers their donuts!</option>
+                        <option value="3"> (b) Consider the different factors related to completing a successful delivery on time, and choose whether to attempt a delivery.</option>
+                        <option value="2"> (c) Wage a long-term battle with the motorcycle gang.</option>
+                        <option value="1"> (d) None of the above.</option>
                 </select>
             </div>
         </div>
@@ -57,13 +63,12 @@
             <div class="col-md-8">
                     Which of the following factors is *least likely* to affect the successful delivery of donuts?
             </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ9" name="preQ9">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">The likelihood of running into the motorcycle gang</option>
-                        <option value="3">The quality of the roads</option>
-                        <option value="2">How far away the customer is from the delivery truck</option>
-                        <option value="1">How many donuts the customer wants</option>
+            <div class="col-md-4 containerdivNewLine">
+                <select onchange="respond()" id="preQ9" multiple="multiple" name="preQ9">
+                        <option value="4">(a) The likelihood of running into the motorcycle gang</option>
+                        <option value="3">(b) The quality of the roads</option>
+                        <option value="2">(c) How far away the customer is from the delivery truck</option>
+                        <option value="1">(d) How many donuts the customer wants</option>
                 </select>
             </div>
         </div>
@@ -73,13 +78,12 @@
             <div class="col-md-8">
                 On the map, what does the black star represent?
             </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ10" name="preQ10">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">Delivery Truck</option>
-                        <option value="3">Last reported location of Motorcycle Gang</option>
-                        <option value="2">Destination for the delivery</option>
-                        <option value="1">Point of interest for visitors to the city</option>
+            <div class="col-md-4 containerdivNewLine">
+                <select onchange="respond()" id="preQ10" multiple="multiple" name="preQ10">
+                        <option value="4">(a) Delivery Truck</option>
+                        <option value="3">(b) Last reported location of Motorcycle Gang</option>
+                        <option value="2">(c) Destination for the delivery</option>
+                        <option value="1">(d) Point of interest for visitors to the city</option>
                 </select>
             </div>
         </div>
@@ -89,13 +93,12 @@
             <div class="col-md-8">
                 On the map, what does the green dot with a truck represent?
             </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ11" name="preQ11">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">Delivery Truck</option>
-                        <option value="3">Last reported location of Motorcycle Gang</option>
-                        <option value="2">Destination for the delivery</option>
-                        <option value="1">Point of interest for visitors to the city</option>
+            <div class="col-md-4 containerdivNewLine">
+                <select onchange="respond()" id="preQ11" multiple="multiple" name="preQ11">
+                        <option value="4">(a) Delivery Truck</option>
+                        <option value="3">(b) Last reported location of Motorcycle Gang</option>
+                        <option value="2">(c) Destination for the delivery</option>
+                        <option value="1">(d) Point of interest for visitors to the city</option>
                 </select>
             </div>
         </div>
@@ -105,13 +108,12 @@
             <div class="col-md-8">
                 On the map, what does the red dot with a motorcycle represent?
             </div>
-            <div class="col-md-4">
-                <select onchange="respond()" id="preQ12" name="preQ12">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="4">Delivery Truck</option>
-                        <option value="3">Last reported location of Motorcycle Gang</option>
-                        <option value="2">Destination for the delivery</option>
-                        <option value="1">Point of interest for visitors to the city</option>
+            <div class="col-md-4 containerdivNewLine">
+                <select onchange="respond()" id="preQ12" multiple="multiple" name="preQ12">
+                        <option value="4">(a) Delivery Truck</option>
+                        <option value="3">(b) Last reported location of Motorcycle Gang</option>
+                        <option value="2">(c) Destination for the delivery</option>
+                        <option value="1">(d) Point of interest for visitors to the city</option>
                 </select>
             </div>
         </div>

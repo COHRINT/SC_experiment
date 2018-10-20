@@ -75,3 +75,9 @@ h1 {
   padding-right: 10px;
   padding-top: 15px;
 }
+
+.containerdivNewLine {
+        clear: both;
+        float: center;
+        display: block;
+        position: relative; }

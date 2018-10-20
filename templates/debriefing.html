@@ -1,66 +1,68 @@
-<!DOCTYPE html>
+<div id="container-questionnaire">
 
 
-<html>
-<head>
-        <meta charset="utf-8" />
-	<title>Debriefing</title>
-	<!-- <link rel="stylesheet" href="/static/css/task.css" type="text/css" media="screen" /> -->
-</head>
-<body>
-	<div id="debriefing">
-		<h1>Debriefing</h1>
+     <script>
+                document.getElementById("next").disabled = true;
+                var numQ1;
+                function respond(){
+                        numQ1 = document.getElementById("debriefx");
+                        console.log("selectedIndex agreement : "+numQ1.selectedIndex);
+                        if(Boolean(numQ1.selectedIndex)){
+                                document.getElementById("next").disabled = false;
+                        }
+                }
+     </script>
 
-		<div id="debriefingtext">
-        <p>Thanks you for your participation in our study! Your anonymous data makes an important contribution to our understand of human behavior.</p>
+     <h1>Debriefing</h1>
 
-        <p>The purpose of this experiment is to explore how displaying certain information provided by an autonomous system can affect a user's behavior and trust in an autonomous system. The main goal of the study was not disclosed to you originally because it may have affected your behaviors and/or decisions during the tasks you were asked to perform.</p>
+     <div id="debriefingtext">
+     <p>Thanks you for your participation in our study! Your anonymous data makes an important contribution to our understand of human behavior.</p>
 
-       <p> The data from your participation will help us determine the effectiveness of different methods for communicating the capabilities and competency of autonomous systems. However, you should be aware that if you wish to have your data withdrawn from the study you may do so by contacting Brett Israelsen (brett.israelsen@colorado.edu), who is leading this study.</p>
+     <p>The purpose of this experiment is to explore how displaying certain information provided by an autonomous system can affect a user's behavior and trust in an autonomous system. The main goal of the study was not disclosed to you originally because it may have affected your behaviors and/or decisions during the tasks you were asked to perform.</p>
 
-       <p> Thank you for assisting with our research. Your results will be combined with around 2000 other participants to help advance the state of scientific knowledge. If you have any concerns about the experiment, or would like to learn more, please feel free to contact us using the information provided above.</p>
-		</div>
+     <p> The data from your participation will help us determine the effectiveness of different methods for communicating the capabilities and competency of autonomous systems. However, you should be aware that if you wish to have your data withdrawn from the study you may do so by contacting Brett Israelsen (brett.israelsen@colorado.edu), who is leading this study.</p>
 
-			<p class="cool">Do you agree to the following statement?</p>
-			<div id="affirmationbox">
-				<p>I feel that I have been adequately debriefed about the nature
-					of the study.  The investigator has explained the purposes of the
-					research to me, and I feel that any questions I have asked were
-					satisfactorily answered.</p>
+     <p> Thank you for assisting with our research. Your results will be combined with around 2000 other participants to help advance the state of scientific knowledge. If you have any concerns about the experiment, or would like to learn more, please feel free to contact us using the information provided above.</p>
+     </div>
+    <div class="instructions well">
+        <form id="postquiz" action="debrief" method="post">
+                <!-- beginning of a question -->
+                <div class="row question">
+                    <div class="col-md-8">
+                        Do you agree to the following statement?
+                        <p>I feel that I have been adequately debriefed about the nature
+                                of the study.  The investigator has explained the purposes of the
+                                research to me, and I feel that any questions I have asked were
+                                satisfactorily answered.</p>
+                    </div>
+                    <div class="containerdivNewLine col-md-4">
+                        <select onchange="respond()" id="debriefx" name="debriefx">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="1">Yes, I agree.</option>
+                                <option value="0">No, I will contact the experimenter with questions.</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- end of a question -->
+        </form>
+    </div>
 
+        <hr />
 
-					<!-- <table><tr>
-						<td id="affirmative" onClick="javascript:document.forms['accept'].submit()">Yes, I agree.</td>
-						<td id="negative" onClick="javascript:document.forms['decline'].submit()">No, I will contact the experimenter with questions.</td>
-					</tr></table>
-					<form id="accept" action="complete" method="post">
-						<input type="hidden" name="uniqueid" value="{{ uniqueId }}" />
-						<input type="hidden" name="agree" value="true" />
-					</form>
-					<form id="decline" action="complete" method="post">
-						<input type="hidden" name="uniqueid" value="{{ uniqueId }}" />
-						<input type="hidden" name="agree" value="false" />
-					</form> -->
+        <div class="instructionsnav">
+            <div class="row">
+                <div class="col-xs-2">
+                </div>
+                <div class="col-xs-7">
+                </div>
+                <div class="col-xs-3">
 
-			</div>
+                    <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
+                        Finish <span class="glyphicon glyphicon-arrow-right"></span>
+                    </button>
 
+                </div>
+            </div>
+        </div>
 
-                        <div class="instructionsnav">
-                            <div class="row">
-                                <div class="col-xs-2">
-                                </div>
-                                <div class="col-xs-7">
-                                </div>
-                                <div class="col-xs-3">
-
-                                    <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
-                                        Finish <span class="glyphicon glyphicon-arrow-right"></span>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
-	</div>
-</body>
-
-</html>
+</div>
