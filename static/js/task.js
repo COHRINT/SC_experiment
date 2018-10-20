@@ -43,6 +43,7 @@ var Type_value =  _.shuffle([0,1,2,3]);
 var condition_type = Type_value[0]+1;
 console.log("Condition: " + (condition_type));
 
+
 var instructionPages = streamInstructionPages[condition_type-1];
 
 
