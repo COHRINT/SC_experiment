@@ -23,7 +23,6 @@ var pages = [
 	"testForXp.html",
 	"testForXq.html",
 	"genericTest.html",
-	"prequestionnaire.html",
 	"stage.html",
 	"postquestionnaire.html",
 	"xq_questionnaire.html",
@@ -40,8 +39,8 @@ var streamInstructionPages = [["instructions/Introduction.html","instructions/Ma
 ["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"]]
 var Type_value =  _.shuffle([0,1,2,3]);
-// var condition_type = Type_value[0]+1;
-var condition_type = 1;
+var condition_type = Type_value[0]+1;
+// var condition_type = 1;
 console.log("Condition: " + (condition_type));
 
 

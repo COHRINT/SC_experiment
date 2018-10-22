@@ -10,6 +10,14 @@
 
 
         <script>
+
+        function print_opinion(){
+                var x = document.getElementById("textOpinion").value;
+                console.log("print opinion : ");
+                console.log(x);
+        }
+
+
         //Impeding fuction for going forward.
 
         //Intitial value of button
@@ -174,23 +182,6 @@
             <!-- end of a question -->
         </form>
 
-            <!-- beginning of a question -->
-            <div class="row question">
-                <div class="col-md-8">
-                    The displayed metric(s) [insert name(s)] seem to be an accurate assessment of the trucks capabilities
-                </div>
-                <div class="col-md-4">
-                    <select onchange="undisable()" id="postQ9" name="postQ9">
-                            <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
-                            <option value="3">3</option>
-                            <option value="2">2</option>
-                            <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
-                    </select>
-                </div>
-            </div>
-            <!-- end of a question -->
         <h2>Demographic</h2>
         <!-- beginning of a question -->
             <div class="row question">
@@ -242,6 +233,16 @@
                             <option value="1">1</option>
                             <option value="0">0 (lowest)</option>
                     </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    Is there anything else you would like to share?
+                </div>
+                <div class="col-md-4 containerdivNewLine">
+                    <input onclick()="print_opinion()" type="text" id="textOpinion" value="">
                 </div>
             </div>
             <!-- end of a question -->
