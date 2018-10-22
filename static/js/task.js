@@ -40,7 +40,8 @@ var streamInstructionPages = [["instructions/Introduction.html","instructions/Ma
 ["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"]]
 var Type_value =  _.shuffle([0,1,2,3]);
-var condition_type = Type_value[0]+1;
+// var condition_type = Type_value[0]+1;
+var condition_type = 1;
 console.log("Condition: " + (condition_type));
 
 
@@ -472,7 +473,7 @@ var Experiment = function() {
 				.append("div")
 				.style("text-align","center")
 				.style("font-size","60px")
-				.text("Total Scores : "+collector);
+				.text("Total Score : "+collector);
 
 			d3.select("#Previous_Result")
 				.append("div")
