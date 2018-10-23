@@ -655,27 +655,27 @@ var Experiment = function() {
 				       .append("div")
 				       .style("text-align","center")
 				       .style("font-size","35px")
-				       .text("xQ : "+xQ);
+				       .text("Solver Quality : "+xQ);
 				 break;
 			case 2:
 				d3.select("#xP")
 					.append("div")
 					.style("text-align","center")
 					.style("font-size","35px")
-					.text("xP : "+xP);
+					.text("Outcome Assessment : "+xP);
 				break;
 			case 3:
 				d3.select("#xP")
 					.append("div")
 					.style("text-align","center")
 					.style("font-size","35px")
-					.text("xP : "+xP);
+					.text("Outcome Assessment : "+xP);
 
 			 	d3.select("#xQ")
 				       .append("div")
 				       .style("text-align","center")
 				       .style("font-size","35px")
-				       .text("xQ : "+xQ);
+				       .text("Solver Quality : "+xQ);
 				break;
      		}
 	};
