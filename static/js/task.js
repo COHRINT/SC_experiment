@@ -411,8 +411,8 @@ var Experiment = function() {
 	console.log(takeover);
 	console.log("element : ")
 	//console.log(takeover.two.xQ);
-    var task_set = [1,2,3].map(String);
-    // var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
+    // var task_set = [1,2,3].map(String);
+    var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
 
 	var index = 0;
 	for(i in takeover)
@@ -424,12 +424,6 @@ var Experiment = function() {
             stims[index].push(takeover[i]["xP"].toPrecision(1));
             stims[index].push(takeover[i]["image_file"]);
             stims[index].push(takeover[i]["outcome"]);
-
-            console.log("xQ : "+takeover[i]["xQ"].toPrecision(1));
-            console.log("xP : "+takeover[i]["xP"].toPrecision(1));
-            console.log("Images' name : "+takeover[i]["image_file"]);
-            console.log("Outcome : "+takeover[i]["outcome"]);
-            console.log(index+" : stims : "+stims[index]);
             index+=1;
         }
 
@@ -444,17 +438,8 @@ var Experiment = function() {
 	var count=0;
 	for(i in stims)
 	{
-
-		console.log("from stims : ");
-		console.log(stims[i]);
 		stims_tmp.push(stims[i]);
 		count+=1;
-		console.log("count : ");
-		console.log(count);
-        //if(count>5)
-        //{
-        //    break;
-        //}
 	}
 	console.log(stims_tmp);
 	stims = stims_tmp;
