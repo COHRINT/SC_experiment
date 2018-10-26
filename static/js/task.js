@@ -411,8 +411,8 @@ var Experiment = function() {
 	console.log(takeover);
 	console.log("element : ")
 	//console.log(takeover.two.xQ);
-    // var task_set = [1,2,3].map(String);
-    var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
+    var task_set = [1,2,3].map(String);
+    // var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
 
 	var index = 0;
 	for(i in takeover)
@@ -435,16 +435,10 @@ var Experiment = function() {
 
 	}
 
-	stims = _.shuffle(stims);
-	// for(i=0;i<takeover.length;i++){
-	//
-	// }
 
-	// for(i=0;i<takeover.length;i++){
-	// 	stims.push(takeover[i][xQ]);
-	// 	console.log("dfdfd");
-	// 	console.log(takeover[i][xQ]);
-	// }
+	stims = _.shuffle(stims);
+
+
 	console.log("stims : "+stims);
 	var stims_tmp=[];
 	var count=0;

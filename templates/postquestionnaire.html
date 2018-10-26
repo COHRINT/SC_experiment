@@ -6,6 +6,17 @@
     <div class="instructions well">
         <form id="postquiz" action="debrief" method="post">
 
+        <style>
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        </style>
 
         <script>
 
@@ -29,8 +40,7 @@
                         document.getElementById("postQ3").selectedIndex && document.getElementById("postQ4").selectedIndex &&
                         document.getElementById("postQ5").selectedIndex && document.getElementById("postQ6").selectedIndex &&
                 document.getElementById("postQ7").selectedIndex && document.getElementById("postQ8").selectedIndex &&
-        document.getElementById("postQ9").selectedIndex && document.getElementById("postQ10").selectedIndex &&
-        document.getElementById("postQ11").selectedIndex
+        document.getElementById("postQ9").selectedIndex && document.getElementById("postQ10").selectedIndex
         )){
 
                                 document.getElementById("next").disabled = false;
@@ -173,7 +183,7 @@
                     What age range do you fall within?
                 </div>
                 <div class="col-md-4">
-                    <select onchange="undisable()" id="postQ9" name="postQ9">
+                    <select onchange="undisable()" id="postQ8" name="postQ8">
                             <option disabled selected value> -- select an option -- </option>
                             <option value="6">50+</option>
                             <option value="5">46-50</option>
@@ -192,7 +202,7 @@
                     To what extent are you comfortable using technology?
                 </div>
                 <div class="col-md-4">
-                    <select onchange="undisable()" id="postQ10" name="postQ10">
+                    <select onchange="undisable()" id="postQ9" name="postQ9">
                             <option disabled selected value> -- select an option -- </option>
                             <option value="4">4 (Second nature)</option>
                             <option value="3">3</option>
@@ -209,7 +219,7 @@
                     To what extent do you feel you personally rely on technology on a daily basis?
                 </div>
                 <div class="col-md-4">
-                    <select onchange="undisable()" id="postQ11" name="postQ11">
+                    <select onchange="undisable()" id="postQ10" name="postQ10">
                             <option disabled selected value> -- select an option -- </option>
                             <option value="4">4 (Necessary)</option>
                             <option value="3">3</option>
@@ -226,9 +236,7 @@
                     Is there anything else you would like to share?
                 </div>
                 <div class="col-md-4 containerdivNewLine">
-                    <!-- <input type="text" id="textOpinion" value="Nothing">
-                    <button onclick()="print_opinion()"></button> -->
-                    <input type="text" id="opinion" value="">
+                    <input type="text" id="opinion" value="" placeholder="Please put any additional opinion">
                 </div>
             </div>
             <!-- end of a question -->
