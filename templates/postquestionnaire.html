@@ -1,9 +1,7 @@
 <div id="container-questionnaire">
-    <h1>Task Complete</h1>
-
+    <h1>Questionairre</h1>
+    <h3>Please read and answer the following questions carefully. Honest responses are important for our research.</h3>
     <hr />
-
-    <p>You are finished!  Thank you for your contributions to science. You will be eligible for full payment once you answer the following questions.</p>
 
     <div class="instructions well">
         <form id="postquiz" action="debrief" method="post">
@@ -48,11 +46,11 @@
                 <div class="col-md-4">
                     <select onchange="undisable()" id="postQ1" name="postQ1">
                             <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
+                            <option value="4">4 (Very Capable)</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
+                            <option value="0">0 (Very Incapable)</option>
                     </select>
                 </div>
             </div>
@@ -67,11 +65,11 @@
                 <div class="col-md-4">
                     <select onchange="undisable()" id="postQ2" name="postQ2">
                             <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
+                            <option value="4">4 (Very Capable)</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
+                            <option value="0">0 (Very Incapable)</option>
                     </select>
                 </div>
             </div>
@@ -80,16 +78,16 @@
             <!-- beginning of a question -->
             <div class="row question">
                 <div class="col-md-8">
-                    To what extent could you rely on the delivery truck to perform is job?
+                    To what extent could you rely on the delivery truck to perform its job?
                 </div>
                 <div class="col-md-4">
                     <select onchange="undisable()" id="postQ3" name="postQ3">
                             <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
+                            <option value="4">4 (Relied heavily)</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
+                            <option value="0">0 (Not at all)</option>
                     </select>
                 </div>
             </div>
@@ -103,11 +101,11 @@
                 <div class="col-md-4">
                     <select onchange="undisable()" id="postQ4" name="postQ4">
                             <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
+                            <option value="4">4 (Very consistently)</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
+                            <option value="0">0 (Very inconsistently)</option>
                     </select>
                 </div>
             </div>
@@ -121,11 +119,11 @@
                 <div class="col-md-4">
                     <select onchange="undisable()" id="postQ5" name="postQ5">
                             <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
+                            <option value="4">4 (Very well designed)</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
+                            <option value="0">0 (Very poorly designed)</option>
                     </select>
                 </div>
             </div>
@@ -139,11 +137,11 @@
                 <div class="col-md-4">
                     <select onchange="undisable()"id="postQ6" name="postQ6">
                             <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
+                            <option value="4">4 (It's necessary)</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
+                            <option value="0">0 (It causes trouble)</option>
                     </select>
                 </div>
             </div>
@@ -157,29 +155,11 @@
                 <div class="col-md-4">
                     <select onchange="undisable()" id="postQ7" name="postQ7">
                             <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
+                            <option value="4">4 (A Lot!)</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
-                    </select>
-                </div>
-            </div>
-            <!-- end of a question -->
-
-            <!-- beginning of a question -->
-            <div class="row question">
-                <div class="col-md-8">
-                    To what extent to you trust the delivery truck?
-                </div>
-                <div class="col-md-4">
-                    <select onchange="undisable()" id="postQ8" name="postQ8">
-                            <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
-                            <option value="3">3</option>
-                            <option value="2">2</option>
-                            <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
+                            <option value="0">0 (Not at all!)</option>
                     </select>
                 </div>
             </div>
@@ -214,11 +194,11 @@
                 <div class="col-md-4">
                     <select onchange="undisable()" id="postQ10" name="postQ10">
                             <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
+                            <option value="4">4 (Second nature)</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
+                            <option value="0">0 (Avoid it)</option>
                     </select>
                 </div>
             </div>
@@ -231,11 +211,11 @@
                 <div class="col-md-4">
                     <select onchange="undisable()" id="postQ11" name="postQ11">
                             <option disabled selected value> -- select an option -- </option>
-                            <option value="4">4 (highest)</option>
+                            <option value="4">4 (Necessary)</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                            <option value="0">0 (lowest)</option>
+                            <option value="0">0 (Unnecessary)</option>
                     </select>
                 </div>
             </div>

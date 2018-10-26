@@ -420,13 +420,13 @@ var Experiment = function() {
         if (task_set.includes(i))
         {
             stims.push([]);
-            stims[index].push(takeover[i]["xQ"].toPrecision(4));
-            stims[index].push(takeover[i]["xP"].toPrecision(5));
+            stims[index].push(takeover[i]["xQ"].toPrecision(1));
+            stims[index].push(takeover[i]["xP"].toPrecision(1));
             stims[index].push(takeover[i]["image_file"]);
             stims[index].push(takeover[i]["outcome"]);
 
-            console.log("xQ : "+takeover[i]["xQ"].toPrecision(4));
-            console.log("xP : "+takeover[i]["xP"].toPrecision(5));
+            console.log("xQ : "+takeover[i]["xQ"].toPrecision(1));
+            console.log("xP : "+takeover[i]["xP"].toPrecision(1));
             console.log("Images' name : "+takeover[i]["image_file"]);
             console.log("Outcome : "+takeover[i]["outcome"]);
             console.log(index+" : stims : "+stims[index]);
@@ -457,10 +457,10 @@ var Experiment = function() {
 		count+=1;
 		console.log("count : ");
 		console.log(count);
-        if(count>5)
-        {
-            break;
-        }
+        //if(count>5)
+        //{
+        //    break;
+        //}
 	}
 	console.log(stims_tmp);
 	stims = stims_tmp;
@@ -655,27 +655,27 @@ var Experiment = function() {
 				       .append("div")
 				       .style("text-align","center")
 				       .style("font-size","35px")
-				       .text("xQ : "+xQ);
+				       .text("Solver Quality : "+xQ);
 				 break;
 			case 2:
 				d3.select("#xP")
 					.append("div")
 					.style("text-align","center")
 					.style("font-size","35px")
-					.text("xP : "+xP);
+					.text("Outcome Assessment : "+xP);
 				break;
 			case 3:
 				d3.select("#xP")
 					.append("div")
 					.style("text-align","center")
 					.style("font-size","35px")
-					.text("xP : "+xP);
+					.text("Outcome Assessment : "+xP);
 
 			 	d3.select("#xQ")
 				       .append("div")
 				       .style("text-align","center")
 				       .style("font-size","35px")
-				       .text("xQ : "+xQ);
+				       .text("Solver Quality : "+xQ);
 				break;
      		}
 	};
