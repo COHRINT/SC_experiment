@@ -725,6 +725,10 @@ var Questionnaire = function() {
 		$('select').each( function(i, val) {
 			psiTurk.recordUnstructuredData(this.id, this.value);
 		});
+		$('input').each(function(i,val){
+			psiTurk.recordUnstructuredData(this.id, this.value);
+		});
+
 
 	};
 
