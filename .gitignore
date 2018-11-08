@@ -1,3 +1,6 @@
+# R files
+.RData
+.Rhistory
 # server
 server.log
 
