@@ -457,7 +457,7 @@ var Experiment = function() {
 				.append("div")
 				.style("text-align","center")
 				.style("font-size","60px")
-				.text("Wait to upload questionnaire");
+				.text("Please Wait While We Load The Final Survey");
 
 			var delayInMilliseconds = 5000;
 			setTimeout(function() {
