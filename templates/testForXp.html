@@ -6,6 +6,12 @@
 
         <script>
                 document.getElementById("next").disabled = true;
+
+                x1=document.getElementById("ShowpreQ8");
+                x2=document.getElementById("ShowpreQ9");
+                x1.style.display = "none"
+                x2.style.display = "none"
+
 		var numQ1, numQ2;
 		function respond(){
                         numQ1 = document.getElementById("preQ8");
@@ -28,6 +34,12 @@
                                                 .style("color","red")
                 				.text("Please try again. You have one more attempt.");
                                         $('html,body').scrollTop(0);
+                                        if(numQ1.selectedIndex!=2){
+                                                x1.style.display = "block";
+                                        }
+                                        if(numQ2.selectedIndex!=1){
+                                                x2.style.display = "block";
+                                        }
                                 }else{psiTurk.completeHIT();}
                         }
                         count+=1;
@@ -39,6 +51,7 @@
                 According to the truck’s calculations a successful delivery depends heavily on a single road having little traffic
             </div>
             <div class="col-md-4">
+                <div id="ShowpreQ8"><font color="red">Wrong!</font></div>
                 <select onchange="respond()" id="preQ8" name="preQ8">
                         <option disabled selected value> -- select an option -- </option>
                         <option value="2">Low</option>
@@ -54,6 +67,7 @@
                 Given the truck’s location with respect to that of the Motorcycle gang, it will be difficult to avoid the gang.
             </div>
             <div class="col-md-4">
+                <div id="ShowpreQ9"><font color="red">Wrong!</font></div>
                 <select onchange="respond()" id="preQ9" name="preQ9">
                         <option disabled selected value> -- select an option -- </option>
                         <option value="2">Low</option>

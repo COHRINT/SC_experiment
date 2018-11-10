@@ -61,19 +61,9 @@ var instructionPages = streamInstructionPages[condition_type-1];
 * Pre-Questionnaire *
 ****************/
 
-
-//Debriefing NEED TO MAKE CHANGE
-//Debriefing NEED TO MAKE CHANGE
-//Debriefing NEED TO MAKE CHANGE
-//Debriefing NEED TO MAKE CHANGE
 var Debriefing = function(){
 
 		var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-
-		// ====TRY====
-		// console.log("FFFFF");
-		// console.log(document.getElementById("engagement1").selectedIndex);
-		// ====TRY====
 
 		record_responses = function() {
 
@@ -102,7 +92,6 @@ var Debriefing = function(){
 				success: function() {
 				    clearInterval(reprompt);
 	                psiTurk.computeBonus('compute_bonus', function(){
-				console.log("completeHIt : "+psiTurk.completeHIT());
 	                	psiTurk.completeHIT(); // when finished saving compute bonus, the quit
 	                });
 
@@ -129,19 +118,9 @@ var Debriefing = function(){
 	            error: prompt_resubmit});
 		});
 };
-//Debriefing NEED TO MAKE CHANGE
-//Debriefing NEED TO MAKE CHANGE
-//Debriefing NEED TO MAKE CHANGE
-//Debriefing NEED TO MAKE CHANGE
-
 
 var PreQuestionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-
-	// ====TRY====
-	// console.log("FFFFF");
-	// console.log(document.getElementById("engagement1").selectedIndex);
-	// ====TRY====
 
 	record_responses = function() {
 
@@ -173,13 +152,8 @@ var PreQuestionnaire = function() {
 			error: prompt_resubmit
 		});
 	};
-
-	// Load the questionnaire snippet
 	psiTurk.showPage('prequestionnaire.html');
 	psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'begin'});
-	// d3.select('#container-instructions').property('value', condition);
-	//<div id="container-instructions">
-
 	$("#next").click(function () {
 
 	    record_responses();
@@ -196,11 +170,6 @@ var PreQuestionnaire = function() {
 
 var XqAndXp_Questionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-
-	// ====TRY====
-	console.log("XqAndXp_Questionnaire");
-	// console.log(document.getElementById("engagement1").selectedIndex);
-	// ====TRY====
 
 	record_responses = function() {
 
@@ -236,8 +205,6 @@ var XqAndXp_Questionnaire = function() {
 	// Load the questionnaire snippet
 	psiTurk.showPage('xqAndxp_questionnaire.html');
 	psiTurk.recordTrialData({'phase':'XqAndXp_Questionnaire', 'status':'begin'});
-	// d3.select('#container-instructions').property('value', condition);
-	//<div id="container-instructions">
 
 	$("#next").click(function () {
 
@@ -258,12 +225,6 @@ var XqAndXp_Questionnaire = function() {
 
 var Xq_Questionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-
-	// ====TRY====
-	console.log("Xq_Questionnaire");
-	// console.log(document.getElementById("engagement1").selectedIndex);
-	// ====TRY====
-
 	record_responses = function() {
 
 		psiTurk.recordTrialData({'phase':'Xq_Questionnaire', 'status':'submit'});
@@ -320,11 +281,6 @@ var Xq_Questionnaire = function() {
 
 var Xp_Questionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-
-	// ====TRY====
-	console.log("Xp_Questionnaire");
-	// console.log(document.getElementById("engagement1").selectedIndex);
-	// ====TRY====
 
 	record_responses = function() {
 
@@ -407,10 +363,6 @@ var Experiment = function() {
 	function callback(data){
 		takeover= data;
 	}
-	console.log("takeover : ");
-	console.log(takeover);
-	console.log("element : ")
-	//console.log(takeover.two.xQ);
     var task_set = [1,2,3].map(String);
     // var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
 
@@ -431,9 +383,6 @@ var Experiment = function() {
 
 
 	stims = _.shuffle(stims);
-
-
-	console.log("stims : "+stims);
 	var stims_tmp=[];
 	var count=0;
 	for(i in stims)
@@ -441,7 +390,6 @@ var Experiment = function() {
 		stims_tmp.push(stims[i]);
 		count+=1;
 	}
-	console.log(stims_tmp);
 	stims = stims_tmp;
 
 	var next = function() {
@@ -561,7 +509,6 @@ var Experiment = function() {
 			remove_word();
 			var color={"fail":"red","success":"green"};
 			var context={"fail":"Delivery Failed (-1)","success":"Delivery Success (+1)"};
-			console.log("fail : ",color["fail"]);
 			if(Math.abs(scores)==1){
 				d3.select("#Previous_Result")
 				       .append("div")
@@ -576,8 +523,6 @@ var Experiment = function() {
 				       .style("font-size","60px")
 				       .text("Delivery Declined (-1/4)");
 			}
-
-			console.log("Solution is "+answer);
 
 			var delayInMilliseconds = 1500; //1.5 second
 			setTimeout(function() {
@@ -607,25 +552,12 @@ var Experiment = function() {
 	};
 
 	var show_word = function(xQ, xP,image,outcome) {
-
-		//d3.select("#Previous_Result").select("div").remove();
 		answer=outcome;
-
-		console.log('show_word function : '+ image);
-		console.log('outcome : '+outcome);
-		console.log('scores : '+scores);
-		// console.log('Outcome');
-		// console.log(outcome);
-		// var x = document.getElementById("stim");
-		// x.setAttribute("src","{{ server_location }}/static/images/"+text);
-		//https://upload.wikimedia.org/wikipedia/commons/4/4f/Start11.png
 
 		d3.select("#game_pics").append("img")
 		     .attr("src","../static/images/game_pictures/"+image)
 		     .attr("width", 500)
 		     .attr("height", 500)
-
-		console.log("Condition : " + (condition_type));
 		switch(condition_type-1){
      			case 0:
 				break;
@@ -688,12 +620,6 @@ var Experiment = function() {
 var Questionnaire = function() {
 
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-
-	// ====TRY====
-	// console.log("FFFFF");
-	// console.log(document.getElementById("engagement1").selectedIndex);
-	// ====TRY====
-	//Debriefing()
 	record_responses = function() {
 
 		psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'submit'});

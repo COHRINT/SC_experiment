@@ -6,6 +6,13 @@
 
         <script>
                 document.getElementById("next").disabled = true;
+
+                x1=document.getElementById("ShowpreQ6");
+                x2=document.getElementById("ShowpreQ7");
+                x1.style.display = "none"
+                x2.style.display = "none"
+
+
 		var numQ0, numQ1;
 		function respond(){
                         numQ1 = document.getElementById("preQ6");
@@ -28,24 +35,21 @@
                                                 .style("color","red")
                 				.text("Please try again. You have one more attempt.");
                                         $('html,body').scrollTop(0);
+                                        if(numQ1.selectedIndex!=1){
+                                                x1.style.display = "block";
+                                        }
+                                        if(numQ2.selectedIndex!=2){
+                                                x2.style.display = "block";
+                                        }
                                 }else{psiTurk.completeHIT();}
                         }
                         count+=1;
                 }
-
-                        // psiTurk.recordTrialData(["preQ1", "2"]);
-                        // psiTurk.recordTrialData({"preQ2" : numQ2.value,'status':'submit'});
-                        // psiTurk.recordTrialData({"preQ3" : numQ3.value,'status':'submit'});
-                        //
-                        // psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'end'});
-                        //x.style.display = "none";
                 function value_js(){
                         var x = document.getElementById("container-instructions");
                         console.log("say something : "+x.value);
                         return x.value;
                 }
-
-
 
 	</script>
         <!-- beginning of a question -->
@@ -54,6 +58,7 @@
                 From the truck’s observations, it appears that the built-in map is out of date
             </div>
             <div class="col-md-4">
+                <div id="ShowpreQ6"><font color="red">Wrong!</font></div>
                 <select onchange="respond()" id="preQ6" name="preQ6">
                         <option disabled selected value> -- select an option -- </option>
                         <option value="1">Low</option>
@@ -68,6 +73,7 @@
                 The destination is pretty close to the truck, and the maps are accurate
             </div>
             <div class="col-md-4">
+                <div id="ShowpreQ7"><font color="red">Wrong!</font></div>
                 <select onchange="respond()" id="preQ7" name="preQ7">
                         <option disabled selected value> -- select an option -- </option>
                         <option value="1">Low</option>

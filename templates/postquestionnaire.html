@@ -19,20 +19,10 @@
         </style>
 
         <script>
-
-        // function print_opinion(){
-        //         var x = document.getElementById("textOpinion").value;
-        //         console.log("print opinion : ");
-        //         console.log(x);
-        // }
         function myFunction() {
             var x = document.getElementById("myText").value;
             console.log(x);
         }
-
-
-        //Impeding fuction for going forward.
-
         //Intitial value of button
         document.getElementById("next").disabled = true;
         function undisable(){
@@ -40,7 +30,7 @@
                         document.getElementById("postQ3").selectedIndex && document.getElementById("postQ4").selectedIndex &&
                         document.getElementById("postQ5").selectedIndex && document.getElementById("postQ6").selectedIndex &&
                 document.getElementById("postQ7").selectedIndex && document.getElementById("postQ8").selectedIndex &&
-        document.getElementById("postQ9").selectedIndex && document.getElementById("postQ10").selectedIndex
+        document.getElementById("postQ9").selectedIndex && document.getElementById("postQ10").selectedIndex && document.getElementById("postQ11").selectedIndex
         )){
 
                                 document.getElementById("next").disabled = false;
@@ -226,6 +216,21 @@
                             <option value="2">2</option>
                             <option value="1">1</option>
                             <option value="0">0 (Unnecessary)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    What is the most suitable to identify you?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="undisable()" id="postQ11" name="postQ11">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="2">Male</option>
+                            <option value="1">Female</option>
+                            <option value="0">I would rather not to say</option>
                     </select>
                 </div>
             </div>

@@ -6,6 +6,20 @@
 
         <script>
                 document.getElementById("next").disabled = true;
+
+                x1=document.getElementById("ShowpreQ8");
+                x2=document.getElementById("ShowpreQ9");
+                x3=document.getElementById("ShowpreQ10");
+                x4=document.getElementById("ShowpreQ11");
+                x5=document.getElementById("ShowpreQ12");
+
+
+                x1.style.display = "none"
+                x2.style.display = "none"
+                x3.style.display = "none"
+                x4.style.display = "none"
+                x5.style.display = "none"
+
 		var numQ1, numQ2, numQ3, numQ4, numQ5;
 		function respond(){
                         numQ1 = document.getElementById("preQ8");
@@ -13,11 +27,6 @@
                         numQ3 = document.getElementById("preQ10");
                         numQ4 = document.getElementById("preQ11");
                         numQ5 = document.getElementById("preQ12");
-                        console.log(numQ1.selectedIndex);
-                        console.log(numQ2.selectedIndex);
-                        console.log(numQ3.selectedIndex);
-                        console.log(numQ4.selectedIndex);
-                        console.log(numQ5.selectedIndex);
 
                         if(Boolean((numQ1.selectedIndex!=-1) && (numQ2.selectedIndex!=-1) && (numQ3.selectedIndex!=-1) && (numQ4.selectedIndex!=-1) && (numQ5.selectedIndex!=-1))){
                                 document.getElementById("next").disabled = false;
@@ -36,7 +45,25 @@
                 				.style("font-size","60px")
                                                 .style("color","red")
                 				.text("You only have one more try");
+
                                         $('html,body').scrollTop(0);
+
+                                        if(numQ1.selectedIndex!=1){
+                                                x1.style.display = "block";
+                                        }
+                                        if(numQ2.selectedIndex!=3){
+                                                x2.style.display = "block";
+                                        }
+                                        if(numQ3.selectedIndex!=2){
+                                                x3.style.display = "block";
+                                        }
+                                        if(numQ4.selectedIndex!=0){
+                                                x4.style.display = "block";
+                                        }
+                                        if(numQ5.selectedIndex!=1){
+                                                x5.style.display = "block";
+                                        }
+
                                 }else{psiTurk.completeHIT();}
                         }
                         count+=1;
@@ -49,6 +76,7 @@
                 Which of the following *most completely* describes your duties as a dispatch supervisor?
             </div>
             <div class="col-md-4 containerdivNewLine">
+                <div id="ShowpreQ8"><font color="red">Wrong!</font></div>
                 <select onchange="respond()" id="preQ8" multiple="multiple" name="preQ8">
                         <option value="4"> (a) Send customers their donuts!</option>
                         <option value="3"> (b) Decide whether to make deliveries after considering relevant information.</option>
@@ -64,6 +92,7 @@
                     Which of the following factors is *least likely* to affect the successful delivery of donuts?
             </div>
             <div class="col-md-4 containerdivNewLine">
+                <div id="ShowpreQ9"><font color="red">Wrong!</font></div>
                 <select onchange="respond()" id="preQ9" multiple="multiple" name="preQ9">
                         <option value="4">(a) The likelihood of running into the motorcycle gang</option>
                         <option value="3">(b) The quality of the roads</option>
@@ -79,6 +108,7 @@
                 On the map, what does the black star represent?
             </div>
             <div class="col-md-4 containerdivNewLine">
+                <div id="ShowpreQ10"><font color="red">Wrong!</font></div>
                 <select onchange="respond()" id="preQ10" multiple="multiple" name="preQ10">
                         <option value="4">(a) Delivery Truck</option>
                         <option value="3">(b) Last reported location of Motorcycle Gang</option>
@@ -94,6 +124,7 @@
                 On the map, what does the green dot with a truck represent?
             </div>
             <div class="col-md-4 containerdivNewLine">
+                <div id="ShowpreQ11"><font color="red">Wrong!</font></div>
                 <select onchange="respond()" id="preQ11" multiple="multiple" name="preQ11">
                         <option value="4">(a) Delivery Truck</option>
                         <option value="3">(b) Last reported location of Motorcycle Gang</option>
@@ -109,6 +140,7 @@
                 On the map, what does the red dot with a motorcycle represent?
             </div>
             <div class="col-md-4 containerdivNewLine">
+                <div id="ShowpreQ12"><font color="red">Wrong!</font></div>
                 <select onchange="respond()" id="preQ12" multiple="multiple" name="preQ12">
                         <option value="4">(a) Delivery Truck</option>
                         <option value="3">(b) Last reported location of Motorcycle Gang</option>
