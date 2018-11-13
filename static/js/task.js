@@ -500,8 +500,10 @@ var Experiment = function() {
 
 		d3.select("#game_pics").append("img")
 		     .attr("src","../static/images/game_pictures/"+image)
-		     .attr("width", 500)
-		     .attr("height", 720)
+		     .attr("width", 400)
+		     .attr("height", 400)
+		xQ_text = "Solver Quality: "
+		xP_text = "Outcome Assessment: "
 		switch(condition_type-1){
      			case 0:
 				break;
@@ -510,27 +512,27 @@ var Experiment = function() {
 				       .append("div")
 				       .style("text-align","center")
 				       .style("font-size","35px")
-				       .text("Solver Quality (0.0 to 2.0) : "+xQ);
+				       .text(xQ_text+xQ);
 				 break;
 			case 2:
 				d3.select("#xP")
 					.append("div")
 					.style("text-align","center")
 					.style("font-size","35px")
-					.text("Outcome Assessment (-1.0 to 1.0): "+xP);
+					.text(xP_text+xP);
 				break;
 			case 3:
 				d3.select("#xP")
 					.append("div")
 					.style("text-align","center")
 					.style("font-size","35px")
-					.text("Outcome Assessment : "+xP);
+					.text(xP_text+xP);
 
 			 	d3.select("#xQ")
 				       .append("div")
 				       .style("text-align","center")
 				       .style("font-size","35px")
-				       .text("Solver Quality : "+xQ);
+				       .text(xQ_text+xQ);
 				break;
      		}
 	};
