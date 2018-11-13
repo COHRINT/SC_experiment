@@ -66,6 +66,11 @@ var Debriefing = function(){
 
 		var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
 
+        // scroll to top of page
+        $(function() {
+        $('body').scrollTop(0);
+        });
+
 		record_responses = function() {
 
 			psiTurk.recordTrialData({'phase':'debriefing', 'status':'submit'});
@@ -111,6 +116,11 @@ var Debriefing = function(){
 var PreQuestionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
 
+        // scroll to top of page
+        $(function() {
+        $('body').scrollTop(0);
+        });
+
 	record_responses = function() {
 
 		psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'submit'});
@@ -154,6 +164,11 @@ var PreQuestionnaire = function() {
 
 var XqAndXp_Questionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+
+        // scroll to top of page
+        $(function() {
+        $('body').scrollTop(0);
+        });
 
 	record_responses = function() {
 
@@ -203,6 +218,12 @@ var XqAndXp_Questionnaire = function() {
 
 var Xq_Questionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+    
+        // scroll to top of page
+        $(function() {
+        $('body').scrollTop(0);
+        });
+
 	record_responses = function() {
 
 		psiTurk.recordTrialData({'phase':'Xq_Questionnaire', 'status':'submit'});
@@ -253,6 +274,11 @@ var Xq_Questionnaire = function() {
 
 var Xp_Questionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+    
+    // scroll to top of page
+    $(function() {
+    $('body').scrollTop(0);
+    });
 
 	record_responses = function() {
 
@@ -301,6 +327,10 @@ var Xp_Questionnaire = function() {
 * Experiment TEST       *
 ********************/
 var Experiment = function() {
+    // scroll to top of page
+    $(function() {
+    $('body').scrollTop(0);
+    });
 
 	var collector = 0;
 	var wordon, // time word is presented
@@ -567,6 +597,12 @@ var Experiment = function() {
 var Questionnaire = function() {
 
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+    
+        // scroll to top of page
+        $(function() {
+        $('body').scrollTop(0);
+        });
+
 	record_responses = function() {
 
 		psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'submit'});
@@ -614,13 +650,6 @@ var Questionnaire = function() {
         psiTurk.saveData({
             success: new Debriefing(),
             error: prompt_resubmit});
-		// psiTurk.saveData({
-            // success: function(){
-                // psiTurk.computeBonus('compute_bonus', function() {
-                    // currentview = new Debriefing(); // when finished saving compute bonus, the quit
-                // });
-            // },
-            // error: prompt_resubmit});
 	});
 };
 
