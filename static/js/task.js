@@ -17,7 +17,7 @@ var scores;
 var pages = [
 	"instructions/Introduction.html",
 	"instructions/MainInstructions.html",
-    	"instructions/SCInstructions.html",
+   	"instructions/SCInstructions.html",
 	"instructions/xQInstructions.html",
 	"instructions/xPInstructions.html",
 	"testForXp.html",
@@ -29,7 +29,7 @@ var pages = [
 	"xp_questionnaire.html",
 	"xq_questionnaire.html",
 	"xqAndxp_questionnaire.html",
-    	"debriefing.html"
+   	"debriefing.html"
 ];
 
 psiTurk.preloadPages(pages);
@@ -39,8 +39,8 @@ var streamInstructionPages = [["instructions/Introduction.html","instructions/Ma
 ["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"]]
 var Type_value =  _.shuffle([0,1,2,3]);
-var condition_type = Type_value[0]+1;
-// var condition_type = 1;
+// var condition_type = Type_value[0]+1;
+var condition_type = 1;
 console.log("Condition: " + (condition_type));
 
 
@@ -88,17 +88,9 @@ var Debriefing = function(){
 			document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
 			reprompt = setTimeout(prompt_resubmit, 10000);
 
-			psiTurk.saveData({
-				success: function() {
-				    clearInterval(reprompt);
-	                psiTurk.computeBonus('compute_bonus', function(){
-	                	psiTurk.completeHIT(); // when finished saving compute bonus, the quit
-	                });
-
-
-				},
-				error: prompt_resubmit
-			});
+            psiTurk.saveData({
+                success: psiTurk.completeHIT(),
+                error: prompt_resubmit});
 		};
 
 		// Load the questionnaire snippet
@@ -106,17 +98,13 @@ var Debriefing = function(){
 		psiTurk.recordTrialData({'phase':'debriefing', 'status':'begin'});
 
 		$("#next").click(function () {
-
-
 		    record_responses();
-		    psiTurk.saveData({
-	            success: function(){
-			psiTurk.computeBonus('compute_bonus', function() {
-		                psiTurk.completeHIT(); // when finished saving compute bonus, the quit
-	                });
-	            },
-	            error: prompt_resubmit});
-		});
+            psiTurk.saveData({
+                success: function(){
+                            psiTurk.computeBonus('compute_bonus', function(){
+                            psiTurk.completeHIT()})},
+                error: prompt_resubmit});
+        });
 };
 
 var PreQuestionnaire = function() {
@@ -155,15 +143,10 @@ var PreQuestionnaire = function() {
 	psiTurk.showPage('prequestionnaire.html');
 	psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'begin'});
 	$("#next").click(function () {
-
 	    record_responses();
-	    psiTurk.saveData({
-            success: function(){
-                psiTurk.computeBonus('compute_bonus', function() {
-                	currentview = new Experiment(); // when finished saving compute bonus, the quit
-                });
-            },
-            error: prompt_resubmit});
+            psiTurk.saveData({
+                success: new Experiment(),
+                error: prompt_resubmit});
 	});
 
 };
@@ -207,16 +190,10 @@ var XqAndXp_Questionnaire = function() {
 	psiTurk.recordTrialData({'phase':'XqAndXp_Questionnaire', 'status':'begin'});
 
 	$("#next").click(function () {
-
-
 	    record_responses();
-	    psiTurk.saveData({
-            success: function(){
-                psiTurk.computeBonus('compute_bonus', function() {
-                	currentview = new Questionnaire(); // when finished saving compute bonus, the quit
-                });
-            },
-            error: prompt_resubmit});
+            psiTurk.saveData({
+                success: new Questionnaire(),
+                error: prompt_resubmit});
 	});
 
 
@@ -259,20 +236,14 @@ var Xq_Questionnaire = function() {
 	// Load the questionnaire snippet
 	psiTurk.showPage('xq_questionnaire.html');
 	psiTurk.recordTrialData({'phase':'Xq_Questionnaire', 'status':'begin'});
-	// d3.select('#container-instructions').property('value', condition);
-	//<div id="container-instructions">
 
 	$("#next").click(function () {
 
 
 	    record_responses();
-	    psiTurk.saveData({
-            success: function(){
-                psiTurk.computeBonus('compute_bonus', function() {
-                	currentview = new Questionnaire(); // when finished saving compute bonus, the quit
-                });
-            },
-            error: prompt_resubmit});
+            psiTurk.saveData({
+                success: new Questionnaire(),
+                error: prompt_resubmit});
 	});
 
 
@@ -316,27 +287,14 @@ var Xp_Questionnaire = function() {
 	// Load the questionnaire snippet
 	psiTurk.showPage('xp_questionnaire.html');
 	psiTurk.recordTrialData({'phase':'Xp_Questionnaire', 'status':'begin'});
-	// d3.select('#container-instructions').property('value', condition);
-	//<div id="container-instructions">
 
 	$("#next").click(function () {
-
-
 	    record_responses();
-	    psiTurk.saveData({
-            success: function(){
-                psiTurk.computeBonus('compute_bonus', function() {
-                	currentview = new Questionnaire(); // when finished saving compute bonus, the quit
-                });
-            },
+        psiTurk.saveData({
+            success: new Questionnaire(),
             error: prompt_resubmit});
 	});
-
-
 };
-
-
-
 
 /********************
 * Experiment TEST       *
@@ -351,7 +309,6 @@ var Experiment = function() {
 	var takeover;
 
 	// //Need to set async to False.
-	//
 	$.ajax({
 	    type: "GET",
 	    url: "json/support.json",
@@ -419,19 +376,8 @@ var Experiment = function() {
 			wordon = new Date().getTime();
 			listening = true;
 		}
+        psiTurk.recordUnstructuredData("total_score",collector);
 	};
-
-	// d3.select("#Previous_Result")
-	//        .append("div")
-	//        .style("text-align","center")
-	//        .style("font-size","35px")
-	//        .text("Previous Result : "+answer);
-	//
-	// var delayInMilliseconds = 3000; //3 second
-	// setTimeout(function() {
-	//   //your code to be executed after 1 second
-	//   d3.select("#Previous_Result").remove("div");
-	// }, delayInMilliseconds);
 
 	var response_handler = function(e) {
 		if (!listening) return;
@@ -497,10 +443,10 @@ var Experiment = function() {
 	    	    	}
 
 			psiTurk.recordTrialData({'phase':"TEST",
-				     'userType':condition_type,
+	                			     'userType':condition_type,
                                      'outcome':stim[3],
                                      'image_name':stim[2],
-				     'image_name_number':sub_x,
+				                     'image_name_number':sub_x,
                                      'response':response,
                                      'hit':hit,
                                      'rt':rt}
@@ -534,10 +480,7 @@ var Experiment = function() {
 
 	var finish = function() {
 
-	    // $(document).ready(function(){
 	    $("body").unbind("keydown", response_handler); // Unbind keys
-
-	    // });
 
 	    switch(condition_type-1){
 		    case 0 : 	currentview = new Questionnaire();
@@ -610,6 +553,7 @@ var Experiment = function() {
 
 	// Start the test
 	next();
+
 };
 
 
@@ -633,7 +577,6 @@ var Questionnaire = function() {
 		$('input').each(function(i,val){
 			psiTurk.recordUnstructuredData(this.id, this.value);
 		});
-
 
 	};
 
@@ -661,20 +604,20 @@ var Questionnaire = function() {
 	psiTurk.showPage('postquestionnaire.html');
 	psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'begin'});
 
-
-
-
 	$("#next").click(function () {
 
 
 	    record_responses();
-	    psiTurk.saveData({
-            success: function(){
-                psiTurk.computeBonus('compute_bonus', function() {
-                	currentview = new Debriefing(); // when finished saving compute bonus, the quit
-                });
-            },
+        psiTurk.saveData({
+            success: new Debriefing(),
             error: prompt_resubmit});
+		// psiTurk.saveData({
+            // success: function(){
+                // psiTurk.computeBonus('compute_bonus', function() {
+                    // currentview = new Debriefing(); // when finished saving compute bonus, the quit
+                // });
+            // },
+            // error: prompt_resubmit});
 	});
 };
 

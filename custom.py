@@ -34,7 +34,7 @@ custom_code = Blueprint('custom_code', __name__, template_folder='templates', st
 #----------------------------------------------
 @custom_code.route('/my_custom_view')
 def my_custom_view():
-	current_app.logger.info("Reached /my_custom_view")  # Print message to server.log for debugging 
+	current_app.logger.info("Reached /my_custom_view")  # Print message to server.log for debugging
 	try:
 		return render_template('custom.html')
 	except TemplateNotFound:
@@ -76,25 +76,31 @@ def compute_bonus():
         raise ExperimentError('improper_inputs')  # i don't like returning HTML to JSON requests...  maybe should change this
     uniqueId = request.args['uniqueId']
 
+    # Scale the reward between two extremes
+    r_low = -15
+    r_high = 15
+    max_rwd = 0.80
+    min_rwd = 0.00
+
     try:
         # lookup user in database
         user = Participant.query.\
                filter(Participant.uniqueid == uniqueId).\
                one()
         user_data = loads(user.datastring) # load datastring from JSON
-        bonus = 0
 
-        for record in user_data['data']: # for line in data file
-            trial = record['trialdata']
-            if trial['phase']=='TEST':
-                if trial['hit']==True:
-                    bonus += 0.02
-        user.bonus = bonus
+        bonus = 0
+        score = user_data['questiondata']['total_score']
+
+        r_frac = (score-r_low)/(r_high-r_low)
+
+        user.bonus = (max_rwd-min_rwd)*r_frac
         db_session.add(user)
         db_session.commit()
         resp = {"bonusComputed": "success"}
         return jsonify(**resp)
     except:
+
         abort(404)  # again, bad to display HTML, but...
 
-    
+
