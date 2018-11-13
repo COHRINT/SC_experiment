@@ -77,6 +77,7 @@ def compute_bonus():
     uniqueId = request.args['uniqueId']
 
     # Scale the reward between two extremes
+    # these should be based off of preliminary test data
     r_low = -15
     r_high = 15
     max_rwd = 0.80
@@ -93,8 +94,8 @@ def compute_bonus():
         score = user_data['questiondata']['total_score']
 
         r_frac = (score-r_low)/(r_high-r_low)
-
         user.bonus = (max_rwd-min_rwd)*r_frac
+
         db_session.add(user)
         db_session.commit()
         resp = {"bonusComputed": "success"}
