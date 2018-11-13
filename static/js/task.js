@@ -372,8 +372,8 @@ var Experiment = function() {
         if (task_set.includes(i))
         {
             stims.push([]);
-            stims[index].push(takeover[i]["xQ"].toPrecision(1));
-            stims[index].push(takeover[i]["xP"].toPrecision(1));
+            stims[index].push(takeover[i]["xQ"].toFixed(1));
+            stims[index].push(takeover[i]["xP"].toFixed(1));
             stims[index].push(takeover[i]["image_file"]);
             stims[index].push(takeover[i]["outcome"]);
             index+=1;
@@ -399,7 +399,7 @@ var Experiment = function() {
 				.append("div")
 				.style("text-align","center")
 				.style("font-size","60px")
-				.text("Total Score : "+collector);
+				.text("Total Score : "+ collector.toFixed(2));
 
 			d3.select("#Previous_Result")
 				.append("div")
@@ -476,7 +476,7 @@ var Experiment = function() {
 				collector+=scores;
 			}else{
 				//bool_comp=false;
-				scores=-1/4;
+				scores=-1/3;
 				collector+=scores;
 			}
 
@@ -521,7 +521,7 @@ var Experiment = function() {
 				       .append("div")
 				       .style("text-align","center")
 				       .style("font-size","60px")
-				       .text("Delivery Declined (-1/4)");
+				       .text("Delivery Declined (-1/3)");
 			}
 
 			var delayInMilliseconds = 1500; //1.5 second
