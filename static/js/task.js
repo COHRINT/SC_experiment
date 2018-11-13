@@ -501,7 +501,7 @@ var Experiment = function() {
 		d3.select("#game_pics").append("img")
 		     .attr("src","../static/images/game_pictures/"+image)
 		     .attr("width", 500)
-		     .attr("height", 500)
+		     .attr("height", 720)
 		switch(condition_type-1){
      			case 0:
 				break;
@@ -510,14 +510,14 @@ var Experiment = function() {
 				       .append("div")
 				       .style("text-align","center")
 				       .style("font-size","35px")
-				       .text("Solver Quality : "+xQ);
+				       .text("Solver Quality (0.0 to 2.0) : "+xQ);
 				 break;
 			case 2:
 				d3.select("#xP")
 					.append("div")
 					.style("text-align","center")
 					.style("font-size","35px")
-					.text("Outcome Assessment : "+xP);
+					.text("Outcome Assessment (-1.0 to 1.0): "+xP);
 				break;
 			case 3:
 				d3.select("#xP")
