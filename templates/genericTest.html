@@ -12,13 +12,15 @@
                 x3=document.getElementById("ShowpreQ10");
                 x4=document.getElementById("ShowpreQ11");
                 x5=document.getElementById("ShowpreQ12");
+                x6=document.getElementById("ShowpreQ13");
 
 
-                x1.style.display = "none"
-                x2.style.display = "none"
-                x3.style.display = "none"
-                x4.style.display = "none"
-                x5.style.display = "none"
+                x1.style.display = "none";
+                x2.style.display = "none";
+                x3.style.display = "none";
+                x4.style.display = "none";
+                x5.style.display = "none";
+                x6.style.display ="none";
 
 		var numQ1, numQ2, numQ3, numQ4, numQ5;
 		function respond(){
@@ -27,15 +29,16 @@
                         numQ3 = document.getElementById("preQ10");
                         numQ4 = document.getElementById("preQ11");
                         numQ5 = document.getElementById("preQ12");
+                        numQ6 = document.getElementById("preQ13");
 
-                        if(Boolean((numQ1.selectedIndex!=-1) && (numQ2.selectedIndex!=-1) && (numQ3.selectedIndex!=-1) && (numQ4.selectedIndex!=-1) && (numQ5.selectedIndex!=-1))){
+                        if(Boolean((numQ1.selectedIndex!=-1) && (numQ2.selectedIndex!=-1) && (numQ3.selectedIndex!=-1) && (numQ4.selectedIndex!=-1) && (numQ5.selectedIndex!=-1) && (numQ6.selectedIndex!=-1))){
                                 document.getElementById("next").disabled = false;
                         }
 		}
 
                 var count = 0;
                 function grab_data(){
-                        if((numQ1.selectedIndex==1)&&(numQ2.selectedIndex==3)&&(numQ3.selectedIndex==2)&&(numQ4.selectedIndex==0)&&(numQ5.selectedIndex==1)){
+                        if((numQ1.selectedIndex==1)&&(numQ2.selectedIndex==3)&&(numQ3.selectedIndex==2)&&(numQ4.selectedIndex==0)&&(numQ5.selectedIndex==1)&&(numQ6.selectedIndex==3)){
                                 var element = document.getElementById("next");
                                 element.classList.add("continue");
                         }else{
@@ -62,6 +65,9 @@
                                         }
                                         if(numQ5.selectedIndex!=1){
                                                 x5.style.display = "block";
+                                        }
+                                        if(numQ6.selectedIndex!=3){
+                                                x6.style.display = "block";
                                         }
 
                                 }else{psiTurk.completeHIT();}
@@ -146,6 +152,22 @@
                         <option value="3">(b) Last reported location of Motorcycle Gang</option>
                         <option value="2">(c) Destination for the delivery</option>
                         <option value="1">(d) Point of interest for visitors to the city</option>
+                </select>
+            </div>
+        </div>
+        <!-- end of a question -->
+        <!-- beginning of a question -->
+        <div class="row question">
+            <div class="col-md-8">
+                Which of the following contributes to the difficulty of your job?
+            </div>
+            <div class="col-md-4 containerdivNewLine">
+                <div id="ShowpreQ13"><font color="red">Wrong!</font></div>
+                <select onchange="respond()" id="preQ13" multiple="multiple" name="preQ13">
+                        <option value="4">(a) Your'e inside and the lights are too dim</option>
+                        <option value="3">(b) You don't like donuts, especially the cake ones</option>
+                        <option value="2">(c) The trucks are old</option>
+                        <option value="1">(d) You don't have direct access to all relevant information</option>
                 </select>
             </div>
         </div>
