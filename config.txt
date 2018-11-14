@@ -4,12 +4,14 @@ description = Investigating how people make complex decisions when working with 
 amt_keywords = Psychology, Robotics
 lifetime = 12
 us_only = true
-approve_requirement = 95
+#approve_requirement = 99
+#number_hits_approved = 1000
+require_master_workers = true
 contact_email_on_error = brett.israelsen@colorado.edu
-ad_group = Self-Confidence 
-psiturk_keywords = FaMSeC, Self-Confidence
+ad_group = Ability to Process Complex Networks
+psiturk_keywords = HCI, HRI, decision making
 organization_name = University of Colorado, Boulder
-browser_exclude_rule = MSIE, mobile, tablet
+browser_exclude_rule = mobile, tablet, bot
 allow_repeats = false
 
 [Database Parameters]
@@ -35,11 +37,12 @@ secret_key = 'this is my secret key which is hard to guess, i should change this
 
 [Task Parameters]
 experiment_code_version = 1.0
-num_conds = 4
+num_conds = 1
 num_counters = 1
 
 [Shell Parameters]
 launch_in_sandbox_mode = true
+bonus_message = "Thank you for your contributions to our research!"
 
 # If you are not using the psiturk ad server, set `use_psiturk_ad_server` to `false` and point `ad_location` to your proxy server <host> and <port>. Format the ad_location like this:
 #
