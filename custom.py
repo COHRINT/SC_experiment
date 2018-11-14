@@ -80,7 +80,7 @@ def compute_bonus():
     # these should be based off of preliminary test data
     r_low = -15
     r_high = 15
-    max_rwd = 0.80
+    max_rwd = 1.00
     min_rwd = 0.00
 
     try:
@@ -94,7 +94,7 @@ def compute_bonus():
         score = user_data['questiondata']['total_score']
 
         r_frac = (score-r_low)/(r_high-r_low)
-        user.bonus = (max_rwd-min_rwd)*r_frac
+        user.bonus = round((max_rwd-min_rwd)*r_frac,2)
 
         db_session.add(user)
         db_session.commit()
