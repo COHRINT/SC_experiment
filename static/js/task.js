@@ -47,7 +47,6 @@ console.log("Condition: " + (condition_type));
 
 var instructionPages = streamInstructionPages[condition_type-1];
 
-
 /********************
 * HTML manipulation
 *
@@ -65,11 +64,6 @@ var instructionPages = streamInstructionPages[condition_type-1];
 var Debriefing = function(){
 
 		var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-
-        // scroll to top of page
-        $(function() {
-        $('body').scrollTop(0);
-        });
 
 		record_responses = function() {
 
@@ -116,11 +110,6 @@ var Debriefing = function(){
 var PreQuestionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
 
-        // scroll to top of page
-        $(function() {
-        $('body').scrollTop(0);
-        });
-
 	record_responses = function() {
 
 		psiTurk.recordTrialData({'phase':'prequestionnaire', 'status':'submit'});
@@ -164,11 +153,6 @@ var PreQuestionnaire = function() {
 
 var XqAndXp_Questionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-
-        // scroll to top of page
-        $(function() {
-        $('body').scrollTop(0);
-        });
 
 	record_responses = function() {
 
@@ -218,11 +202,6 @@ var XqAndXp_Questionnaire = function() {
 
 var Xq_Questionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-    
-        // scroll to top of page
-        $(function() {
-        $('body').scrollTop(0);
-        });
 
 	record_responses = function() {
 
@@ -274,11 +253,6 @@ var Xq_Questionnaire = function() {
 
 var Xp_Questionnaire = function() {
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-    
-    // scroll to top of page
-    $(function() {
-    $('body').scrollTop(0);
-    });
 
 	record_responses = function() {
 
@@ -327,11 +301,6 @@ var Xp_Questionnaire = function() {
 * Experiment TEST       *
 ********************/
 var Experiment = function() {
-    // scroll to top of page
-    $(function() {
-    $('body').scrollTop(0);
-    });
-
 	var collector = 0;
 	var wordon, // time word is presented
 	    listening = false;
@@ -597,11 +566,6 @@ var Experiment = function() {
 var Questionnaire = function() {
 
 	var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
-    
-        // scroll to top of page
-        $(function() {
-        $('body').scrollTop(0);
-        });
 
 	record_responses = function() {
 
