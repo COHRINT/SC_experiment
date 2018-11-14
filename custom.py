@@ -95,10 +95,8 @@ def compute_bonus():
 
         r_frac = (score-r_low)/(r_high-r_low)
 
-        # if the bonus isn't positive, don't give one
         bonus_amt = round((max_rwd-min_rwd)*r_frac,2)
-        if bonus_amt > 0
-            user.bonus = bonus_amt
+        user.bonus = max(bonus_amt,0)
 
         db_session.add(user)
         db_session.commit()
