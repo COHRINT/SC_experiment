@@ -78,7 +78,7 @@ def compute_bonus():
 
     # Scale the reward between two extremes
     # these should be based off of preliminary test data
-    r_low = -15
+    r_low = -10
     r_high = 15
     max_rwd = 1.00
     min_rwd = 0.00
@@ -94,7 +94,11 @@ def compute_bonus():
         score = user_data['questiondata']['total_score']
 
         r_frac = (score-r_low)/(r_high-r_low)
-        user.bonus = round((max_rwd-min_rwd)*r_frac,2)
+
+        # if the bonus isn't positive, don't give one
+        bonus_amt = round((max_rwd-min_rwd)*r_frac,2)
+        if bonus_amt > 0
+            user.bonus = bonus_amt
 
         db_session.add(user)
         db_session.commit()
