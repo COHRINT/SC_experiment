@@ -10,3 +10,4 @@ participants.db
 # other files
 .psiturk_history
 *.csv
+*.pyc
