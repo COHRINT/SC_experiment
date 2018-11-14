@@ -362,7 +362,7 @@ var Experiment = function() {
 				.append("div")
 				.style("text-align","center")
 				.style("font-size","45px")
-				.text("We'll calculate your bonus based on your score, and the quality of your responses so far. Please Wait While We Load The Final Survey");
+				.text("Please Wait While We Load The Final Survey");
 
 			var delayInMilliseconds = 6000;
 			setTimeout(function() {
