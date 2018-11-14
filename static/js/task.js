@@ -361,10 +361,10 @@ var Experiment = function() {
 			d3.select("#Previous_Result")
 				.append("div")
 				.style("text-align","center")
-				.style("font-size","60px")
-				.text("Please Wait While We Load The Final Survey");
+				.style("font-size","45px")
+				.text("We'll calculate your bonus based on your score, and the quality of your responses so far. Please Wait While We Load The Final Survey");
 
-			var delayInMilliseconds = 5000;
+			var delayInMilliseconds = 6000;
 			setTimeout(function() {
 			  d3.select("#Previous_Result").remove("div");
 			  finish();
