@@ -6,18 +6,16 @@
 
 	<div class="instructions well">
 	    <p>
-        Solver Quality represents the truck's assessment of its ability to come up with a good plan. This is based on experience with having made plans in other similar conditions. It can be 'very bad', 'bad', 'okay', 'good', or 'very good'.
-
-        A 'bad' Solver Quality indicates that the truck does not believe it can make a good plan in a given situation. A 'good' Solver Quality indicates that the truck has made good plans in similar circumstances. A 'very good' Solver Quality indicates that the truck will be able to exceed its best plans since the conditions are more favorable that it has encountered before. For example:
+        Solver Quality represents the truck's assessment of its ability to make a plan in a given situation. This is based on experience with having made plans in other similar conditions. It can be 'very bad', 'bad', 'okay', 'good', or 'very good'. A 'bad' Solver Quality indicates that the truck does not believe it can make a good plan in a given situation. A 'good' Solver Quality indicates that the truck has made good plans in similar circumstances. A 'very good' Solver Quality indicates that the conditions are more favorable that it has encountered before, and it will be able to make a very good plan. For example:
         </p>
 
         <ul>
-        <li>In cities where the truck knows the road map is very poor it will be unconfident in it's capability and report a 'very bad' Solver Quality</li>
-        <li>In cities where there have been many well-maintained roads the vehicle will likely be confident in its capability and report a 'good' Solver Quality</li>
-        <li>In a city with a very accurate map, and little traffic the truck would likely report a 'very good' Solver Quality</li>
+        <li>In a city whose road layout is very complex and the destination is far away the Solver Quality will likely be 'bad'</li>
+        <li>In a city that isn't too large, and the map is accurate the Solver Quality will likely be 'good'</li>
+        <li>In a very small city with a very accurate map, and little traffic the truck would likely report a 'very good' Solver Quality</li>
         </ul>
 
-        Solver Quality <b>does not</b> indicate whether the outcome will be good or bad, but only the capability of making the best possible plan. Even the best plans can fail in a losing situation.
+        Solver Quality <b>does not</b> indicate whether the outcome will be good or bad, but only the capability of making the best possible plan in a given situation. Even the best plans can fail in a losing situation.
 
 	</div>
 
