@@ -81,7 +81,7 @@ def compute_bonus():
     r_low = -10
     r_high = 15
     max_rwd = 1.00
-    min_rwd = 0.00
+    min_rwd = 0.01
 
     try:
         # lookup user in database
