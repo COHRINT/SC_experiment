@@ -95,8 +95,10 @@ def compute_bonus():
 
         r_frac = (score-r_low)/(r_high-r_low)
 
-        bonus_amt = round((max_rwd-min_rwd)*r_frac,2)
-        user.bonus = max(bonus_amt,0)
+        # code below truncates (not rounds, to make us able to do 0.01 cent increments)
+        bonus_amt = (max_rwd-min_rwd)*r_frac
+        bonus_amt = bonus_amt - bonus_amt % 0.01
+        user.bonus = max(bonus_amt,0.01)
 
         db_session.add(user)
         db_session.commit()
