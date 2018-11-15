@@ -30,8 +30,8 @@
                         document.getElementById("postQ3").selectedIndex && document.getElementById("postQ4").selectedIndex &&
                         document.getElementById("postQ5").selectedIndex && document.getElementById("postQ6").selectedIndex &&
                 document.getElementById("postQ7").selectedIndex && document.getElementById("postQ8").selectedIndex &&
-        document.getElementById("postQ9").selectedIndex && document.getElementById("postQ10").selectedIndex && document.getElementById("postQ11").selectedIndex
-        )){
+        document.getElementById("postQ9").selectedIndex && document.getElementById("postQ10").selectedIndex && document.getElementById("postQ11").selectedIndex && document.getElementById("postQ12").selectedIndex
+)){
 
                                 document.getElementById("next").disabled = false;
                 }
@@ -164,6 +164,23 @@
                 </div>
             </div>
             <!-- end of a question -->
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    To what extent did you find the map useful?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="undisable()" id="postQ8" name="postQ8">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (A Lot!)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (Not at all!)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
         </form>
 
         <h2>Demographic</h2>
@@ -173,7 +190,7 @@
                     What age range do you fall within?
                 </div>
                 <div class="col-md-4">
-                    <select onchange="undisable()" id="postQ8" name="postQ8">
+                    <select onchange="undisable()" id="postQ9" name="postQ9">
                             <option disabled selected value> -- select an option -- </option>
                             <option value="6">50+</option>
                             <option value="5">46-50</option>
@@ -192,7 +209,7 @@
                     To what extent are you comfortable using technology?
                 </div>
                 <div class="col-md-4">
-                    <select onchange="undisable()" id="postQ9" name="postQ9">
+                    <select onchange="undisable()" id="postQ10" name="postQ10">
                             <option disabled selected value> -- select an option -- </option>
                             <option value="4">4 (Second nature)</option>
                             <option value="3">3</option>
@@ -209,7 +226,7 @@
                     To what extent do you feel you personally rely on technology on a daily basis?
                 </div>
                 <div class="col-md-4">
-                    <select onchange="undisable()" id="postQ10" name="postQ10">
+                    <select onchange="undisable()" id="postQ11" name="postQ11">
                             <option disabled selected value> -- select an option -- </option>
                             <option value="4">4 (Necessary)</option>
                             <option value="3">3</option>
@@ -226,7 +243,7 @@
                     What is your gender?
                 </div>
                 <div class="col-md-4">
-                    <select onchange="undisable()" id="postQ11" name="postQ11">
+                    <select onchange="undisable()" id="postQ12" name="postQ12">
                             <option disabled selected value> -- select an option -- </option>
                             <option value="2">Male</option>
                             <option value="1">Female</option>
