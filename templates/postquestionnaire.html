@@ -30,7 +30,7 @@
                         document.getElementById("postQ3").selectedIndex && document.getElementById("postQ4").selectedIndex &&
                         document.getElementById("postQ5").selectedIndex && document.getElementById("postQ6").selectedIndex &&
                 document.getElementById("postQ7").selectedIndex && document.getElementById("postQ8").selectedIndex &&
-        document.getElementById("postQ9").selectedIndex && document.getElementById("postQ10").selectedIndex && document.getElementById("postQ11").selectedIndex
+        document.getElementById("postQ9").selectedIndex && document.getElementById("postQ10").selectedIndex && document.getElementById("postQ11").selectedIndex && document.getElementById("postQ12").selectedIndex
         )){
 
                                 document.getElementById("next").disabled = false;
@@ -154,6 +154,23 @@
                 </div>
                 <div class="col-md-4">
                     <select onchange="undisable()" id="postQ7" name="postQ7">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="4">4 (A Lot!)</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0 (Not at all!)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of a question -->
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+                    To what extent did you find the map useful?
+                </div>
+                <div class="col-md-4">
+                    <select onchange="undisable()" id="postQ12" name="postQ12">
                             <option disabled selected value> -- select an option -- </option>
                             <option value="4">4 (A Lot!)</option>
                             <option value="3">3</option>
