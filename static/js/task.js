@@ -297,6 +297,53 @@ var Xp_Questionnaire = function() {
 	});
 };
 
+function xQ_float2word(xQ){
+    // convert floating point to words
+    var l = 0.0
+    var hl = 0.30
+    var hm = 0.6
+    var lg = 0.90
+    var g = 1.1
+    var vg = 2.0
+    if (xQ >= l && xQ <= hl){
+        xQ_word = "very bad"
+    } else if (xQ > hl && xQ <= hm){
+        xQ_word = "bad"
+    } else if (xQ > hm && xQ <= lg){
+        xQ_word = "okay"
+    } else if (xQ > lg && xQ <= g){
+        xQ_word = "good"
+    } else if (xQ > g && xQ <= vg){
+        xQ_word = "very good"
+    } else {
+        xQ_word = "something is wrong"
+    };
+    return xQ_word;
+}
+function xP_float2word(xP){
+    // convert floating point to words
+    var l = -1.0
+    var hl = -0.50
+    var hm = -0.10
+    var lg = 0.10
+    var g = 0.50
+    var vg = 1.0
+    if (xP >= l && xP <= hl){
+        xP_word = "very bad"
+    } else if (xP > hl && xP <= hm){
+        xP_word = "bad"
+    } else if (xP > hm && xP <= lg){
+        xP_word = "uncertain"
+    } else if (xP > lg && xP <= g){
+        xP_word = "good"
+    } else if (xP > g && xP <= vg){
+        xP_word = "very good"
+    } else {
+        xP_word = "something is wrong"
+    };
+    return xP_word;
+}
+
 /********************
 * Experiment TEST       *
 ********************/
@@ -329,8 +376,10 @@ var Experiment = function() {
         if (task_set.includes(i))
         {
             stims.push([]);
-            stims[index].push(takeover[i]["xQ"].toFixed(1));
-            stims[index].push(takeover[i]["xP"].toFixed(1));
+            xQ_word = xQ_float2word(takeover[i]["xQ"])
+            xP_word = xP_float2word(takeover[i]["xP"])
+            stims[index].push(xQ_word);
+            stims[index].push(xP_word);
             stims[index].push(takeover[i]["image_file"]);
             stims[index].push(takeover[i]["outcome"]);
             index+=1;
