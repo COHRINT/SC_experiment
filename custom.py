@@ -78,8 +78,8 @@ def compute_bonus():
 
     # Scale the reward between two extremes
     # these should be based off of preliminary test data
-    r_low = -10
-    r_high = 15
+    r_low = -10.0
+    r_high = 15.0
     max_rwd = 1.00
     min_rwd = 0.01
 
@@ -90,7 +90,6 @@ def compute_bonus():
                one()
         user_data = loads(user.datastring) # load datastring from JSON
 
-        bonus = 0
         score = user_data['questiondata']['total_score']
 
         r_frac = (score-r_low)/(r_high-r_low)
