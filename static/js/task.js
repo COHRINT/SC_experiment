@@ -35,9 +35,9 @@ var pages = [
 psiTurk.preloadPages(pages);
 
 var streamInstructionPages = [["instructions/Introduction.html","instructions/MainInstructions.html","genericTest.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html","genericTest.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html","genericTest.html"]]
+["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xQInstructions.html","testForXq.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xPInstructions.html","testForXp.html"],
+["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html"]]
 var Type_value =  mycondition
 // var condition_type = Type_value + 1;
 var condition_type = 4;

@@ -29,10 +29,10 @@
                         }else{
                                 if(!count){
                                         d3.select("#BC")
-                				.style("text-align","center")
-                				.style("font-size","60px")
-                                                .style("color","red")
-                				.text("Please try again. You have one more attempt.");
+                                        .style("text-align","center")
+                                        .style("font-size","40px")
+                                        .style("color","red")
+                                        .text("Please try again. You have one more attempt. You may review the material on the previous page if necessary.");
                                         $('html,body').scrollTop(0);
                                         if(numQ1.selectedIndex!=2){
                                                 x1.style.display = "block";
@@ -81,7 +81,9 @@
         <div class="instructionsnav">
             <div class="row">
                 <div class="col-xs-2">
-                	<!-- no previous button on first screen -->
+                    <button type="button" id="prev" value="prev" class="btn btn-primary btn-lg previous">
+                    <span class="glyphicon glyphicon-arrow-left"></span> Previous
+                    </button>
                 </div>
                 <div class="col-xs-8">
                 </div>
