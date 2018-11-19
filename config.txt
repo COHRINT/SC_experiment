@@ -1,8 +1,8 @@
 [HIT Configuration]
-title = Ability to Process Complex Networks
+title = Working With Autonomous Systems In Complex Environments
 description = Investigating how people make complex decisions when working with robots
 amt_keywords = Psychology, Robotics
-lifetime = 12
+lifetime = 3
 us_only = true
 approve_requirement = 99
 number_hits_approved = 1000
