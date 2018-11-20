@@ -7,6 +7,9 @@ server.log
 # db
 participants.db
 
+# db
+db_connection_string.txt
+
 # other files
 .psiturk_history
 *.csv
