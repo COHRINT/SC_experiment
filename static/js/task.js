@@ -39,8 +39,8 @@ var streamInstructionPages = [["instructions/Introduction.html","instructions/Ma
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xPInstructions.html","testForXp.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html"]]
 var Type_value =  mycondition
-// var condition_type = Type_value + 1;
-var condition_type = 4;
+var condition_type = Type_value + 1;
+// var condition_type = 4;
 console.log("mycondition: " + Type_value);
 console.log("Condition: " + (condition_type));
 
