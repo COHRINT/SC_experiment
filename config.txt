@@ -14,9 +14,11 @@ organization_name = University of Colorado, Boulder
 browser_exclude_rule = mobile, tablet, bot
 allow_repeats = false
 
+# if using mysql database comment this out here, and place url in global config file
+# that is typically in ~/.psiturkconfig
 [Database Parameters]
-database_url = sqlite:///participants.db
-table_name = sc_exp
+# database_url = sqlite:///participants.db
+# table_name = sc_exp_debug
 
 [Server Parameters]
 #host = localhost
