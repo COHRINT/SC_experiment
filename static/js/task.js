@@ -39,8 +39,8 @@ var streamInstructionPages = [["instructions/Introduction.html","instructions/Ma
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xPInstructions.html","testForXp.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html"]]
 var Type_value =  mycondition
-// var condition_type = Type_value + 1;
-var condition_type = 4;
+var condition_type = Type_value + 1;
+// var condition_type = 4;
 console.log("mycondition: " + Type_value);
 console.log("Condition: " + (condition_type));
 
@@ -367,8 +367,8 @@ var Experiment = function() {
 	function callback(data){
 		takeover= data;
 	}
-    var task_set = [1,2,3].map(String);
-    // var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
+    //var task_set = [1,2,3].map(String);
+    var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
 
 	var index = 0;
 	for(i in takeover)
