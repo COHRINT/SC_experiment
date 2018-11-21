@@ -64,6 +64,17 @@ def list_my_data():
 		abort(404)
 
 #----------------------------------------------
+# Error for quiz failure
+#----------------------------------------------
+@custom_code.route('/quiz_fail', methods=['GET'])
+def quiz_fail():
+	current_app.logger.info("Reached /quizFail")  # Print message to server.log for debugging
+    	try:
+	    	return render_template('quizFail.html')
+    	except TemplateNotFound:
+	    abort(404)
+
+#----------------------------------------------
 # example computing bonus
 #----------------------------------------------
 
