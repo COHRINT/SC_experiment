@@ -367,7 +367,7 @@ var Experiment = function() {
 	function callback(data){
 		takeover= data;
 	}
-    //var task_set = [1,2,3].map(String);
+    // var task_set = [1,2,3].map(String); // shorten task set for debugging
     var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
 
 	var index = 0;
@@ -401,16 +401,17 @@ var Experiment = function() {
 	var next = function() {
 		if (stims.length===0) {
 
-			d3.select("#Previous_Result")
-				.append("div")
-				.style("text-align","center")
-				.style("font-size","60px")
-				.text("Total Score : "+ collector.toFixed(2));
+            d3.select("#Previous_Result")
+                .append("div")
+                .style("text-align","center")
+                .style("font-size","60px")
+                .text("Good Job. We'll Review Your Results, And Calculate Your Bonus");
 
 			d3.select("#Previous_Result")
 				.append("div")
 				.style("text-align","center")
 				.style("font-size","45px")
+                .style("color","blue")
 				.text("Please Wait While We Load The Final Survey");
 
 			var delayInMilliseconds = 6000;
