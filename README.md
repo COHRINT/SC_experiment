@@ -24,6 +24,6 @@ We have three important folders in SC_experiment project
         This folder contains all of the html files used in this project.
 
 ## Contributors
-Brett W. Israelsen, Department of Computer Science, University of Colorado Boulder </br>
+Brett W. Israelsen, Department of Computer Science, University of Colorado Boulder
 Jetanat Datephanyawat, Department of Physics, University of Colorado Boulder
 
