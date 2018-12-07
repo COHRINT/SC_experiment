@@ -16,13 +16,13 @@ allow_repeats = false
 
 # if using mysql database comment this out here, and place url in global config file
 # that is typically in ~/.psiturkconfig
-# [Database Parameters]
-# database_url = sqlite:///participants.db
-# table_name = sc_exp_debug
+[Database Parameters]
+database_url = sqlite:///participants.db
+table_name = sc_exp_debug
 
 [Server Parameters]
-#host = localhost
-host = 0.0.0.0
+host = localhost
+#host = 0.0.0.0
 port = 22362
 cutoff_time = 30
 logfile = server.log
@@ -38,7 +38,7 @@ secret_key = 'this is my secret key which is hard to guess, i should change this
 #adserver_revproxy_port = 80 # defaults to 80
 
 [Task Parameters]
-experiment_code_version = 1.0
+experiment_code_version = 2.0
 num_conds = 4
 num_counters = 1
 
