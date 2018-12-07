@@ -37,13 +37,22 @@ psiTurk.preloadPages(pages);
 var streamInstructionPages = [["instructions/Introduction.html","instructions/MainInstructions.html","genericTest.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xQInstructions.html","testForXq.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xPInstructions.html","testForXp.html"],
-["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xQInstructions.html","testForXq.html","instructions/xPInstructions.html","testForXp.html"]]
+["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xPInstructions.html","testForXp.html","instructions/xQInstructions.html","testForXq.html"]]
 var Type_value =  mycondition
 var condition_type = Type_value + 1;
 // var condition_type = 4;
-console.log("mycondition: " + Type_value);
-console.log("Condition: " + (condition_type));
+// console.log("mycondition: " + Type_value);
+// console.log("Condition: " + (condition_type));
 
+// print different messages depending on what mode we're in
+var debug = false
+if (mode == "debug"){
+    debug = true
+} else if (mode == "live") {
+    debug = false
+} else {
+    debug = false
+}
 
 var instructionPages = streamInstructionPages[condition_type-1];
 
@@ -300,11 +309,11 @@ var Xp_Questionnaire = function() {
 function xQ_float2word(xQ){
     // convert floating point to words
     var l = 0.0
-    var hl = 0.30
-    var hm = 0.6
+    var hl = 0.50
+    var hm = 0.75
     var lg = 0.90
-    var g = 1.1
-    var vg = 2.0
+    var g = 1.00
+    var vg = 2.00
     if (xQ >= l && xQ <= hl){
         xQ_word = "very bad"
     } else if (xQ > hl && xQ <= hm){
@@ -358,7 +367,7 @@ var Experiment = function() {
 	// //Need to set async to False.
 	$.ajax({
 	    type: "GET",
-	    url: "json/support.json",
+	    url: "json/v2_support.json",
 	    async: false,
 	    dataType: "JSON",
 	    success: callback
@@ -399,13 +408,21 @@ var Experiment = function() {
 	stims = stims_tmp;
 
 	var next = function() {
+        console.log(collector)
+        if (debug) {
+            var msg_string = "DEBUG MODE -- Score:" + collector.toFixed(2)
+        } else {
+            var msg_string = "Good Job. We'll Review Your Results, And Calculate Your Bonus"
+        }
+
 		if (stims.length===0) {
 
             d3.select("#Previous_Result")
                 .append("div")
                 .style("text-align","center")
                 .style("font-size","60px")
-                .text("Good Job. We'll Review Your Results, And Calculate Your Bonus");
+                .text(msg_string);
+                // .text("Total Score : "+ collector.toFixed(2));
 
 			d3.select("#Previous_Result")
 				.append("div")
@@ -419,8 +436,7 @@ var Experiment = function() {
 			  d3.select("#Previous_Result").remove("div");
 			  finish();
 			}, delayInMilliseconds);
-		}
-		else {
+		} else {
 			stim = stims.shift();
 			show_word(stim[0],stim[1],stim[2],stim[3]);
 			wordon = new Date().getTime();
