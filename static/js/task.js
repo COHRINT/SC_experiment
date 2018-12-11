@@ -312,7 +312,7 @@ function xQ_float2word(xQ){
     var hl = 0.50
     var hm = 0.75
     var lg = 0.90
-    var g = 1.00
+    var g = 1.10
     var vg = 2.00
     if (xQ >= l && xQ <= hl){
         xQ_word = "very bad"
@@ -488,7 +488,7 @@ var Experiment = function() {
 				collector+=scores;
 			}else{
 				//bool_comp=false;
-				scores=-1/3;
+				scores=-1/4;
 				collector+=scores;
 			}
 
