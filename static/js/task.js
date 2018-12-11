@@ -310,9 +310,9 @@ function xQ_float2word(xQ){
     // convert floating point to words
     var l = 0.0
     var hl = 0.50
-    var hm = 0.75
-    var lg = 0.90
-    var g = 1.10
+    var hm = 0.95
+    var lg = 1.05
+    var g = 1.20
     var vg = 2.00
     if (xQ >= l && xQ <= hl){
         xQ_word = "very bad"
@@ -533,7 +533,7 @@ var Experiment = function() {
 				       .append("div")
 				       .style("text-align","center")
 				       .style("font-size","60px")
-				       .text("Delivery Declined (-1/3)");
+				       .text("Delivery Declined (-1/4)");
 			}
 
 			var delayInMilliseconds = 1500; //1.5 second
