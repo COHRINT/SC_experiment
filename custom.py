@@ -89,8 +89,8 @@ def compute_bonus():
 
     # Scale the reward between two extremes
     # these should be based off of preliminary test data
-    r_low = -10.0
-    r_high = 15.0
+    r_low = -15.0
+    r_high = 7.0
     max_rwd = 1.00
     min_rwd = 0.01
 
