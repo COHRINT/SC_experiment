@@ -39,8 +39,8 @@ var streamInstructionPages = [["instructions/Introduction.html","instructions/Ma
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xPInstructions.html","testForXp.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xPInstructions.html","testForXp.html","instructions/xQInstructions.html","testForXq.html"]]
 var Type_value =  mycondition
-// var condition_type = Type_value + 1;
-var condition_type = 4;
+var condition_type = Type_value + 1;
+// var condition_type = 1;
 // console.log("mycondition: " + Type_value);
 // console.log("Condition: " + (condition_type));
 
@@ -311,7 +311,7 @@ function xQ_float2word(xQ){
     var l = 0.0
     var hl = 0.40
     var hm = 0.75
-    var lg = 0.90
+    var lg = 1.00
     var g = 1.50
     var vg = 2.00
     if (xQ >= l && xQ <= hl){
