@@ -39,8 +39,8 @@ var streamInstructionPages = [["instructions/Introduction.html","instructions/Ma
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xPInstructions.html","testForXp.html"],
 ["instructions/Introduction.html","instructions/SCInstructions.html","genericTest.html","instructions/xPInstructions.html","testForXp.html","instructions/xQInstructions.html","testForXq.html"]]
 var Type_value =  mycondition
-var condition_type = Type_value + 1;
-// var condition_type = 4;
+// var condition_type = Type_value + 1;
+var condition_type = 4;
 // console.log("mycondition: " + Type_value);
 // console.log("Condition: " + (condition_type));
 
@@ -309,10 +309,10 @@ var Xp_Questionnaire = function() {
 function xQ_float2word(xQ){
     // convert floating point to words
     var l = 0.0
-    var hl = 0.50
-    var hm = 0.95
-    var lg = 1.05
-    var g = 1.20
+    var hl = 0.40
+    var hm = 0.75
+    var lg = 0.90
+    var g = 1.50
     var vg = 2.00
     if (xQ >= l && xQ <= hl){
         xQ_word = "very bad"
@@ -363,6 +363,7 @@ var Experiment = function() {
 
 	var stims = [];
 	var takeover;
+    var json_task_set;
 
 	// //Need to set async to False.
 	$.ajax({
@@ -370,14 +371,30 @@ var Experiment = function() {
 	    url: "json/v2_support.json",
 	    async: false,
 	    dataType: "JSON",
-	    success: callback
+	    success: exp_data
+    	});
+	$.ajax({
+	    type: "GET",
+	    url: "json/experiment_trial_set.json",
+	    async: false,
+	    dataType: "JSON",
+	    success: task_set
     	});
 
-	function callback(data){
-		takeover= data;
+	function exp_data(data){
+		takeover = data;
 	}
+    function task_set(data){
+        json_task_set = data;
+    }
+    console.log("data");
+    console.log(takeover);
+    console.log("Task Set");
+    console.log(json_task_set);
     // var task_set = [1,2,3].map(String); // shorten task set for debugging
-    var task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
+    var v1_task_set = [100,10,13,16,18,22,23,25,29,30,32,39,41,43,44,48,49,50,54,56,57,58,59,60,62,66,6,74,75,76,77,79,7,80,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
+    // var task_set = [10,16,22,23,29,30,39,41,44,48,49,50,54,56,57,59,60,62,66,74,75,76,77,79,82,84,87,89,8,90,91,93,94,97,98].sort(function(a,b){return a-b;}).map(String);
+    var task_set = json_task_set.sort(function(a,b){return a-b;}).map(String);
 
 	var index = 0;
 	for(i in takeover)
@@ -567,8 +584,15 @@ var Experiment = function() {
 		     .attr("src","../static/images/game_pictures/"+image)
 		     .attr("width", 400)
 		     .attr("height", 400)
-		xQ_text = "Solver Quality: "
-		xP_text = "Outcome Assessment: "
+
+        if (debug){
+            var xQ_text = "xQ (net"+image+"): "
+            var xP_text = "xP ("+outcome+"): "
+        } else {
+            var xQ_text = "Solver Quality: "
+            var xP_text = "Outcome Assessment: "
+        }
+
 		switch(condition_type-1){
      			case 0:
 				break;
