@@ -1,29 +1,28 @@
 # SC_experiment
 
 ## Project Description:
-The objective goal of this project is to measure test takers how much they are confident on the autonomous robots based on four different given initial conditions i.e. both predicted outcome assessment and solver quality, only predicted outcome assessment, only solver quality and none of the parameters. In order to present this complicating mathematics and computations, we created a user friendly narrative as user interface of our test design : donuts delivery and donuts robbers story which the test takers play a role of decision making whether to allow their autonomous cars to deliver or not deliver the ordered donuts.
+This repository contains the source code necessary to run the `Donut Delivery` experiment on Amazon Mechanical Turk.
 
-## How to run this project and softwares requirement.
-- [python 2.7 recommended](https://www.python.org/downloads/) : needed python to run the psiturk experiment
+The documentation is a work-in-progress right now...for now if you have questions please file an issue, or contact us by email.
+
+## Software Requirements
+- [python 2.7](https://www.python.org/downloads/) : needed python to run the psiturk experiment
 - ` $ pip install psiturk` : after having python 2.7, you can simply run the command in your terminal.
-- find any desire directory, then place this following `$ git clone https://github.com/COHRINT/SC_experiment.git` in your terminal
-- `$ cd SC_experiment` and then `$ psiturk` : here you are running the project experiment.
-- for the quick start on [psiturk](https://psiturk.org/quick_start/)
+- find the desired directory, then paste the following in you terminal: `$ git clone https://github.com/COHRINT/SC_experiment.git` in your terminal
+- `$ cd SC_experiment` and then `$ psiturk` : will start the psiturk environment
+- Here is a link to the quick start on [psiturk](https://psiturk.org/quick_start/)
 
-##### Remarks : any further questions on
-- [github](https://github.com/)
+##### The following links may be useful
+- [Amazon Mechanical turk](https://www.mturk.com/)
 - [psiturk](https://psiturk.org/)
 
-## Any interesting files you should know in our project
-We have three important folders in SC_experiment project
-- ##### Parse_and_Analysis
-        This folder contains : parse.py to parse data from database to a CSV file, and using analyzing_data.r to analyze data from the test takers.
-- ##### static
-        This folder contains : images folder which used to store images in html pages, js folder which used for programming the actual experiment code.
-- ##### templates
-        This folder contains all of the html files used in this project.
+## Key files
+* `static`
+    * `js` folder contains `task.js` which is the main file that runs the experiment
+* `templates` contains all of the html files used in this project.
+    * `images` folder which used to store images the task set (road network) images
 
 ## Contributors
-Brett W. Israelsen, Department of Computer Science, University of Colorado Boulder
-Jetanat Datephanyawat, Department of Physics, University of Colorado Boulder
+* Brett W. Israelsen, Department of Computer Science, University of Colorado Boulder
+* Jetanat Datephanyawat, Department of Physics, University of Colorado Boulder
 
