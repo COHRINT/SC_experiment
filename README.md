@@ -20,8 +20,8 @@ This repository contains the source code necessary to run the `Donut Delivery` (
 * `templates` contains all of the html files used in this project.
     * files in the `instructions` folder are used for the instructions and training of participants
     * `images` folder which used to store images the task set (road network) images (these images are produced by [this code][2])
-    * `json/v2_support`---file containing information about the network image location, delivery outcome, problem properties, and the FaMSeC metric values (values for "xQ" and "xP" (now called "xO") were implemented in this expeirment)
-    * `json/experiment_trial_set`---file containing a list of the tasks that are to be used in the experiment (this is a list of network numbers that are found in `v2_support.json`)
+    * `json/v2_support`---file containing information about the network image location, delivery outcome, problem properties, and the FaMSeC metric values (values for "xQ" and "xP" (now called "xO") were implemented in this expeirment) (produced by [this code][2])
+    * `json/experiment_trial_set`---file containing a list of the tasks that are to be used in the experiment. This list is produced by [this code][2](this is a list of network numbers that are found in `v2_support.json`)
 
 ## Contributors
 * Brett W. Israelsen, Department of Computer Science, University of Colorado Boulder
