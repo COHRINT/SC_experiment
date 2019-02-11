@@ -23,10 +23,6 @@ This repository contains the source code necessary to run the `Donut Delivery` (
     * `json/v2_support`---file containing information about the network image location, delivery outcome, problem properties, and the FaMSeC metric values (values for "xQ" and "xP" (now called "xO") were implemented in this expeirment) (produced by [this code][2])
     * `json/experiment_trial_set`---file containing a list of the tasks that are to be used in the experiment. This list is produced by [this code][2](this is a list of network numbers that are found in `v2_support.json`)
 
-## Contributors
-* Brett W. Israelsen, Department of Computer Science, University of Colorado Boulder
-* Jetanat Datephanyawat, Department of Physics, University of Colorado Boulder
-
 [1]: https://arxiv.org/abs/1810.06519
 [2]: https://github.com/COHRINT/FaMSeC
 [3]: https://psiturk.org/quick_start/
